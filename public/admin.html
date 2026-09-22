@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard & Temple Manager | The Temple Construction</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+</head>
+<body class="admin-body">
+
+  <!-- Admin Login Modal Overlay -->
+  <div id="login-wrapper" class="admin-login-wrapper">
+    <div class="login-card">
+      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏛️</div>
+      <h2>Temple Admin Portal</h2>
+      <p>Enter your management credentials to manage temples, photo uploads & consultation requests.</p>
+      
+      <div id="login-error" style="color: var(--admin-danger); font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
+
+      <form id="admin-login-form">
+        <div style="margin-bottom: 1.25rem; text-align: left;">
+          <label class="adm-label">Username</label>
+          <input type="text" name="username" class="adm-input" value="admin" required>
+        </div>
+        <div style="margin-bottom: 1.75rem; text-align: left;">
+          <label class="adm-label">Password</label>
+          <input type="password" name="password" class="adm-input" value="templeadmin123" required>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width: 100%;">
+          Secure Admin Login →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Layout -->
+  <div id="admin-layout" class="admin-layout" style="display: none;">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <div class="brand-emblem" style="width:36px; height:36px; font-size:1.1rem;">🕉️</div>
+        <span>TEMPLE ADMIN</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <button id="tab-btn-dashboard" class="sidebar-btn active" onclick="switchAdminTab('dashboard')">
+            📊 Overview & Stats
+          </button>
+        </li>
+        <li>
+          <button id="tab-btn-temples" class="sidebar-btn" onclick="switchAdminTab('temples')">
+            🏛️ Manage Temples & Photos
+          </button>
+        </li>
+        <li>
+          <button id="tab-btn-enquiries" class="sidebar-btn" onclick="switchAdminTab('enquiries')">
+            📬 Consultation Enquiries
+          </button>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" class="sidebar-btn" style="margin-bottom: 0.5rem;">
+          🌐 View Public Website
+        </a>
+        <button onclick="adminLogout()" class="sidebar-btn" style="color: var(--admin-danger);">
+          🚪 Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      
+      <!-- PANE 1: DASHBOARD OVERVIEW -->
+      <section id="pane-dashboard" class="admin-tab-pane">
+        <div class="admin-topbar">
+          <div>
+            <h1>Dashboard Overview</h1>
+            <p style="color: var(--admin-muted); font-size: 0.9rem;">Real-time temple analytics, consecration status and incoming requests.</p>
+          </div>
+          <button class="btn btn-gold" onclick="openNewTempleModal()">
+            + Upload New Temple & Photos
+          </button>
+        </div>
+
+        <div class="stats-cards-grid">
+          <div class="adm-stat-card">
+            <div class="adm-stat-info">
+              <h4>Total Temples</h4>
+              <div class="num" id="stat-total-temples">0</div>
+            </div>
+            <div class="adm-stat-icon">🏛️</div>
+          </div>
+
+          <div class="adm-stat-card">
+            <div class="adm-stat-info">
+              <h4>Completed</h4>
+              <div class="num" id="stat-completed" style="color: var(--admin-success);">0</div>
+            </div>
+            <div class="adm-stat-icon">✅</div>
+          </div>
+
+          <div class="adm-stat-card">
+            <div class="adm-stat-info">
+              <h4>In Progress</h4>
+              <div class="num" id="stat-in-progress" style="color: var(--admin-warning);">0</div>
+            </div>
+            <div class="adm-stat-icon">🏗️</div>
+          </div>
+
+          <div class="adm-stat-card">
+            <div class="adm-stat-info">
+              <h4>Total Devotee Likes</h4>
+              <div class="num" id="stat-likes">0</div>
+            </div>
+            <div class="adm-stat-icon">❤️</div>
+          </div>
+
+          <div class="adm-stat-card">
+            <div class="adm-stat-info">
+              <h4>New Enquiries</h4>
+              <div class="num" id="stat-new-enquiries" style="color: var(--admin-accent);">0</div>
+            </div>
+            <div class="adm-stat-icon">🔔</div>
+          </div>
+        </div>
+
+        <!-- Quick Recent Temples Table -->
+        <div class="admin-card-panel">
+          <div class="panel-header">
+            <h2>Current Temple Portfolio</h2>
+            <button class="icon-btn" onclick="switchAdminTab('temples')">View Full Manager →</button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Temple & Deity</th>
+                <th>Tradition</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Likes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="temples-tbody">
+              <!-- Loaded dynamically via admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANE 2: TEMPLES & PHOTO UPLOADS MANAGER -->
+      <section id="pane-temples" class="admin-tab-pane" style="display: none;">
+        <div class="admin-topbar">
+          <div>
+            <h1>Temple & Photo Management</h1>
+            <p style="color: var(--admin-muted); font-size: 0.9rem;">Upload high-res temple photos, update location, architectural specs, and traditions.</p>
+          </div>
+          <button class="btn btn-gold" onclick="openNewTempleModal()">
+            + Add New Temple Project
+          </button>
+        </div>
+
+        <div class="admin-card-panel">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Temple & Deity</th>
+                <th>Tradition</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Likes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="temples-full-tbody">
+              <!-- Populated by loadTemplesTable -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PANE 3: CONSULTATION ENQUIRIES -->
+      <section id="pane-enquiries" class="admin-tab-pane" style="display: none;">
+        <div class="admin-topbar">
+          <div>
+            <h1>Consultation Requests & Inquiries</h1>
+            <p style="color: var(--admin-muted); font-size: 0.9rem;">Devotees, trusts, and committees requesting temple blueprints.</p>
+          </div>
+        </div>
+
+        <div class="admin-card-panel">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Devotee / Trust</th>
+                <th>Contact</th>
+                <th>Deity & Tradition</th>
+                <th>Location</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="enquiries-tbody">
+              <!-- Loaded dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ADD / EDIT TEMPLE MODAL -->
+  <div id="temple-form-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeTempleModal()">✕</button>
+      <h2 id="form-modal-title" style="font-family:'Marcellus', serif; color: var(--admin-accent); margin-bottom: 1.5rem;">
+        Upload & Add New Temple
+      </h2>
+
+      <form id="temple-manage-form" enctype="multipart/form-data">
+        <div class="admin-form-grid">
+          <div>
+            <label class="adm-label">Temple Name *</label>
+            <input type="text" name="name" class="adm-input" placeholder="e.g. Shree Somnath Heritage Maha Mandir" required>
+          </div>
+
+          <div>
+            <label class="adm-label">Presiding Deity *</label>
+            <input type="text" name="deity" class="adm-input" placeholder="e.g. Lord Shiva / Mahadev" required>
+          </div>
+
+          <div>
+            <label class="adm-label">Architectural Tradition *</label>
+            <select name="tradition" class="adm-select" required>
+              <option value="Nagara">Nagara (Northern Shikhara)</option>
+              <option value="Dravida">Dravida (Southern Rajagopuram)</option>
+              <option value="Vesara">Vesara (Stellate Hoysala Star)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="adm-label">Sub-Type / Style</label>
+            <input type="text" name="subType" class="adm-input" placeholder="e.g. Latina, Sekhari, 16-Point Star">
+          </div>
+
+          <div>
+            <label class="adm-label">Primary Stone Type</label>
+            <input type="text" name="stoneType" class="adm-input" placeholder="e.g. Jaisalmer Sandstone & Makrana Marble">
+          </div>
+
+          <div>
+            <label class="adm-label">Location / Address *</label>
+            <input type="text" name="location" class="adm-input" placeholder="e.g. Pune, Maharashtra / London, UK" required>
+          </div>
+
+          <div>
+            <label class="adm-label">Country</label>
+            <input type="text" name="country" class="adm-input" placeholder="India">
+          </div>
+
+          <div>
+            <label class="adm-label">Project Status</label>
+            <select name="status" class="adm-select">
+              <option value="Completed">Completed</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Planning">Planning & Blueprints</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="adm-label">Consecration Year</label>
+            <input type="text" name="year" class="adm-input" placeholder="2024">
+          </div>
+
+          <div>
+            <label class="adm-label">Temple Height / Dimensions</label>
+            <input type="text" name="height" class="adm-input" placeholder="e.g. 108 ft Rajagopuram">
+          </div>
+
+          <div class="admin-form-full">
+            <label class="adm-label">Upload Temple Photos (Multi-file upload)</label>
+            <input type="file" id="temple-photos-input" name="photos" class="adm-input" multiple accept="image/*">
+            <div id="upload-previews" class="image-preview-bar"></div>
+          </div>
+
+          <div class="admin-form-full">
+            <label class="adm-label">Temple Story & Architectural Description</label>
+            <textarea name="description" class="adm-textarea" rows="4" placeholder="Detailed architectural and historical description..."></textarea>
+          </div>
+
+          <div class="admin-form-full">
+            <label class="adm-label">Key Highlights / Features (One per line)</label>
+            <textarea name="features" class="adm-textarea" rows="3" placeholder="81-Cell Paramasayika Vastupurusha Mandala&#10;Monolithic Granite Pillars&#10;Corbelled Shikhara"></textarea>
+          </div>
+
+          <div class="admin-form-full" style="display: flex; align-items: center; gap: 0.5rem;">
+            <input type="checkbox" name="featured" id="featured-check" style="width: 18px; height: 18px;">
+            <label for="featured-check" style="font-size: 0.9rem; color: #fff; cursor: pointer;">Feature on Home Page</label>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
+          <button type="button" class="btn btn-outline-gold" onclick="closeTempleModal()">Cancel</button>
+          <button type="submit" class="btn btn-gold">Save Temple & Publish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

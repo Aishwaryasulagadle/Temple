@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temple Architectural Specification | The Temple Construction</title>
+  <!-- Google Fonts: Marcellus (Headings), EB Garamond (Body), IBM Plex Mono (Monospace) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Marcellus&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo">
+        <div class="brand-emblem">🕉️</div>
+        <div class="brand-text">
+          <h2>THE TEMPLE CONSTRUCT</h2>
+          <span>MASTER CONTRACTOR · PAN-INDIA</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects & Gallery</a></li>
+        <li><a href="/contractor">Master Contractor</a></li>
+        <li><a href="/about">Lineage & Craft</a></li>
+        <li><a href="/contact">Book Temple Construction</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/919890933567?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20about%20a%20specific%20temple%20project." target="_blank" class="nav-whatsapp-btn">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Temple Detail Container -->
+  <main class="section" style="padding-top: 8.5rem; min-height: 85vh;">
+    <div class="container" id="temple-detail-container">
+      <div style="text-align: center; color: var(--saffron); padding: 4rem; font-family: var(--font-mono);">
+        Loading sacred architectural details...
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="text-gold">THE TEMPLE CONSTRUCT</h3>
+          <p>Pan-India master stone temple architects & turnkey contractors rooted in classical Shilpa Shastra. Sourcing quarries, carving stone, and executing turnkey temple structures across all 28 states of India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/contractor">Master Contractor Details</a></li>
+            <li><a href="/projects">Projects & Gallery</a></li>
+            <li><a href="/about">Lineage & History</a></li>
+            <li><a href="/contact">Book Temple Construction</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Traditions</h4>
+          <ul class="footer-links">
+            <li><a href="/projects?tradition=Dravida">Dravida Vimana</a></li>
+            <li><a href="/projects?tradition=Nagara">Nagara Shikhara</a></li>
+            <li><a href="/projects?tradition=Vesara">Vesara Stellate</a></li>
+            <li><a href="/about">7 Stages of Craft</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect Directly</h4>
+          <p style="color: var(--text-light-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">
+            📍 GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
+          </p>
+          <p style="color: var(--text-light-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">
+            📞 <a href="tel:+919890933567" style="color: var(--gold-light);">+91 98909 33567</a>
+          </p>
+          <p style="color: var(--text-light-muted); font-size: 0.9rem;">
+            ✉️ contact@thetempleconstruction.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 The Divine Temple Construction India. Shilpa Shastra · Agama · Vastu.</div>
+        <div>Turnkey Temple Construction Across Pan-India</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const parts = window.location.pathname.split('/');
+      const templeId = parts[parts.length - 1];
+
+      const container = document.getElementById('temple-detail-container');
+      try {
+        const res = await fetch(`/api/temples/${templeId}`);
+        const data = await res.json();
+        
+        if (data.success && data.data) {
+          const t = data.data;
+          document.title = `${t.name} | The Temple Construct`;
+          
+          container.innerHTML = `
+            <div style="margin-bottom: 2rem;">
+              <a href="/projects" style="color: var(--saffron); font-size: 0.95rem; font-weight: 600; font-family: var(--font-mono);">← Back to Projects Portfolio</a>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 3.5rem; margin-bottom: 4rem;">
+              <div>
+                <img src="${t.coverImage || '/images/somnath_grand.png'}" alt="${t.name}" style="width: 100%; border-radius: var(--radius-md); border: 2px solid var(--gold-primary); box-shadow: var(--shadow-card); margin-bottom: 1.5rem;">
+                
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  ${(t.images || []).map(img => `
+                    <img src="${img}" style="width: 120px; height: 85px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-stone); cursor: pointer;" onclick="document.querySelector('#temple-detail-container img').src='${img}'">
+                  `).join('')}
+                </div>
+              </div>
+
+              <div>
+                <div class="eyebrow">${t.tradition} Architecture · ${t.status}</div>
+                <h1 style="font-size: 2.3rem; color: var(--maroon); margin-bottom: 0.5rem;">${t.name}</h1>
+                <h3 style="color: var(--saffron); font-size: 1.2rem; margin-bottom: 1.25rem; font-family: var(--font-mono);">Presiding Deity: ${t.deity}</h3>
+                
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
+                  ${t.description}
+                </p>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border-stone); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 2rem; box-shadow: var(--shadow-card);">
+                  <h4 style="color: var(--maroon); font-size: 1.15rem; margin-bottom: 1rem;">Architectural Specifications</h4>
+                  <ul style="list-style: none; font-size: 0.95rem;">
+                    <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-stone);">
+                      <span style="color: var(--text-muted);">Location:</span> <span style="font-weight: 600; color: var(--text-main);">${t.location || 'India'}</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-stone);">
+                      <span style="color: var(--text-muted);">Primary Material:</span> <span style="font-weight: 600; color: var(--text-main);">${t.stoneType}</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-stone);">
+                      <span style="color: var(--text-muted);">Sub-Style:</span> <span style="font-weight: 600; color: var(--text-main);">${t.subType || 'Classical'}</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-stone);">
+                      <span style="color: var(--text-muted);">Height Elevation:</span> <span style="font-weight: 600; color: var(--text-main);">${t.height || 'Custom Module'}</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
+                      <span style="color: var(--text-muted);">Consecration Status:</span> <span style="font-weight: 600; color: var(--saffron);">${t.status} (${t.year || 'Ongoing'})</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  <button class="btn btn-gold" onclick="likeTemple('${t.id}', this)">
+                    ❤️ Like & Bless Temple (<span class="likes-num">${t.likes || 0}</span>)
+                  </button>
+                  <a href="/contact" class="btn btn-saffron">Request Similar Shrine</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Features -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-card);">
+              <h3 style="color: var(--maroon); font-size: 1.5rem; margin-bottom: 1.5rem;">Key Shilpa Shastra Highlights</h3>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                ${(t.features || []).map(f => `
+                  <div style="background: var(--bg-paper); border-left: 4px solid var(--saffron); padding: 1.25rem; border-radius: var(--radius-sm);">
+                    <p style="color: var(--text-main); font-size: 0.98rem; margin: 0; line-height: 1.6;">${f}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else {
+          container.innerHTML = '<div style="text-align: center; color: var(--maroon); padding: 4rem;">Temple not found.</div>';
+        }
+      } catch (e) {
+        container.innerHTML = '<div style="text-align: center; color: var(--maroon); padding: 4rem;">Error fetching temple.</div>';
+      }
+    });
+  </script>
+</body>
+</html>

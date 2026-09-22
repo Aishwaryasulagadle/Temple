@@ -130,12 +130,25 @@ app.get('/temple/:id', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'temple-detail.html'));
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`\n======================================================`);
-  console.log(`🏛️  Divine Temple Construction & Contractor Portal Online!`);
-  console.log(`🌐  Live Site:  http://localhost:${PORT}`);
-  console.log(`👷  Master Contractor Page:  http://localhost:${PORT}/contractor`);
-  console.log(`📋  Book Temple Construction Form:  http://localhost:${PORT}/contact`);
-  console.log(`======================================================\n`);
-});
+// Start Server with Graceful Port Fallback
+function startServer(port) {
+  const server = app.listen(port, () => {
+    console.log(`\n======================================================`);
+    console.log(`🏛️  Divine Temple Construction & Contractor Portal Online!`);
+    console.log(`🌐  Live Site:  http://localhost:${port}`);
+    console.log(`👷  Master Contractor Page:  http://localhost:${port}/contractor`);
+    console.log(`📋  Book Temple Construction Form:  http://localhost:${port}/contact`);
+    console.log(`======================================================\n`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`⚠️ Port ${port} is currently busy. Trying next port ${port + 1}...`);
+      startServer(port + 1);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+}
+
+startServer(PORT);

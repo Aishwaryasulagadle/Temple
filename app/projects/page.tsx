@@ -8,6 +8,22 @@ import Lightbox from '@/components/Lightbox';
 
 const SITE_PHOTOS = [
   {
+    src: '/images/site_stone_spire_scaffolding.jpg',
+    title: 'Monolithic Stone Vimana Spire & Multi-Tier Bamboo Scaffolding',
+    desc: 'Active on-ground erection of a stepped Dravidian stone Vimana superstructure with full surrounding bamboo staging, tiered cornices, and kalasham finial alignment.',
+    badge: '🏗️ Live Spire Erection',
+    captionTitle: 'Dravidian Stone Vimana & Staging',
+    captionDesc: 'Multi-tiered grey stone spire under active high-elevation craft assembly with traditional bamboo scaffolding.'
+  },
+  {
+    src: '/images/site_brick_spire_mandapa.jpg',
+    title: 'Pillared Mandapa & Brick-Core Stepped Shikhara with Kalasha',
+    desc: 'On-ground construction of a carved stone pillared Mukha Mandapa hall surmounted by a multi-tiered brick-core Shikhara and dome pinnacle staging.',
+    badge: '🧱 Civil & Shikhara Craft',
+    captionTitle: 'Mandapa & Stepped Shikhara Core',
+    captionDesc: 'Heavy monolithic carved columns supporting sanctum roof slab and active brick-and-mortar stepped shikhara superstructure.'
+  },
+  {
     src: '/images/site_work_tower_scaffolding.png',
     title: 'Multi-Tier Stepped Shikhara & Bamboo Scaffolding',
     desc: 'Live stepped corbelled brick and stone Shikhara tower under active elevation staging. Engineered with traditional interlocking load distribution and precision plumb line calibration.',
@@ -35,7 +51,7 @@ const SITE_PHOTOS = [
     src: '/images/site_work_mahadwara_archway.jpg',
     title: 'Consecrated Monumental Entrance Mahadwara',
     desc: 'Awe-inspiring completed white Rajagopuram archway with decorative relief moulding, lotus rosettes, and sanctum passage doorway.',
-    badge: '✨ Consecrated Work',
+    badge: 'Consecrated Work',
     captionTitle: 'Finished Gateway Arch & Gopuram',
     captionDesc: 'Pure white monolithic entry portal framing the sanctum with ornamental stone rosettes and lintel mouldings.'
   },
@@ -111,7 +127,7 @@ export default function ProjectsPage() {
 
           <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#live-site-gallery" className="btn btn-gold">
-              📸 View Real On-Site Photos
+              View Real On-Site Photos
             </a>
             <a href="#all-projects-catalog" className="btn btn-outline-gold">
               🏛️ Browse All Projects Catalog
@@ -141,7 +157,6 @@ export default function ProjectsPage() {
                 <div className="site-photo-img-wrap">
                   <img src={photo.src} alt={photo.title} loading="lazy" />
                   <span className="site-photo-overlay-badge">{photo.badge}</span>
-                  <div className="site-photo-zoom-icon">🔍</div>
                 </div>
                 <div className="site-photo-details">
                   <h4>{photo.captionTitle}</h4>
@@ -153,7 +168,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* SECTION 2: COMPLETE 13 TEMPLE PROJECTS CATALOG */}
+      {/* SECTION 2: COMPLETE 18 TEMPLE PROJECTS CATALOG */}
       <section id="all-projects-catalog" className="section" style={{ background: 'var(--bg-paper)', borderTop: '1px solid var(--border-stone)' }}>
         <div className="container">
           <div className="section-header">
@@ -172,7 +187,7 @@ export default function ProjectsPage() {
                 className={`filter-btn ${filter === trad ? 'active' : ''}`}
                 onClick={() => setFilter(trad)}
               >
-                {trad === 'All' ? 'All Traditions (13 Projects)' : `${trad} Orders`}
+                {trad === 'All' ? `All Traditions (${temples.length || 18} Projects)` : `${trad} Orders`}
               </button>
             ))}
           </div>
@@ -182,7 +197,7 @@ export default function ProjectsPage() {
             <input
               type="text"
               className="form-control"
-              placeholder="🔍 Search by deity, location, or marble/sandstone..."
+              placeholder="Search by deity, location, or marble/sandstone..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               style={{ textAlign: 'center' }}

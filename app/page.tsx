@@ -7,7 +7,9 @@ import BookingForm from '@/components/BookingForm';
 
 export default function HomePage() {
   const db = readDb();
-  const featuredTemples = (db.temples || []).slice(0, 3);
+  // Grand Temple Spires, Gopurams, Vimanas, Sanctums & Monolithic Sculptures
+  const targetIds = ['temple-17', 'temple-18', 'temple-14', 'temple-15', 'temple-16', 'temple-11', 'temple-12', 'temple-10', 'temple-13'];
+  const featuredTemples = (db.temples || []).filter(t => targetIds.includes(t.id)).sort((a, b) => targetIds.indexOf(a.id) - targetIds.indexOf(b.id));
 
   return (
     <main>
@@ -35,7 +37,7 @@ export default function HomePage() {
               Fill Temple Construction Booking Form
             </Link>
             <a href="#consecrated-masterpieces" className="btn btn-outline-gold">
-              📸 View Temple Photos
+              View Temple Photos
             </a>
           </div>
         </div>
@@ -88,92 +90,8 @@ export default function HomePage() {
 
           <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
             <Link href="/projects" className="btn btn-gold" style={{ padding: '0.9rem 2.2rem' }}>
-              🏛️ Explore All 13 Consecrated Temples & Construction Sites →
+              🏛️ Explore All 18 Consecrated Temples & Construction Sites →
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2: CANONICAL TRADITIONS */}
-      <section className="section" style={{ background: 'var(--bg-paper)', borderTop: '1px solid var(--border-stone)' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow">Three Classical Orders</div>
-            <h2 className="section-title">Rooted in Shilpa Shastra & Agama</h2>
-            <p className="section-desc">
-              Every curve, mould, finial, and corbel is bound by mathematical sutras passed through generational treatises.
-            </p>
-          </div>
-
-          <div className="traditions-grid">
-            {/* Dravida Card */}
-            <div className="tradition-card">
-              <div className="tradition-img-wrap">
-                <img src="/images/white_gopuram_hero.png" alt="Dravida Temple Rajagopuram Architecture" />
-                <span className="tradition-tag">Dravida Order</span>
-              </div>
-              <div className="tradition-body">
-                <div className="tradition-name-row">
-                  <h3>Dravida Vimana</h3>
-                  <span className="sanskrit-name">द्राविड़ विमान</span>
-                </div>
-                <div className="tradition-meta">Stepped Pyramidal Superstructure</div>
-                <p className="tradition-desc">
-                  Characterized by soaring Rajagopurams, pillared Sabha Mandapas, monolithic stone corridors, and multi-tiered Tala floors capped by octagonal Shikharas.
-                </p>
-                <ul className="tradition-specs">
-                  <li><span>Canonical Treatise:</span> <span>Mayamata & Manasara</span></li>
-                  <li><span>Primary Stone:</span> <span>Monolithic Granite / Makrana</span></li>
-                  <li><span>Core Regions:</span> <span>Tamil Nadu, Karnataka, Andhra</span></li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Nagara Card */}
-            <div className="tradition-card">
-              <div className="tradition-img-wrap">
-                <img src="/images/somnath_grand.png" alt="Nagara Temple Architecture" />
-                <span className="tradition-tag">Nagara Order</span>
-              </div>
-              <div className="tradition-body">
-                <div className="tradition-name-row">
-                  <h3>Nagara Shikhara</h3>
-                  <span className="sanskrit-name">नागर शिखर</span>
-                </div>
-                <div className="tradition-meta">Curvilinear Mountain Spire</div>
-                <p className="tradition-desc">
-                  Defined by soaring curvilinear Latina and Sekhari spires, square sanctum plans with cruciform projections (Rathas), and monumental Kalasha finials.
-                </p>
-                <ul className="tradition-specs">
-                  <li><span>Canonical Treatise:</span> <span>Shilpa Ratnakara & Samarangana</span></li>
-                  <li><span>Primary Stone:</span> <span>Bansi Paharpur & Jaisalmer</span></li>
-                  <li><span>Core Regions:</span> <span>Gujarat, Rajasthan, MP, UP</span></li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Vesara Card */}
-            <div className="tradition-card">
-              <div className="tradition-img-wrap">
-                <img src="/images/vesara_grand.png" alt="Vesara Temple Architecture" />
-                <span className="tradition-tag">Vesara Order</span>
-              </div>
-              <div className="tradition-body">
-                <div className="tradition-name-row">
-                  <h3>Vesara Stellate</h3>
-                  <span className="sanskrit-name">वेसर शैली</span>
-                </div>
-                <div className="tradition-meta">Stellate Multi-Pointed Star Shrine</div>
-                <p className="tradition-desc">
-                  A synthesis of northern curvilinear grace and southern stepped tiers, famous for complex 16- and 32-point star ground plans and intricate friezes.
-                </p>
-                <ul className="tradition-specs">
-                  <li><span>Canonical Treatise:</span> <span>Ishana Shivagurudeva</span></li>
-                  <li><span>Primary Stone:</span> <span>Chloritic Schist & Soapstone</span></li>
-                  <li><span>Core Regions:</span> <span>Deccan Plateau & Karnataka</span></li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </section>

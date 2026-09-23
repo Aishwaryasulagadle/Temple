@@ -59,7 +59,7 @@ export default function BookingForm() {
             <div className="office-box">
               <h4>Head Contractor Office</h4>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
-                📍 GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
+                GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
               </p>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
                 📞 Call: <a href="tel:+919890933567" style={{ color: 'var(--saffron)', fontWeight: 600 }}>+91 98909 33567</a>

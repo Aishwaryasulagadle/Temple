@@ -7,17 +7,23 @@ import { Temple, Enquiry } from '@/lib/types';
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<'dashboard' | 'temples' | 'enquiries'>('dashboard');
-  const [loginUsername, setLoginUsername] = useState('admin');
-  const [loginPassword, setLoginPassword] = useState('templeadmin123');
+  
+  // Login form state
+  const [loginEmail, setLoginEmail] = useState('temple@gmail.com');
+  const [loginPassword, setLoginPassword] = useState('temple123');
   const [loginError, setLoginError] = useState('');
 
   const [temples, setTemples] = useState<Temple[]>([]);
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [toastMsg, setToastMsg] = useState('');
 
-  // New temple modal state
+  // Modal State for Add / Edit Temple
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
+
+  const initialFormState = {
     name: '',
     deity: '',
     tradition: 'Dravida',
@@ -30,9 +36,12 @@ export default function AdminPage() {
     height: '',
     area: '',
     coverImage: '/images/white_gopuram_hero.png',
+    images: ['/images/white_gopuram_hero.png'],
     description: '',
     features: ''
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
 
   const showToast = (msg: string) => {
     setToastMsg(msg);
@@ -61,18 +70,53 @@ export default function AdminPage() {
       const res = await fetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: loginUsername, password: loginPassword })
+        body: JSON.stringify({ email: loginEmail, password: loginPassword })
       });
       const data = await res.json();
       if (data.success) {
         setIsAuthenticated(true);
         loadAdminData();
       } else {
-        setLoginError(data.message || 'Invalid credentials');
+        setLoginError(data.message || 'Invalid email or password');
       }
     } catch (err) {
       setLoginError('Error connecting to login server');
     }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    showToast('Logged out successfully');
+  };
+
+  const openNewTempleModal = () => {
+    setIsEditing(false);
+    setEditingId(null);
+    setFormData(initialFormState);
+    setShowModal(true);
+  };
+
+  const openEditTempleModal = (temple: Temple) => {
+    setIsEditing(true);
+    setEditingId(temple.id);
+    setFormData({
+      name: temple.name || '',
+      deity: temple.deity || '',
+      tradition: temple.tradition || 'Dravida',
+      subType: temple.subType || '',
+      stoneType: temple.stoneType || '',
+      location: temple.location || '',
+      country: temple.country || 'India',
+      status: temple.status || 'Completed',
+      year: temple.year || '2024',
+      height: temple.height || '',
+      area: temple.area || '',
+      coverImage: temple.coverImage || '/images/white_gopuram_hero.png',
+      images: temple.images || [temple.coverImage || '/images/white_gopuram_hero.png'],
+      description: temple.description || '',
+      features: (temple.features || []).join('\n')
+    });
+    setShowModal(true);
   };
 
   const handleDeleteTemple = async (id: string) => {
@@ -89,29 +133,88 @@ export default function AdminPage() {
     }
   };
 
-  const handleCreateTemple = async (e: React.FormEvent) => {
+  // Upload file handler
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, isCover: boolean = true) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingImage(true);
+    const uploadFormData = new FormData();
+    uploadFormData.append('file', file);
+
+    try {
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: uploadFormData
+      });
+      const data = await res.json();
+      if (data.success && data.url) {
+        if (isCover) {
+          setFormData((prev) => ({
+            ...prev,
+            coverImage: data.url,
+            images: [data.url, ...prev.images.filter((img) => img !== data.url)]
+          }));
+        } else {
+          setFormData((prev) => ({
+            ...prev,
+            images: [...prev.images, data.url]
+          }));
+        }
+        showToast('Photo uploaded successfully!');
+      } else {
+        alert(data.message || 'Image upload failed');
+      }
+    } catch (err) {
+      alert('Error uploading file');
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
+  const handleSaveTemple = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const payload = {
         ...formData,
         features: formData.features.split('\n').filter((f) => f.trim().length > 0)
       };
-      const res = await fetch('/api/temples', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-      if (data.success) {
-        setTemples([data.data, ...temples]);
-        setShowModal(false);
-        showToast('✅ New temple published to live portal!');
+
+      if (isEditing && editingId) {
+        const res = await fetch(`/api/temples/${editingId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          setTemples(temples.map((t) => (t.id === editingId ? data.data : t)));
+          setShowModal(false);
+          showToast('✅ Temple details updated successfully!');
+        } else {
+          alert(data.message || 'Failed to update temple');
+        }
+      } else {
+        const res = await fetch('/api/temples', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          setTemples([data.data, ...temples]);
+          setShowModal(false);
+          showToast('✅ New temple published to live portal!');
+        } else {
+          alert(data.message || 'Failed to save temple');
+        }
       }
     } catch (err) {
       alert('Error saving temple');
     }
   };
 
+  // LOGIN SCREEN
   if (!isAuthenticated) {
     return (
       <div
@@ -142,7 +245,7 @@ export default function AdminPage() {
             Temple Admin Portal
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '2rem' }}>
-            Enter management credentials to manage temples & consultation requests.
+            Sign in with email <strong>temple@gmail.com</strong> to manage temples, upload photos & consultation requests.
           </p>
 
           {loginError && (
@@ -153,19 +256,19 @@ export default function AdminPage() {
 
           <form onSubmit={handleLogin}>
             <div style={{ marginBottom: '1.25rem', textAlign: 'left' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: '#d4af37', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
-                Username
+              <label style={{ display: 'block', fontSize: '0.85rem', color: '#d4af37', textTransform: 'uppercase', marginBottom: '0.4rem', fontWeight: 600 }}>
+                Email Address
               </label>
               <input
-                type="text"
-                value={loginUsername}
-                onChange={(e) => setLoginUsername(e.target.value)}
+                type="email"
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
                 style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '6px', padding: '0.8rem 1rem', color: '#fff' }}
                 required
               />
             </div>
             <div style={{ marginBottom: '1.75rem', textAlign: 'left' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: '#d4af37', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: '#d4af37', textTransform: 'uppercase', marginBottom: '0.4rem', fontWeight: 600 }}>
                 Password
               </label>
               <input
@@ -185,9 +288,10 @@ export default function AdminPage() {
     );
   }
 
+  // AUTHENTICATED DASHBOARD
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#0c0e14', color: '#e2e8f0' }}>
-      {/* Sidebar */}
+      {/* Sidebar Navigation */}
       <aside style={{ width: '270px', background: '#131620', borderRight: '1px solid rgba(255,255,255,0.08)', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2.5rem' }}>
           <img src="/images/omkar_logo.jpg" alt="Logo" style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #d4af37' }} />
@@ -234,7 +338,7 @@ export default function AdminPage() {
                 textAlign: 'left'
               }}
             >
-              🏛️ Manage Temples ({temples.length})
+              🏛️ Manage Temples & Photos ({temples.length})
             </button>
           </li>
           <li>
@@ -260,17 +364,36 @@ export default function AdminPage() {
         </ul>
 
         <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <Link href="/" target="_blank" style={{ display: 'block', padding: '0.85rem', color: '#94a3b8', fontSize: '0.9rem' }}>
+          <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem', paddingLeft: '0.5rem' }}>
+            Logged in as: <strong style={{ color: '#d4af37' }}>temple@gmail.com</strong>
+          </div>
+          <Link href="/" target="_blank" style={{ display: 'block', padding: '0.65rem 0.5rem', color: '#94a3b8', fontSize: '0.9rem' }}>
             🌐 View Public Website
           </Link>
-          <button onClick={() => setIsAuthenticated(false)} style={{ background: 'transparent', border: 'none', color: '#ef4444', padding: '0.85rem', cursor: 'pointer', fontSize: '0.9rem', textAlign: 'left', width: '100%' }}>
+          <button
+            onClick={handleLogout}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#ef4444',
+              padding: '0.65rem 0.5rem',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              textAlign: 'left',
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
             🚪 Logout
           </button>
         </div>
       </aside>
 
-      {/* Main Content */}
-      <main style={{ flexGrow: 1, padding: '2.5rem 3rem', overflowY: 'auto' }}>
+      {/* Main Content Area */}
+      <main style={{ flexGrow: 1, padding: '2.5rem 3rem', overflowY: 'auto', maxHeight: '100vh' }}>
+        {/* PANE 1: OVERVIEW */}
         {activeTab === 'dashboard' && (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
@@ -279,11 +402,11 @@ export default function AdminPage() {
                   Dashboard Overview
                 </h1>
                 <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
-                  Real-time temple analytics and incoming requests.
+                  Real-time temple analytics, photo uploads and incoming consultation requests.
                 </p>
               </div>
-              <button className="btn btn-gold" onClick={() => setShowModal(true)}>
-                + Upload New Temple
+              <button className="btn btn-gold" onClick={openNewTempleModal}>
+                + Upload New Temple & Photos
               </button>
             </div>
 
@@ -322,23 +445,27 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* Tab 2: Manage Temples */}
+        {/* PANE 2: MANAGE TEMPLES & EDIT MORE INFORMATION */}
         {(activeTab === 'temples' || activeTab === 'dashboard') && (
           <div style={{ background: '#181c28', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '2rem', marginBottom: '2.5rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <h2 style={{ fontSize: '1.35rem', color: '#fff' }}>Temple Masterworks Database</h2>
-              <button className="btn btn-gold" onClick={() => setShowModal(true)}>
-                + Add Temple
+              <div>
+                <h2 style={{ fontSize: '1.35rem', color: '#fff' }}>Temple Masterworks & Photo Gallery Manager</h2>
+                <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Upload new site photos, edit specs, stone types, heights, and descriptions.</p>
+              </div>
+              <button className="btn btn-gold" onClick={openNewTempleModal}>
+                + Add New Temple Project
               </button>
             </div>
 
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
               <thead>
                 <tr style={{ background: 'rgba(0,0,0,0.2)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Image</th>
+                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Preview</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Temple Name</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Deity</th>
-                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Style</th>
+                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Style / Order</th>
+                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Height & Area</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Status</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Actions</th>
                 </tr>
@@ -350,24 +477,38 @@ export default function AdminPage() {
                       <img
                         src={temple.coverImage}
                         alt={temple.name}
-                        style={{ width: '55px', height: '40px', objectFit: 'cover', borderRadius: '4px' }}
+                        style={{ width: '60px', height: '45px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #d4af37' }}
                       />
                     </td>
-                    <td style={{ padding: '1rem', fontWeight: 600, color: '#fff' }}>{temple.name}</td>
+                    <td style={{ padding: '1rem', fontWeight: 600, color: '#fff' }}>
+                      <div>{temple.name}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>{temple.location}</div>
+                    </td>
                     <td style={{ padding: '1rem', color: '#d4af37' }}>{temple.deity}</td>
                     <td style={{ padding: '1rem' }}>{temple.tradition}</td>
+                    <td style={{ padding: '1rem', color: '#cbd5e1' }}>
+                      {temple.height || 'N/A'} · {temple.area || 'N/A'}
+                    </td>
                     <td style={{ padding: '1rem' }}>
                       <span style={{ padding: '0.25rem 0.65rem', borderRadius: '20px', fontSize: '0.75rem', background: temple.status === 'Completed' ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)', color: temple.status === 'Completed' ? '#10b981' : '#f59e0b' }}>
                         {temple.status}
                       </span>
                     </td>
                     <td style={{ padding: '1rem' }}>
-                      <button
-                        onClick={() => handleDeleteTemple(temple.id)}
-                        style={{ background: 'rgba(239,68,68,0.15)', border: '1px solid #ef4444', color: '#ef4444', padding: '0.4rem 0.75rem', borderRadius: '4px', cursor: 'pointer' }}
-                      >
-                        Delete
-                      </button>
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <button
+                          onClick={() => openEditTempleModal(temple)}
+                          style={{ background: 'rgba(212,175,55,0.15)', border: '1px solid #d4af37', color: '#d4af37', padding: '0.4rem 0.8rem', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 }}
+                        >
+                          ✏️ Edit Info
+                        </button>
+                        <button
+                          onClick={() => handleDeleteTemple(temple.id)}
+                          style={{ background: 'rgba(239,68,68,0.15)', border: '1px solid #ef4444', color: '#ef4444', padding: '0.4rem 0.75rem', borderRadius: '4px', cursor: 'pointer' }}
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -376,29 +517,36 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* Tab 3: Enquiries */}
+        {/* PANE 3: RECEIVED ENQUIRIES */}
         {activeTab === 'enquiries' && (
           <div style={{ background: '#181c28', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '2rem' }}>
             <h2 style={{ fontSize: '1.35rem', color: '#fff', marginBottom: '1.5rem' }}>
-              Received Consultation Enquiries ({enquiries.length})
+              Received Consultation & Construction Enquiries ({enquiries.length})
             </h2>
 
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
               <thead>
                 <tr style={{ background: 'rgba(0,0,0,0.2)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Applicant</th>
-                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Phone</th>
+                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Phone & WhatsApp</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Deity / Style</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Location / State</th>
-                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Budget</th>
+                  <th style={{ padding: '1rem', color: '#94a3b8' }}>Budget Scope</th>
                   <th style={{ padding: '1rem', color: '#94a3b8' }}>Date</th>
                 </tr>
               </thead>
               <tbody>
                 {enquiries.map((enq) => (
                   <tr key={enq.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td style={{ padding: '1rem', fontWeight: 600, color: '#fff' }}>{enq.name}</td>
-                    <td style={{ padding: '1rem', color: '#10b981' }}>{enq.phone}</td>
+                    <td style={{ padding: '1rem', fontWeight: 600, color: '#fff' }}>
+                      {enq.name}
+                      {enq.email && <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>{enq.email}</div>}
+                    </td>
+                    <td style={{ padding: '1rem', color: '#10b981', fontWeight: 600 }}>
+                      <a href={`https://wa.me/${enq.phone.replace(/[^0-9]/g, '')}`} target="_blank" style={{ color: '#10b981', textDecoration: 'underline' }}>
+                        {enq.phone}
+                      </a>
+                    </td>
                     <td style={{ padding: '1rem' }}>{enq.deity} ({enq.tradition})</td>
                     <td style={{ padding: '1rem' }}>{enq.location}, {enq.state}</td>
                     <td style={{ padding: '1rem', color: '#d4af37' }}>{enq.budget}</td>
@@ -413,19 +561,47 @@ export default function AdminPage() {
         )}
       </main>
 
-      {/* Upload Temple Modal */}
+      {/* ADD / EDIT TEMPLE & UPLOAD PHOTOS MODAL */}
       {showModal && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 99999, padding: '2rem' }}>
-          <div style={{ background: '#181c28', border: '2px solid #d4af37', borderRadius: '12px', padding: '2.5rem', width: '100%', maxWidth: '650px', maxHeight: '90vh', overflowY: 'auto' }}>
+          <div style={{ background: '#181c28', border: '2px solid #d4af37', borderRadius: '12px', padding: '2.5rem', width: '100%', maxWidth: '750px', maxHeight: '90vh', overflowY: 'auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <h2 style={{ color: '#d4af37', fontSize: '1.5rem' }}>+ Add New Temple Project</h2>
+              <h2 style={{ color: '#d4af37', fontSize: '1.5rem', fontFamily: 'Marcellus, serif' }}>
+                {isEditing ? '✏️ Edit Temple Project & Gallery Photos' : '+ Upload New Temple Project'}
+              </h2>
               <button onClick={() => setShowModal(false)} style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1.5rem', cursor: 'pointer' }}>✕</button>
             </div>
 
-            <form onSubmit={handleCreateTemple}>
+            <form onSubmit={handleSaveTemple}>
+              {/* Photo Upload Section */}
+              <div style={{ background: '#0f121a', border: '1px dashed #d4af37', borderRadius: '8px', padding: '1.25rem', marginBottom: '1.5rem', textAlign: 'center' }}>
+                <label style={{ display: 'block', color: '#d4af37', fontWeight: 600, marginBottom: '0.5rem', textTransform: 'uppercase', fontSize: '0.85rem' }}>
+                  Upload Project Cover Photo
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageUpload(e, true)}
+                  style={{ color: '#94a3b8', fontSize: '0.9rem' }}
+                />
+                {uploadingImage && <div style={{ color: '#d4af37', marginTop: '0.5rem', fontSize: '0.85rem' }}>Uploading photo...</div>}
+                
+                {formData.coverImage && (
+                  <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                    <img
+                      src={formData.coverImage}
+                      alt="Cover Preview"
+                      style={{ width: '120px', height: '80px', objectFit: 'cover', borderRadius: '6px', border: '1px solid #d4af37' }}
+                    />
+                    <span style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Cover image URL: {formData.coverImage}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Basic Fields */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem' }}>Temple Name *</label>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Temple Name *</label>
                   <input
                     type="text"
                     required
@@ -435,7 +611,7 @@ export default function AdminPage() {
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem' }}>Presiding Deity *</label>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Presiding Deity *</label>
                   <input
                     type="text"
                     required
@@ -448,7 +624,7 @@ export default function AdminPage() {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem' }}>Style / Order</label>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Style / Order</label>
                   <select
                     value={formData.tradition}
                     onChange={(e) => setFormData({ ...formData, tradition: e.target.value })}
@@ -460,19 +636,68 @@ export default function AdminPage() {
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem' }}>Primary Stone</label>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Stone Material Type</label>
                   <input
                     type="text"
                     value={formData.stoneType}
-                    placeholder="e.g. Makrana Marble / Pink Sandstone"
+                    placeholder="e.g. Makrana White Marble / Pink Sandstone"
                     onChange={(e) => setFormData({ ...formData, stoneType: e.target.value })}
                     style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem', color: '#fff', borderRadius: '4px' }}
                   />
                 </div>
               </div>
 
+              {/* Dimensions & Location */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Tower Height</label>
+                  <input
+                    type="text"
+                    value={formData.height}
+                    placeholder="e.g. 128 ft / 7 Tiers"
+                    onChange={(e) => setFormData({ ...formData, height: e.target.value })}
+                    style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem', color: '#fff', borderRadius: '4px' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Built-Up Mandapa Area</label>
+                  <input
+                    type="text"
+                    value={formData.area}
+                    placeholder="e.g. 55,000 sq.ft"
+                    onChange={(e) => setFormData({ ...formData, area: e.target.value })}
+                    style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem', color: '#fff', borderRadius: '4px' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Location / State</label>
+                  <input
+                    type="text"
+                    value={formData.location}
+                    placeholder="e.g. Balewadi, Pune / Saurashtra Coast"
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem', color: '#fff', borderRadius: '4px' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Status</label>
+                  <select
+                    value={formData.status}
+                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                    style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem', color: '#fff', borderRadius: '4px' }}
+                  >
+                    <option value="Completed">Completed</option>
+                    <option value="In Progress">In Progress / Active Civil Work</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Description */}
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem' }}>Description</label>
+                <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Architectural Description</label>
                 <textarea
                   rows={3}
                   value={formData.description}
@@ -481,26 +706,27 @@ export default function AdminPage() {
                 ></textarea>
               </div>
 
+              {/* Features */}
               <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem' }}>Features (1 per line)</label>
+                <label style={{ display: 'block', color: '#d4af37', fontSize: '0.8rem', marginBottom: '0.3rem', textTransform: 'uppercase' }}>Shastra Highlights / Features (1 per line)</label>
                 <textarea
                   rows={3}
                   value={formData.features}
-                  placeholder="81-Cell Paramasayika Mandala&#10;Monolithic Granite Pillars"
+                  placeholder="81-Cell Paramasayika Vastupurusha Mandala core alignment&#10;Monolithic Granite Pillars&#10;Dry-fit assembled at Pune karkhana"
                   onChange={(e) => setFormData({ ...formData, features: e.target.value })}
                   style={{ width: '100%', background: '#0f121a', border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem', color: '#fff', borderRadius: '4px' }}
                 ></textarea>
               </div>
 
               <button type="submit" className="btn btn-gold" style={{ width: '100%', padding: '0.9rem' }}>
-                Publish Temple to Live Website →
+                {isEditing ? 'Save Changes & Update Portal →' : 'Publish Temple to Live Website →'}
               </button>
             </form>
           </div>
         </div>
       )}
 
-      {/* Toast */}
+      {/* Toast Notification */}
       {toastMsg && (
         <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', background: '#1e2436', border: '1px solid #d4af37', color: '#fff', padding: '1rem 1.75rem', borderRadius: '8px', zIndex: 999999 }}>
           {toastMsg}

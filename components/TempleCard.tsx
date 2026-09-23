@@ -12,8 +12,6 @@ interface TempleCardProps {
 export default function TempleCard({ temple, onLike }: TempleCardProps) {
   const [likes, setLikes] = useState(temple.likes || 0);
   const [liked, setLiked] = useState(false);
-  const isCompleted = temple.status === 'Completed';
-  const badgeClass = isCompleted ? 'badge-completed' : 'badge-progress';
 
   const handleLike = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -35,7 +33,6 @@ export default function TempleCard({ temple, onLike }: TempleCardProps) {
     <article className="temple-card">
       <div className="temple-card-media">
         <img src={temple.coverImage || '/images/somnath_grand.png'} alt={temple.name} loading="lazy" />
-        <span className={`temple-status-badge ${badgeClass}`}>{temple.status}</span>
         <button
           className={`temple-like-btn ${liked ? 'liked' : ''}`}
           onClick={handleLike}
@@ -52,12 +49,12 @@ export default function TempleCard({ temple, onLike }: TempleCardProps) {
           <Link href={`/temple/${temple.id}`}>{temple.name}</Link>
         </h3>
         <div className="temple-location">
-          <span>📍</span> {temple.location || 'India'}
+          {temple.location || 'India'}
         </div>
         <p className="temple-snippet">{(temple.description || '').substring(0, 130)}...</p>
         <div className="temple-card-footer">
           <div className="temple-likes-count">
-            <span>✨</span> <span>{likes}</span> Blessings & Likes
+            <span>{likes}</span> Blessings & Likes
           </div>
           <Link
             href={`/temple/${temple.id}`}

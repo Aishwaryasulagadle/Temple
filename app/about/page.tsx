@@ -78,7 +78,7 @@ export default function AboutPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             <div style={{ background: 'var(--bg-card)', padding: '2.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-stone)', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📦</div>
+              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(198, 162, 74, 0.15)', color: 'var(--gold-deep)', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', fontFamily: 'var(--font-mono)' }}>01</div>
               <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem', color: 'var(--maroon)' }}>Full Dry-Fit Before Shipping</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7 }}>
                 The temple is completely dry-assembled at our Pune karkhana, corrected for millimeter tolerances, and numbered before transit so zero delays happen on your site.
@@ -86,7 +86,7 @@ export default function AboutPage() {
             </div>
 
             <div style={{ background: 'var(--bg-card)', padding: '2.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-stone)', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🔢</div>
+              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(198, 162, 74, 0.15)', color: 'var(--gold-deep)', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', fontFamily: 'var(--font-mono)' }}>02</div>
               <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem', color: 'var(--maroon)' }}>Laser Coded & Numbered Stone</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7 }}>
                 Every single stone bears an immutable coordinate that matches the architectural blueprint for swift crane and manual erection.
@@ -94,7 +94,7 @@ export default function AboutPage() {
             </div>
 
             <div style={{ background: 'var(--bg-card)', padding: '2.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-stone)', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>✈️</div>
+              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(198, 162, 74, 0.15)', color: 'var(--gold-deep)', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', fontFamily: 'var(--font-mono)' }}>03</div>
               <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem', color: 'var(--maroon)' }}>Artisans Travel With Consignment</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7 }}>
                 Our master sculptors, Sthapatis, and lifting crew travel directly with the stone consignments to raise the sanctum anywhere in India.

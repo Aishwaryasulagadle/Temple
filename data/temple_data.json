@@ -395,6 +395,146 @@
       "likes": 518,
       "featured": true,
       "createdAt": "2026-09-22T12:25:54.394Z"
+    },
+    {
+      "id": "temple-14",
+      "name": "Sri Mahasannidhi Granite Dravidian Vimana Spire",
+      "deity": "Lord Shiva & Maha Ganapati",
+      "tradition": "Dravida",
+      "subType": "Multi-Tier Dressed Granite Stepped Shikhara",
+      "stoneType": "Fine-Grained Grey Granite & Monolithic Finials",
+      "location": "South India / Deccan Site",
+      "country": "India",
+      "status": "Completed",
+      "year": "2024",
+      "height": "75 ft",
+      "area": "26,000 sq.ft",
+      "coverImage": "/images/granite_vimana_spire.jpg",
+      "images": [
+        "/images/granite_vimana_spire.jpg"
+      ],
+      "description": "A magnificent multi-tiered Dravidian grey granite stone Vimana Shikhara adorned with kirtimukha architraves, sculpted niche devatas, and crowned with an intricate circular dome and kalasham finial.",
+      "features": [
+        "Pure hand-dressed grey granite stone tiers",
+        "Ornate Kirtimukha and Sala-sikhara roof motifs",
+        "Deeply sculpted devakoshta sanctum alcoves",
+        "Precision interlocking dry-joint stone engineering"
+      ],
+      "likes": 612,
+      "featured": true,
+      "createdAt": "2026-09-23T10:00:00.000Z"
+    },
+    {
+      "id": "temple-15",
+      "name": "Monolithic Yali & Gaja Stambha Mandapa Pillar",
+      "deity": "Sri Veerabhadra & Vijayanagara Dwarapalakas",
+      "tradition": "Dravida",
+      "subType": "Monolithic Mythical Yali Beast & Rider Pillar",
+      "stoneType": "Single Monolithic Granite Block",
+      "location": "Karnataka / Andhra Border Project",
+      "country": "India",
+      "status": "Completed",
+      "year": "2024",
+      "height": "18 ft",
+      "area": "Mandapa Column",
+      "coverImage": "/images/yali_pillar_monolith.png",
+      "images": [
+        "/images/yali_pillar_monolith.png"
+      ],
+      "description": "An awe-inspiring monolithic granite pillar sculpted with a rearing mythical Yali beast, royal warrior rider, and elephant pedestal (Gaja-peetha) in the classic Vijayanagara and Nayaka architectural tradition.",
+      "features": [
+        "Carved from a single solid monolithic granite block",
+        "Dynamic rearing Yali with warrior and elephant base",
+        "Deep undercut filigree relief work",
+        "Architectural load-bearing Sabha Mandapa column"
+      ],
+      "likes": 584,
+      "featured": true,
+      "createdAt": "2026-09-23T10:00:00.000Z"
+    },
+    {
+      "id": "temple-16",
+      "name": "Sri Shweta Mahadwara & Guru Sanctum Archway",
+      "deity": "Sri Guru Sannidhi & Dhyana Mandir",
+      "tradition": "Dravida",
+      "subType": "Pristine White Dressed Dwarashala & Compound Arch",
+      "stoneType": "Sculpted Dressed Stone with Lime Plaster Finish",
+      "location": "Regional Ashram / Mandir Complex",
+      "country": "India",
+      "status": "Completed",
+      "year": "2024",
+      "height": "32 ft",
+      "area": "12,000 sq.ft",
+      "coverImage": "/images/white_arch_dwarashala.jpg",
+      "images": [
+        "/images/white_arch_dwarashala.jpg"
+      ],
+      "description": "An elegant consecrated ceremonial entrance Dwarashala and compound gate featuring a central Guru niche, ornate Dravidian cornice mouldings, and deep relief floral pillar pilasters.",
+      "features": [
+        "Ornate white ceremonial temple gateway (Mahadwara)",
+        "Central deity/Guru niche with decorative Sala pediment",
+        "Deep relief floral pilaster carvings",
+        "Complete perimeter compound wall and entrance execution"
+      ],
+      "likes": 495,
+      "featured": true,
+      "createdAt": "2026-09-23T10:00:00.000Z"
+    },
+    {
+      "id": "temple-17",
+      "name": "Sri Ganganbeed Lotus Shikhara Sanctum",
+      "deity": "Lord Shiva & Grama Devata",
+      "tradition": "Vesara",
+      "subType": "Stepped Lotus Fluted Kalasha Shikhara & Ashlar Sanctum",
+      "stoneType": "Precision Ashlar Stone Masonry with Polychrome Shikhara",
+      "location": "Ganganbeed / Maharashtra Region",
+      "country": "India",
+      "status": "Completed",
+      "year": "2025",
+      "height": "38 ft",
+      "area": "10,500 sq.ft",
+      "coverImage": "/images/ganganbeed_shikhara_sanctum.png",
+      "images": [
+        "/images/ganganbeed_shikhara_sanctum.png"
+      ],
+      "description": "A consecrated countryside shrine in Ganganbeed featuring precision coursed ashlar stone sanctum masonry, ornate floral doorframes (Dwarashakha), and a vibrant multi-tiered lotus petal stepped Shikhara culminating in an amalaka kalasha finial.",
+      "features": [
+        "Multi-tiered stepped lotus petal circular Shikhara",
+        "Hand-dressed grey ashlar stone Garbhagriha walls",
+        "Carved floral entrance doorway (Dwarashakha)",
+        "Consecrated gold-leafed amalaka and kalasha pinnacle"
+      ],
+      "likes": 567,
+      "featured": true,
+      "createdAt": "2026-09-23T10:20:00.000Z"
+    },
+    {
+      "id": "temple-18",
+      "name": "Sri Omkar Polychrome Sabha Mandapa & Nagara Shikhara",
+      "deity": "Lord Shiva (Omkareshwar) & Sri Hanuman",
+      "tradition": "Nagara",
+      "subType": "Pillared Sabha Mandapa with Nagara Spire & Kalashas",
+      "stoneType": "RCC Reinforced Core with Ornate Traditional Stucco Craft",
+      "location": "Central India Mandir Complex",
+      "country": "India",
+      "status": "Completed",
+      "year": "2024",
+      "height": "52 ft",
+      "area": "18,500 sq.ft",
+      "coverImage": "/images/polychrome_mandapa_shikhara.png",
+      "images": [
+        "/images/polychrome_mandapa_shikhara.png"
+      ],
+      "description": "A magnificent open Sabha Mandapa temple with decorative multi-colored sculpted pillars, sacred Omkar sanctum arch, stepped plinth, and a soaring multi-tiered Nagara curvilinear Shikhara with dual tiered Kalasham pinnacles.",
+      "features": [
+        "Open pillared Sabha Mandapa with ornate floral colonnade",
+        "Towering curvilinear Nagara Shikhara with sacred emblems",
+        "Carved Gajapitha elephant motifs along the Mandapa cornice",
+        "Dual consecrated Kalasha finials with traditional temple flag"
+      ],
+      "likes": 640,
+      "featured": true,
+      "createdAt": "2026-09-23T10:20:00.000Z"
     }
   ],
   "enquiries": []

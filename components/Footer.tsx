@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Connect Directly</h4>
             <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
-              📍 GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
+              GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
             </p>
             <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
               📞{' '}

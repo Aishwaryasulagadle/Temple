@@ -49,7 +49,6 @@ function renderTempleCard(temple) {
     <article class="temple-card" data-id="${temple.id}">
       <div class="temple-card-media">
         <img src="${temple.coverImage || '/images/somnath_grand.png'}" alt="${temple.name}" loading="lazy" />
-        <span class="temple-status-badge ${badgeClass}">${temple.status}</span>
         <button class="temple-like-btn" onclick="likeTemple('${temple.id}', this)" title="Like this temple">
           ❤️
         </button>

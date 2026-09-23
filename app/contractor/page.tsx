@@ -120,7 +120,7 @@ export default function ContractorPage() {
 
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               <Link href="/projects#live-site-gallery" className="btn btn-gold">
-                📸 View All Full-Size Site Photos on Projects Page →
+                View All Full-Size Site Photos on Projects Page →
               </Link>
             </div>
           </div>

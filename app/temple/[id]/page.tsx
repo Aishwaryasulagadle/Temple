@@ -129,7 +129,7 @@ export default async function TempleDetailPage({ params }: PageProps) {
           {/* Canonical Features Box */}
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-stone)', borderRadius: 'var(--radius-md)', padding: '2.25rem', boxShadow: 'var(--shadow-card)' }}>
             <h3 style={{ color: 'var(--maroon)', fontSize: '1.35rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-stone)', paddingBottom: '0.75rem' }}>
-              ✨ Shastra Architecture Highlights
+              Shastra Architecture Highlights
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>

@@ -4,8 +4,18 @@ import { Enquiry } from '@/lib/types';
 
 export async function GET() {
   const db = readDb();
-  return NextResponse.json({ success: true, data: db.enquiries || [] });
+  return NextResponse.json(
+    { success: true, data: db.enquiries || [] },
+    {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    }
+  );
 }
+
 
 export async function POST(request: NextRequest) {
   try {

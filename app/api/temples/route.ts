@@ -28,7 +28,16 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({ success: true, count: list.length, data: list });
+  return NextResponse.json(
+    { success: true, count: list.length, data: list },
+    {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    }
+  );
 }
 
 export async function POST(request: NextRequest) {

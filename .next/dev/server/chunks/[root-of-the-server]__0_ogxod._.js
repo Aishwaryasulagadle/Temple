@@ -105,6 +105,12 @@ async function GET(request) {
         success: true,
         count: list.length,
         data: list
+    }, {
+        headers: {
+            'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+        }
     });
 }
 async function POST(request) {

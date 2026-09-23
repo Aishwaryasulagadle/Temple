@@ -537,5 +537,34 @@
       "createdAt": "2026-09-23T10:20:00.000Z"
     }
   ],
-  "enquiries": []
+  "enquiries": [
+    {
+      "id": "enq-1790164241130",
+      "name": "aishwarya",
+      "email": "sulagadleaishwarya@gmail.com",
+      "phone": "+918087631421",
+      "deity": "Lord Sri Venkateswara (Balaji)",
+      "tradition": "Dravida (South Rajagopuram & Vimana)",
+      "state": "Maharashtra",
+      "location": "Pune",
+      "budget": "₹50 Lakhs - ₹1.5 Crore (Medium Mandir)",
+      "landArea": "India",
+      "message": "ass",
+      "date": "2026-09-23T11:50:41.130Z"
+    },
+    {
+      "id": "enq-1790163752506",
+      "name": "aishwarya",
+      "email": "aishwaryaartiset24@gmail.com",
+      "phone": "+918087631421",
+      "deity": "Lord Sri Venkateswara (Balaji)",
+      "tradition": "Dravida (South Vimana & Rajagopuram)",
+      "state": "Pan-India",
+      "location": "Pune",
+      "budget": "₹50 Lakhs - ₹1.5 Crore (Medium Shrine)",
+      "landArea": "",
+      "message": "dfgbhnj",
+      "date": "2026-09-23T11:42:32.506Z"
+    }
+  ]
 }

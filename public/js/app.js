@@ -91,8 +91,8 @@ async function likeTemple(id, btnElement) {
   }
 }
 
-function attachLikeHandlers() {
-  // Handlers attached via inline onclick for speed & reliability
+function initLikeButtons() {
+  // Handlers attached dynamically or on cards
 }
 
 // Interactive Vastupurusha Mandala visualizer
@@ -101,29 +101,57 @@ function initMandalaVisualizer() {
   if (!mandalaContainer) return;
 
   mandalaContainer.innerHTML = '';
-  // 9x9 = 81 cells Paramasayika Grid
+
+  // 81-Cell (9x9) Devatas & Cardinal directions data
+  const devataGrid = [
+    ["ईशान\n(Ishana)", "पर्जन्य\n(Parjanya)", "जयन्त\n(Jayanta)", "इन्द्र\n(Indra)", "सूर्य\n(Surya)", "सत्य\n(Satya)", "भृश\n(Bhrisha)", "अन्तरिक्ष\n(Antariksha)", "अग्नि\n(Agni)"],
+    ["दिति\n(Diti)", "आप\n(Aapa)", "आप\n(Aapa)", "मरीचि\n(Marichi)", "मरीचि\n(Marichi)", "मरीचि\n(Marichi)", "सावित्री\n(Savitri)", "सावित्री\n(Savitri)", "पूषा\n(Pusha)"],
+    ["अदिति\n(Aditi)", "आप\n(Aapa)", "आप\n(Aapa)", "मरीचि\n(Marichi)", "मरीचि\n(Marichi)", "मरीचि\n(Marichi)", "सावित्री\n(Savitri)", "सावित्री\n(Savitri)", "वितथ\n(Vitatha)"],
+    ["सोम\n(Soma)", "भूधर\n(Bhudhara)", "भूधर\n(Bhudhara)", "ब्रह्मा\n(Brahma)", "ब्रह्मा\n(Brahma)", "ब्रह्मा\n(Brahma)", "विवस्वान्\n(Vivaswan)", "विवस्वान्\n(Vivaswan)", "गृहक्षत\n(Grihakhata)"],
+    ["सोम\n(Soma)", "भूधर\n(Bhudhara)", "भूधर\n(Bhudhara)", "ब्रह्मा\n(Brahma)", "ब्रह्मस्थान\n(Hridaya)", "ब्रह्मा\n(Brahma)", "विवस्वान्\n(Vivaswan)", "विवस्वान्\n(Vivaswan)", "यम\n(Yama)"],
+    ["भल्लाट\n(Bhallata)", "भूधर\n(Bhudhara)", "भूधर\n(Bhudhara)", "ब्रह्मा\n(Brahma)", "ब्रह्मा\n(Brahma)", "ब्रह्मा\n(Brahma)", "विवस्वान्\n(Vivaswan)", "विवस्वान्\n(Vivaswan)", "गन्धर्व\n(Gandharva)"],
+    ["मुख्य\n(Mukhya)", "रुद्र\n(Rudra)", "रुद्र\n(Rudra)", "मित्र\n(Mitra)", "मित्र\n(Mitra)", "मित्र\n(Mitra)", "इन्द्र\n(Indra)", "इन्द्र\n(Indra)", "भृङ्गराज\n(Bhrngaraja)"],
+    ["नाग\n(Naga)", "रुद्र\n(Rudra)", "रुद्र\n(Rudra)", "मित्र\n(Mitra)", "मित्र\n(Mitra)", "मित्र\n(Mitra)", "इन्द्र\n(Indra)", "इन्द्र\n(Indra)", "मृग\n(Mriga)"],
+    ["वायु\n(Vayu)", "शोष\n(Shosha)", "असुर\n(Asura)", "वरुण\n(Varuna)", "पुष्पदन्त\n(Pushpadanta)", "सुग्रीव\n(Sugriva)", "दौवारिक\n(Dauvarika)", "पितृ\n(Pitri)", "निर्ऋति\n(Nirriti)"]
+  ];
+
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
       const cell = document.createElement('div');
       cell.classList.add('mandala-cell');
       
-      // Brahma Sthan (Centre 3x3 = 9 cells)
-      if (row >= 3 && row <= 5 && col >= 3 && col <= 5) {
+      const devataText = devataGrid[row][col];
+      const isBrahma = (row >= 3 && row <= 5 && col >= 3 && col <= 5);
+      const isCenterCore = (row === 4 && col === 4);
+
+      if (isBrahma) {
         cell.classList.add('brahma');
-        cell.title = "Brahmasthana (Centre 9 Cells) - Unloaded Sacred Core";
+        if (isCenterCore) {
+          cell.innerHTML = `<span class="cell-om">ॐ</span><span class="cell-label">ब्रह्मस्थान</span>`;
+        } else {
+          cell.innerHTML = `<span class="cell-label">ब्रह्मा</span>`;
+        }
+        cell.title = "Brahmasthana (Centre 9 Cells) - Sacred Unweighted Garbhagriha Core";
       } else {
-        cell.title = `Vastupurusha Grid Coordinate [${row+1}, ${col+1}]`;
+        const shortName = devataText.split('\n')[0];
+        cell.innerHTML = `<span class="cell-label">${shortName}</span>`;
+        cell.title = `Vastupurusha Pada [${row+1}, ${col+1}]: ${devataText.replace('\n', ' ')}`;
       }
 
       cell.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.mandala-cell').forEach(c => c.classList.remove('active'));
+        cell.classList.add('active');
+
         const infoTitle = document.getElementById('mandala-info-title');
         const infoDesc = document.getElementById('mandala-info-desc');
-        if (cell.classList.contains('brahma')) {
-          if (infoTitle) infoTitle.textContent = "Brahmasthana (The Nucleus)";
+        
+        if (isBrahma) {
+          if (infoTitle) infoTitle.textContent = "Brahmasthana (The Sacred Nucleus)";
           if (infoDesc) infoDesc.textContent = "The central 9 cells of the 81-cell Paramasayika Mandala. In Vedic temple architecture, this zone remains completely unweighted by heavy superstructures, channeling cosmic prana directly to the deity's Garbhagriha.";
         } else {
-          if (infoTitle) infoTitle.textContent = `Pada Section (${col+1}, ${row+1})`;
-          if (infoDesc) infoDesc.textContent = "Outer concentric ring dedicated to the presiding cosmic devatas (Indra, Surya, Agni, Yama, Varuna, Vayu, Kubera, Soma) governing alignment, drainage, and solar illumination.";
+          const formattedName = devataText.replace('\n', ' ');
+          if (infoTitle) infoTitle.textContent = `Pada [${row+1}, ${col+1}]: ${formattedName}`;
+          if (infoDesc) infoDesc.textContent = `Governed by sacred deity ${formattedName}. This consecrated boundary quadrant dictates the placement of outer mandapas, circumambulatory pradakshina paths, gopurams, and ritual water bodies.`;
         }
       });
 

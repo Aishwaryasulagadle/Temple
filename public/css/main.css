@@ -747,32 +747,84 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .mandala-grid-canvas {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: 4px;
+  grid-template-rows: repeat(9, 1fr);
+  gap: 3px;
   background: var(--bg-dark-card);
-  padding: 1.25rem;
+  padding: 10px;
   border-radius: var(--radius-md);
   border: 2px solid var(--gold-primary);
-  aspect-ratio: 1/1;
-  max-width: 460px;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
   margin: 0 auto;
-  box-shadow: var(--shadow-dark-card);
+  box-shadow: var(--shadow-dark-card), 0 0 20px rgba(198, 162, 74, 0.15);
+  box-sizing: border-box;
 }
 
 .mandala-cell {
-  background: rgba(139, 129, 115, 0.25);
-  border: 1px solid rgba(198, 162, 74, 0.3);
-  border-radius: 2px;
+  background: rgba(139, 129, 115, 0.18);
+  border: 1px solid rgba(198, 162, 74, 0.35);
+  border-radius: 3px;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1px;
+  overflow: hidden;
+  user-select: none;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.mandala-cell .cell-label {
+  font-size: clamp(0.55rem, 0.85vw, 0.72rem);
+  font-family: var(--font-deva), sans-serif;
+  color: #dfd2b8;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  pointer-events: none;
+}
+
+.mandala-cell .cell-om {
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+  font-family: var(--font-deva), sans-serif;
+  color: #3b0908;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2px;
 }
 
 .mandala-cell:hover, .mandala-cell.active {
-  background: var(--gold-primary);
-  box-shadow: 0 0 10px var(--gold-primary);
+  background: var(--gold-primary) !important;
+  border-color: #ffd700 !important;
+  transform: scale(1.06);
+  z-index: 5;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+}
+
+.mandala-cell:hover .cell-label, .mandala-cell.active .cell-label {
+  color: #1a0f07 !important;
+  font-weight: 700;
 }
 
 .mandala-cell.brahma {
-  background: radial-gradient(circle, var(--gold-primary) 0%, var(--gold-deep) 100%);
+  background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+  border-color: #ffd700;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+}
+
+.mandala-cell.brahma .cell-label {
+  color: #2b0805;
+  font-weight: 700;
 }
 
 .anatomy-details-panel {

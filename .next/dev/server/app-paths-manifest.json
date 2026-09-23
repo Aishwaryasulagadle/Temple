@@ -1,0 +1,6 @@
+{
+  "/api/temples/route": "app/api/temples/route.js",
+  "/contractor/page": "app/contractor/page.js",
+  "/page": "app/page.js",
+  "/projects/page": "app/projects/page.js"
+}

@@ -226,7 +226,7 @@ export default function AdminPage() {
       <div
         style={{
           minHeight: '100vh',
-          background: 'var(--bg-main)',
+          backgroundColor: 'var(--bg-main)',
           backgroundImage: `radial-gradient(circle at 10% 20%, rgba(198, 162, 74, 0.12) 0%, transparent 40%),
                             radial-gradient(circle at 90% 80%, rgba(184, 92, 36, 0.10) 0%, transparent 50%),
                             radial-gradient(circle at 50% 50%, rgba(245, 239, 227, 0.96) 0%, var(--bg-main) 100%)`,
@@ -606,7 +606,7 @@ export default function AdminPage() {
             </div>
 
             {/* Stats Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.75rem', marginBottom: '3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem', marginBottom: '3rem' }}>
               <div
                 style={{
                   background: 'var(--bg-card)',
@@ -651,29 +651,6 @@ export default function AdminPage() {
                   </div>
                 </div>
                 <div style={{ fontSize: '2.75rem', opacity: 0.85 }}>📬</div>
-              </div>
-
-              <div
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1.5px solid var(--border-gold)',
-                  borderRadius: '12px',
-                  padding: '1.75rem 2rem',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  boxShadow: '0 8px 24px rgba(41, 28, 20, 0.06)'
-                }}
-              >
-                <div>
-                  <div className="stat-label" style={{ color: 'var(--saffron)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
-                    Traditions Supported
-                  </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
-                    3 <span style={{ fontSize: '1.1rem', fontWeight: 400, color: 'var(--text-muted)' }}>(Dravida · Nagara · Vesara)</span>
-                  </div>
-                </div>
-                <div style={{ fontSize: '2.75rem', opacity: 0.85 }}>🕉️</div>
               </div>
             </div>
           </div>

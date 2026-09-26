@@ -1669,7 +1669,11 @@ p, li, span, blockquote, label, input, textarea, select, button {
   opacity: 1;
 }
 
-/* Responsive Media Queries */
+/* ==========================================================================
+   Responsive Mobile-Friendly Media Queries
+   (Preserves 100% of desktop layout intact)
+   ========================================================================== */
+
 @media (max-width: 992px) {
   .mandala-split, .contact-container {
     grid-template-columns: 1fr;
@@ -1678,33 +1682,415 @@ p, li, span, blockquote, label, input, textarea, select, button {
   
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2rem;
   }
 
   .desktop-nav,
   .nav-links {
-    display: none;
+    display: none !important;
   }
 
   .mobile-toggle-btn {
     display: flex;
   }
+
+  .brand-logo {
+    margin-left: 0;
+  }
 }
 
-@media (max-width: 600px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
   }
-  
-  .form-row {
-    grid-template-columns: 1fr;
+
+  /* Safe container paddings for mobile */
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
-  
+
+  .section {
+    padding: 3.5rem 0 !important;
+  }
+
+  /* Brand Logo in mobile nav */
+  .brand-logo {
+    margin-left: 0 !important;
+  }
+
+  .brand-logo-img {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .site-header {
+    padding: 0.6rem 0 !important;
+  }
+
+  .site-header.scrolled {
+    padding: 0.45rem 0 !important;
+  }
+
+  /* Hero Section mobile adjustments */
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 5.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-content {
+    padding: 4rem 0.5rem 2rem !important;
+  }
+
+  .hero-title {
+    font-size: 1.95rem !important;
+    line-height: 1.22 !important;
+    margin: 1rem 0 !important;
+  }
+
+  .hero-lead {
+    font-size: 1.02rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem !important;
+  }
+
+  .hero-buttons .btn,
+  .hero-buttons a {
+    width: 100% !important;
+    text-align: center;
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .shloka {
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  /* Stats Ribbon */
   .stats-ribbon {
-    margin-top: 1rem;
-    padding: 1.5rem 1rem;
+    margin-top: 1rem !important;
+    padding: 1.5rem 1rem !important;
+    border-radius: var(--radius-md) !important;
   }
 
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem 0.75rem !important;
+  }
+
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-stone);
+    padding: 0.5rem 0.25rem 1rem !important;
+  }
+
+  .stat-item:last-child {
+    grid-column: 1 / -1;
+    border-bottom: none !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  .stat-num {
+    font-size: 1.85rem !important;
+  }
+
+  .stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 2.25rem !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+
+  .section-desc {
+    font-size: 0.98rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Temple Cards and Grids */
+  .temples-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .temple-card-media {
+    height: 240px !important;
+  }
+
+  .temple-card-body {
+    padding: 1.4rem !important;
+  }
+
+  .temple-card-body h3 {
+    font-size: 1.25rem !important;
+  }
+
+  .temple-snippet {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Traditions Grid */
+  .traditions-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .tradition-img-wrap {
+    height: 220px !important;
+  }
+
+  .tradition-body {
+    padding: 1.5rem !important;
+  }
+
+  /* Site Gallery Grid */
+  .site-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .site-photo-img-wrap {
+    height: 240px !important;
+  }
+
+  .site-photo-details {
+    padding: 1.25rem !important;
+  }
+
+  /* Stages of Craft */
+  .stages-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .stages-grid .stage-card:nth-child(n) {
+    grid-column: span 1 !important;
+  }
+
+  .stage-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .stage-title {
+    font-size: 1.15rem !important;
+  }
+
+  .stage-number {
+    font-size: 1.85rem !important;
+  }
+
+  /* Vastupurusha Mandala */
+  .mandala-split {
+    gap: 2rem !important;
+  }
+
+  .mandala-grid-canvas {
+    max-width: 100% !important;
+    padding: 6px !important;
+    gap: 2px !important;
+  }
+
+  .mandala-cell .cell-label {
+    font-size: 0.48rem !important;
+  }
+
+  .mandala-cell .cell-om {
+    font-size: 0.75rem !important;
+  }
+
+  .anatomy-details-panel {
+    padding: 1.5rem !important;
+  }
+
+  #mandala-info-title {
+    font-size: 1.35rem !important;
+  }
+
+  #mandala-info-desc {
+    font-size: 0.92rem !important;
+  }
+
+  /* Contact & Form */
   .contact-container {
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem !important;
+    gap: 2rem !important;
+  }
+
+  .contact-info h3 {
+    font-size: 1.6rem !important;
+  }
+
+  .office-box {
+    padding: 1.25rem 1rem !important;
+    margin-top: 1.25rem !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .form-group {
+    margin-bottom: 1.15rem !important;
+  }
+
+  .form-control {
+    font-size: 1rem !important;
+    padding: 0.75rem 0.95rem !important;
+  }
+
+  /* Filter Buttons in Projects Page */
+  .filter-bar {
+    gap: 0.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Lightbox Modal */
+  .lightbox-modal {
+    padding: 0.75rem !important;
+  }
+
+  .lightbox-img-area {
+    max-height: 55vh !important;
+  }
+
+  .lightbox-img-area img {
+    max-height: 55vh !important;
+  }
+
+  .lightbox-caption-area {
+    padding: 1rem 1.25rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+
+  .lightbox-close-btn {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* Footer on mobile */
+  .site-footer {
+    padding: 3.5rem 0 2rem !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    text-align: center !important;
+  }
+
+  /* Floating WhatsApp on mobile */
+  .floating-whatsapp-wrapper {
+    bottom: 1.25rem !important;
+    right: 1.25rem !important;
+  }
+
+  .floating-whatsapp-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .floating-whatsapp-tooltip {
+    display: none !important;
+  }
+
+  /* Generic grid layouts with inline gridTemplateColumns */
+  [style*="gridTemplateColumns: '1.1fr 1fr'"],
+  [style*="gridTemplateColumns: '1.2fr 1fr'"],
+  [style*="gridTemplateColumns: '1fr 1.5fr'"],
+  [style*="gridTemplateColumns: '1fr 1.2fr'"],
+  [style*="grid-template-columns: 1.1fr 1fr"],
+  [style*="grid-template-columns: 1.2fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.5fr"],
+  [style*="grid-template-columns: 1fr 1.2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  [style*="gridTemplateColumns: 'repeat(3, 1fr)'"],
+  [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  [style*="gridTemplateColumns: '1fr 1fr'"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Admin Dashboard Mobile Adaptations */
+  .admin-layout-wrapper {
+    flex-direction: column !important;
+  }
+
+  .admin-sidebar-nav {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-gold) !important;
+  }
+
+  .admin-main-content {
+    padding: 1.25rem !important;
+    max-height: none !important;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+
+  .stat-num {
+    font-size: 1.6rem !important;
+  }
+
+  .btn {
+    font-size: 0.8rem !important;
+    padding: 0.75rem 1.25rem !important;
+  }
+
+  .mobile-nav-drawer {
+    width: 88vw !important;
+  }
+}
+
+

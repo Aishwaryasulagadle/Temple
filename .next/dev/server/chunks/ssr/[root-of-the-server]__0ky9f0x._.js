@@ -253,16 +253,22 @@ async function TempleDetailPage({ params }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                borderRadius: 'var(--radius-md)',
+                                overflow: 'hidden',
+                                border: '2px solid var(--gold-primary)',
+                                boxShadow: 'var(--shadow-card)',
+                                height: '480px'
+                            },
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                 src: temple.coverImage || '/images/somnath_grand.png',
                                 alt: temple.name,
                                 style: {
                                     width: '100%',
-                                    maxHeight: '480px',
+                                    height: '100%',
                                     objectFit: 'cover',
-                                    borderRadius: 'var(--radius-md)',
-                                    border: '2px solid var(--gold-primary)',
-                                    boxShadow: 'var(--shadow-card)'
+                                    objectPosition: 'center',
+                                    display: 'block'
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/temple/[id]/page.tsx",
@@ -308,7 +314,7 @@ async function TempleDetailPage({ params }) {
                                     children: "📐 Engineering & Stone Specs"
                                 }, void 0, false, {
                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                    lineNumber: 97,
+                                    lineNumber: 96,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -335,7 +341,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "Primary Stone:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 102,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -347,13 +353,13 @@ async function TempleDetailPage({ params }) {
                                                     children: temple.stoneType
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 104,
+                                                    lineNumber: 103,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 102,
+                                            lineNumber: 101,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -372,7 +378,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "Tower Superstructure:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 107,
+                                                    lineNumber: 106,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -384,13 +390,13 @@ async function TempleDetailPage({ params }) {
                                                     children: temple.subType
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 108,
+                                                    lineNumber: 107,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 106,
+                                            lineNumber: 105,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -409,7 +415,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "Maximum Height:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 111,
+                                                    lineNumber: 110,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -421,13 +427,13 @@ async function TempleDetailPage({ params }) {
                                                     children: temple.height
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 112,
+                                                    lineNumber: 111,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 110,
+                                            lineNumber: 109,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -446,7 +452,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "Built-up Mandapa Area:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 115,
+                                                    lineNumber: 114,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -458,13 +464,13 @@ async function TempleDetailPage({ params }) {
                                                     children: temple.area
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 116,
+                                                    lineNumber: 115,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 113,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -483,7 +489,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "Location / State:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 119,
+                                                    lineNumber: 118,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -495,13 +501,13 @@ async function TempleDetailPage({ params }) {
                                                     children: temple.location
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 120,
+                                                    lineNumber: 119,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 118,
+                                            lineNumber: 117,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -518,7 +524,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "Execution Year:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 123,
+                                                    lineNumber: 122,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -530,25 +536,25 @@ async function TempleDetailPage({ params }) {
                                                     children: temple.year
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 124,
+                                                    lineNumber: 123,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 122,
+                                            lineNumber: 121,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                    lineNumber: 101,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/temple/[id]/page.tsx",
-                            lineNumber: 96,
+                            lineNumber: 95,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -571,7 +577,7 @@ async function TempleDetailPage({ params }) {
                                     children: "Shastra Architecture Highlights"
                                 }, void 0, false, {
                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 130,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -596,7 +602,7 @@ async function TempleDetailPage({ params }) {
                                                     children: "🪷"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 138,
+                                                    lineNumber: 137,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -608,30 +614,30 @@ async function TempleDetailPage({ params }) {
                                                     children: feat
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                                    lineNumber: 139,
+                                                    lineNumber: 138,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, index, true, {
                                             fileName: "[project]/app/temple/[id]/page.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 136,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 134,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/temple/[id]/page.tsx",
-                            lineNumber: 130,
+                            lineNumber: 129,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/temple/[id]/page.tsx",
-                    lineNumber: 94,
+                    lineNumber: 93,
                     columnNumber: 9
                 }, this),
                 temple.images && temple.images.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -649,21 +655,24 @@ async function TempleDetailPage({ params }) {
                             children: "Architectural Photo Gallery"
                         }, void 0, false, {
                             fileName: "[project]/app/temple/[id]/page.tsx",
-                            lineNumber: 149,
+                            lineNumber: 148,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             style: {
                                 display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                                gap: '1.5rem'
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                                gap: '1.75rem',
+                                maxWidth: temple.images.length === 1 ? '550px' : '100%',
+                                margin: temple.images.length === 1 ? '0 auto' : '0'
                             },
                             children: temple.images.map((img, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
                                         borderRadius: 'var(--radius-md)',
                                         overflow: 'hidden',
-                                        border: '1px solid var(--border-stone)',
-                                        height: '260px'
+                                        border: '1.5px solid var(--border-gold)',
+                                        height: '420px',
+                                        boxShadow: 'var(--shadow-card)'
                                     },
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: img,
@@ -671,27 +680,29 @@ async function TempleDetailPage({ params }) {
                                         style: {
                                             width: '100%',
                                             height: '100%',
-                                            objectFit: 'cover'
+                                            objectFit: 'cover',
+                                            objectPosition: 'center',
+                                            display: 'block'
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/temple/[id]/page.tsx",
-                                        lineNumber: 155,
+                                        lineNumber: 154,
                                         columnNumber: 19
                                     }, this)
                                 }, idx, false, {
                                     fileName: "[project]/app/temple/[id]/page.tsx",
-                                    lineNumber: 154,
+                                    lineNumber: 153,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/temple/[id]/page.tsx",
-                            lineNumber: 152,
+                            lineNumber: 151,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/temple/[id]/page.tsx",
-                    lineNumber: 148,
+                    lineNumber: 147,
                     columnNumber: 11
                 }, this)
             ]

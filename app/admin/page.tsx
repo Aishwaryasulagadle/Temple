@@ -734,6 +734,9 @@ export default function AdminPage() {
                       <td style={{ padding: '1rem' }}>
                         <span
                           style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            whiteSpace: 'nowrap',
                             padding: '0.28rem 0.75rem',
                             borderRadius: '20px',
                             fontSize: '0.78rem',

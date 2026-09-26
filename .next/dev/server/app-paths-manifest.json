@@ -2,6 +2,10 @@
   "/admin/page": "app/admin/page.js",
   "/api/admin/login/route": "app/api/admin/login/route.js",
   "/api/enquiries/route": "app/api/enquiries/route.js",
+  "/api/temples/[id]/route": "app/api/temples/[id]/route.js",
   "/api/temples/route": "app/api/temples/route.js",
-  "/page": "app/page.js"
+  "/contractor/page": "app/contractor/page.js",
+  "/page": "app/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/temple/[id]/page": "app/temple/[id]/page.js"
 }

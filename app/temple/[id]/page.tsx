@@ -74,17 +74,16 @@ export default async function TempleDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div>
+          <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '2px solid var(--gold-primary)', boxShadow: 'var(--shadow-card)', height: '480px' }}>
             <img
               src={temple.coverImage || '/images/somnath_grand.png'}
               alt={temple.name}
               style={{
                 width: '100%',
-                maxHeight: '480px',
+                height: '100%',
                 objectFit: 'cover',
-                borderRadius: 'var(--radius-md)',
-                border: '2px solid var(--gold-primary)',
-                boxShadow: 'var(--shadow-card)'
+                objectPosition: 'center',
+                display: 'block'
               }}
             />
           </div>
@@ -149,10 +148,10 @@ export default async function TempleDetailPage({ params }: PageProps) {
             <h3 style={{ color: 'var(--maroon)', fontSize: '1.6rem', marginBottom: '1.5rem', textAlign: 'center' }}>
               Architectural Photo Gallery
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem', maxWidth: temple.images.length === 1 ? '550px' : '100%', margin: temple.images.length === 1 ? '0 auto' : '0' }}>
               {temple.images.map((img, idx) => (
-                <div key={idx} style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', height: '260px' }}>
-                  <img src={img} alt={`${temple.name} - Photo ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div key={idx} style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1.5px solid var(--border-gold)', height: '420px', boxShadow: 'var(--shadow-card)' }}>
+                  <img src={img} alt={`${temple.name} - Photo ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                 </div>
               ))}
             </div>

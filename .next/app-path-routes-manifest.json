@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/admin/page": "/admin",
+  "/api/admin/login/route": "/api/admin/login",
+  "/api/contractor/route": "/api/contractor",
+  "/api/enquiries/route": "/api/enquiries",
+  "/api/temples/[id]/like/route": "/api/temples/[id]/like",
+  "/api/temples/[id]/route": "/api/temples/[id]",
+  "/api/temples/route": "/api/temples",
+  "/api/upload/route": "/api/upload",
+  "/contact/page": "/contact",
+  "/contractor/page": "/contractor",
+  "/page": "/",
+  "/projects/page": "/projects",
+  "/temple/[id]/page": "/temple/[id]"
+}

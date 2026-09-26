@@ -207,7 +207,7 @@
       "status": "In Progress",
       "year": "2025",
       "height": "58 ft",
-      "area": "22,000 sq.ft",
+      "area": "23,000 sq.ft",
       "coverImage": "/images/site_work_mandapa_stone_hall.png",
       "images": [
         "/images/site_work_mandapa_stone_hall.png",
@@ -223,7 +223,8 @@
       ],
       "likes": 388,
       "featured": true,
-      "createdAt": "2026-09-22T12:12:19.041Z"
+      "createdAt": "2026-09-22T12:12:19.041Z",
+      "updatedAt": "2026-09-24T05:59:33.247Z"
     },
     {
       "id": "temple-8",

@@ -23,7 +23,7 @@ function FloatingWhatsApp() {
         className: "floating-whatsapp-wrapper",
         "aria-label": "Direct WhatsApp Contact",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-            href: "https://wa.me/919890933567?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20for%20temple%20construction.",
+            href: "https://wa.me/919535343935?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20for%20temple%20construction.",
             target: "_blank",
             rel: "noopener noreferrer",
             className: "floating-whatsapp-btn",
@@ -340,8 +340,26 @@ function Footer() {
                                         fontSize: '0.9rem',
                                         marginBottom: '0.75rem'
                                     },
-                                    children: "GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India"
-                                }, void 0, false, {
+                                    children: [
+                                        "📍",
+                                        ' ',
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            href: "https://www.google.com/maps/search/?api=1&query=Loha,+Nanded,+Maharashtra+431708",
+                                            target: "_blank",
+                                            rel: "noopener noreferrer",
+                                            style: {
+                                                color: 'var(--gold-light)',
+                                                textDecoration: 'none'
+                                            },
+                                            title: "Open location in Google Maps",
+                                            children: "At Loha Tq Loha Dist Nanded Maharashtra Pin 431708"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Footer.tsx",
+                                            lineNumber: 65,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/components/Footer.tsx",
                                     lineNumber: 63,
                                     columnNumber: 13
@@ -356,20 +374,20 @@ function Footer() {
                                         "📞",
                                         ' ',
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                            href: "tel:+919890933567",
+                                            href: "tel:+919535343935",
                                             style: {
                                                 color: 'var(--gold-light)'
                                             },
-                                            children: "+91 98909 33567"
+                                            children: "+91 95353 43935"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Footer.tsx",
-                                            lineNumber: 68,
+                                            lineNumber: 77,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/Footer.tsx",
-                                    lineNumber: 66,
+                                    lineNumber: 75,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -377,10 +395,26 @@ function Footer() {
                                         color: 'var(--text-light-muted)',
                                         fontSize: '0.9rem'
                                     },
-                                    children: "✉️ temple@gmail.com"
-                                }, void 0, false, {
+                                    children: [
+                                        "✉️",
+                                        ' ',
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            href: "https://mail.google.com/mail/?view=cm&fs=1&to=omkartemplecontractions@gmail.com",
+                                            target: "_blank",
+                                            rel: "noopener noreferrer",
+                                            style: {
+                                                color: 'var(--gold-light)'
+                                            },
+                                            children: "omkartemplecontractions@gmail.com"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Footer.tsx",
+                                            lineNumber: 83,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/components/Footer.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 81,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -406,20 +440,20 @@ function Footer() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/Footer.tsx",
-                            lineNumber: 79,
+                            lineNumber: 96,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: "Turnkey Temple Construction Across Pan-India"
                         }, void 0, false, {
                             fileName: "[project]/components/Footer.tsx",
-                            lineNumber: 80,
+                            lineNumber: 97,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/Footer.tsx",
-                    lineNumber: 78,
+                    lineNumber: 95,
                     columnNumber: 9
                 }, this)
             ]
@@ -745,7 +779,7 @@ function Navbar() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mobile-drawer-footer",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                            href: "https://wa.me/919890933567?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20for%20temple%20construction.",
+                            href: "https://wa.me/919535343935?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20for%20temple%20construction.",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             className: "btn btn-gold",

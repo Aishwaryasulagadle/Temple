@@ -47,8 +47,8 @@ export default function ContractorPage() {
                 <Link href="/contact" className="btn btn-gold">
                   Hire for Temple Construction →
                 </Link>
-                <a href={`tel:${contractor.phone || '+919890933567'}`} className="btn btn-outline-gold">
-                  Direct Call {contractor.phone || '+91 98909 33567'}
+                <a href={`tel:${contractor.phone || '+919535343935'}`} className="btn btn-outline-gold">
+                  Direct Call {contractor.phone || '+91 95353 43935'}
                 </a>
               </div>
             </div>

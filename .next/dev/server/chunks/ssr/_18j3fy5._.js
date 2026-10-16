@@ -347,7 +347,7 @@ function Footer() {
                                         fontSize: '0.9rem',
                                         marginBottom: '0.75rem'
                                     },
-                                    children: "📞 +91 98909 33567 / +91 94220 88210"
+                                    children: "📞95353 43935 "
                                 }, void 0, false, {
                                     fileName: "[project]/components/Footer.tsx",
                                     lineNumber: 39,

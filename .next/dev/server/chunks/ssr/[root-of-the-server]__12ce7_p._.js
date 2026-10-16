@@ -193,11 +193,11 @@ function ContractorPage() {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: `tel:${contractor.phone || '+919890933567'}`,
+                                                    href: `tel:${contractor.phone || '+919535343935'}`,
                                                     className: "btn btn-outline-gold",
                                                     children: [
                                                         "Direct Call ",
-                                                        contractor.phone || '+91 98909 33567'
+                                                        contractor.phone || '+91 95353 43935'
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/contractor/page.tsx",
@@ -1267,10 +1267,10 @@ function readDb() {
                     name: "Acharya Someshwar Sthapati & Sons",
                     title: "Chief Master Temple Contractor & Shilpa Shastra Architect",
                     experience: "35+ Years of Master Turnkey Execution across Pan-India",
-                    phone: "+91 98909 33567",
-                    whatsapp: "919890933567",
-                    email: "temple@gmail.com",
-                    headOffice: "GINI Viviana, Balewadi Highstreet, Balewadi, Pune - 411045, Maharashtra, India",
+                    phone: "+91 95353 43935",
+                    whatsapp: "919535343935",
+                    email: "omkartemplecontractions@gmail.com",
+                    headOffice: "At Loha, Tq Loha, Dist Nanded, Maharashtra - 431708",
                     quarryYards: "Pune (Maharashtra), Makrana (Rajasthan), Jaisalmer & Karkala (Karnataka)",
                     panIndiaCoverage: "Maharashtra, Gujarat, Rajasthan, Tamil Nadu, Karnataka, Andhra Pradesh, Telangana, Uttar Pradesh, Madhya Pradesh, Delhi NCR, and International Exports.",
                     bio: "Chief Master Contractor specialized in turnkey structural temple construction across Pan-India.",

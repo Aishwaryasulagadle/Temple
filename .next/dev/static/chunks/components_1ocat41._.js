@@ -108,8 +108,27 @@ function BookingForm() {
                                             fontSize: '0.95rem',
                                             color: 'var(--text-muted)'
                                         },
-                                        children: "GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India"
-                                    }, void 0, false, {
+                                        children: [
+                                            "📍 Address:",
+                                            ' ',
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "https://www.google.com/maps/search/?api=1&query=Loha,+Nanded,+Maharashtra+431708",
+                                                target: "_blank",
+                                                rel: "noopener noreferrer",
+                                                style: {
+                                                    color: 'var(--saffron)',
+                                                    fontWeight: 600,
+                                                    textDecoration: 'none'
+                                                },
+                                                title: "Open location in Google Maps",
+                                                children: "At Loha Tq Loha Dist Nanded Maharashtra Pin 431708"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/BookingForm.tsx",
+                                                lineNumber: 63,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
                                         lineNumber: 61,
                                         columnNumber: 15
@@ -123,21 +142,21 @@ function BookingForm() {
                                         children: [
                                             "📞 Call: ",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "tel:+919890933567",
+                                                href: "tel:+919535343935",
                                                 style: {
                                                     color: 'var(--saffron)',
                                                     fontWeight: 600
                                                 },
-                                                children: "+91 98909 33567"
+                                                children: "+91 95353 43935"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 65,
+                                                lineNumber: 74,
                                                 columnNumber: 26
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 64,
+                                        lineNumber: 73,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -146,10 +165,27 @@ function BookingForm() {
                                             color: 'var(--text-muted)',
                                             marginTop: '0.3rem'
                                         },
-                                        children: "✉️ Email: temple@gmail.com"
-                                    }, void 0, false, {
+                                        children: [
+                                            "✉️ Email:",
+                                            ' ',
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "https://mail.google.com/mail/?view=cm&fs=1&to=omkartemplecontractions@gmail.com",
+                                                target: "_blank",
+                                                rel: "noopener noreferrer",
+                                                style: {
+                                                    color: 'var(--saffron)',
+                                                    fontWeight: 600
+                                                },
+                                                children: "omkartemplecontractions@gmail.com"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/BookingForm.tsx",
+                                                lineNumber: 78,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 67,
+                                        lineNumber: 76,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -179,7 +215,7 @@ function BookingForm() {
                                 children: successMsg
                             }, void 0, false, {
                                 fileName: "[project]/components/BookingForm.tsx",
-                                lineNumber: 75,
+                                lineNumber: 92,
                                 columnNumber: 15
                             }, this),
                             errorMsg && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -195,7 +231,7 @@ function BookingForm() {
                                 children: errorMsg
                             }, void 0, false, {
                                 fileName: "[project]/components/BookingForm.tsx",
-                                lineNumber: 80,
+                                lineNumber: 97,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -212,7 +248,7 @@ function BookingForm() {
                                                         children: "Your Full Name *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 88,
+                                                        lineNumber: 105,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -223,13 +259,13 @@ function BookingForm() {
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 89,
+                                                        lineNumber: 106,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 87,
+                                                lineNumber: 104,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -239,30 +275,30 @@ function BookingForm() {
                                                         children: "Contact Number *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 92,
+                                                        lineNumber: 109,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                         type: "tel",
                                                         name: "phone",
                                                         className: "form-control",
-                                                        placeholder: "+91 98909 33567",
+                                                        placeholder: "+91 95353 43935",
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 110,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 91,
+                                                lineNumber: 108,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 103,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -275,7 +311,7 @@ function BookingForm() {
                                                         children: "Email Address"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 99,
+                                                        lineNumber: 116,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -285,13 +321,13 @@ function BookingForm() {
                                                         placeholder: "trustee@domain.com"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 100,
+                                                        lineNumber: 117,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 98,
+                                                lineNumber: 115,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -301,7 +337,7 @@ function BookingForm() {
                                                         children: "Proposed Location / City *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 103,
+                                                        lineNumber: 120,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -312,19 +348,19 @@ function BookingForm() {
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 104,
+                                                        lineNumber: 121,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 102,
+                                                lineNumber: 119,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 97,
+                                        lineNumber: 114,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -337,7 +373,7 @@ function BookingForm() {
                                                         children: "Principal Deity"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 110,
+                                                        lineNumber: 127,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -347,13 +383,13 @@ function BookingForm() {
                                                         placeholder: "e.g. Lord Shiva, Balaji, Ram"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 111,
+                                                        lineNumber: 128,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 126,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -363,7 +399,7 @@ function BookingForm() {
                                                         children: "Architectural Style"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 131,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -376,7 +412,7 @@ function BookingForm() {
                                                                 children: "Dravida (South Vimana & Rajagopuram)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                                lineNumber: 116,
+                                                                lineNumber: 133,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -384,7 +420,7 @@ function BookingForm() {
                                                                 children: "Nagara (North Curvilinear Spire)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                                lineNumber: 117,
+                                                                lineNumber: 134,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -392,7 +428,7 @@ function BookingForm() {
                                                                 children: "Vesara (Stellate Star Plan)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                                lineNumber: 118,
+                                                                lineNumber: 135,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -400,25 +436,25 @@ function BookingForm() {
                                                                 children: "Undecided / Sthapati Guidance Required"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                                lineNumber: 119,
+                                                                lineNumber: 136,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 115,
+                                                        lineNumber: 132,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 130,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 125,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -428,7 +464,7 @@ function BookingForm() {
                                                 children: "Estimated Project Budget Scope"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 125,
+                                                lineNumber: 142,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -441,7 +477,7 @@ function BookingForm() {
                                                         children: "₹25 Lakhs - ₹50 Lakhs (Small Sanctum)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 127,
+                                                        lineNumber: 144,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -449,7 +485,7 @@ function BookingForm() {
                                                         children: "₹50 Lakhs - ₹1.5 Crore (Medium Shrine)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 128,
+                                                        lineNumber: 145,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -457,7 +493,7 @@ function BookingForm() {
                                                         children: "₹1.5 Crore - ₹5 Crore (Grand Temple Complex)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 129,
+                                                        lineNumber: 146,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -465,19 +501,19 @@ function BookingForm() {
                                                         children: "₹5 Crore+ (Monumental Trust Project)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/BookingForm.tsx",
-                                                        lineNumber: 130,
+                                                        lineNumber: 147,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 126,
+                                                lineNumber: 143,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 141,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -487,23 +523,23 @@ function BookingForm() {
                                                 children: "Project Vision & Land Details"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 135,
+                                                lineNumber: 152,
                                                 columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
                                                 name: "message",
                                                 className: "form-control",
-                                                rows: 4,
                                                 placeholder: "Describe your land dimensions, foundation status, required mandapas, or specific stone preferences..."
                                             }, void 0, false, {
                                                 fileName: "[project]/components/BookingForm.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 153,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 151,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -517,19 +553,19 @@ function BookingForm() {
                                         children: loading ? "Submitting Sacred Request..." : "Submit Sacred Temple Request →"
                                     }, void 0, false, {
                                         fileName: "[project]/components/BookingForm.tsx",
-                                        lineNumber: 144,
+                                        lineNumber: 161,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/BookingForm.tsx",
-                                lineNumber: 85,
+                                lineNumber: 102,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/BookingForm.tsx",
-                        lineNumber: 73,
+                        lineNumber: 90,
                         columnNumber: 11
                     }, this)
                 ]

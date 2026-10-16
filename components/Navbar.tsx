@@ -148,7 +148,7 @@ export default function Navbar() {
 
         <div className="mobile-drawer-footer">
           <a
-            href="https://wa.me/919890933567?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20for%20temple%20construction."
+            href="https://wa.me/919535343935?text=Namaste%20Acharya%20Ji,%20I%20want%20to%20consult%20for%20temple%20construction."
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-gold"

@@ -22,7 +22,7 @@ export default function BookingForm() {
       tradition: (form.elements.namedItem('tradition') as HTMLSelectElement).value,
       location: (form.elements.namedItem('location') as HTMLInputElement).value,
       budget: (form.elements.namedItem('budget') as HTMLSelectElement)?.value || '',
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value
+      message: (form.elements.namedItem('message') as HTMLInputElement).value
     };
 
     try {
@@ -59,13 +59,30 @@ export default function BookingForm() {
             <div className="office-box">
               <h4>Head Contractor Office</h4>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
-                GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
+                📍 Address:{' '}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Loha,+Nanded,+Maharashtra+431708"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--saffron)', fontWeight: 600, textDecoration: 'none' }}
+                  title="Open location in Google Maps"
+                >
+                  At Loha Tq Loha Dist Nanded Maharashtra Pin 431708
+                </a>
               </p>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-                📞 Call: <a href="tel:+919890933567" style={{ color: 'var(--saffron)', fontWeight: 600 }}>+91 98909 33567</a>
+                📞 Call: <a href="tel:+919535343935" style={{ color: 'var(--saffron)', fontWeight: 600 }}>+91 95353 43935</a>
               </p>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '0.3rem' }}>
-                ✉️ Email: temple@gmail.com
+                ✉️ Email:{' '}
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=omkartemplecontractions@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--saffron)', fontWeight: 600 }}
+                >
+                  omkartemplecontractions@gmail.com
+                </a>
               </p>
             </div>
           </div>
@@ -90,7 +107,7 @@ export default function BookingForm() {
                 </div>
                 <div className="form-group">
                   <label>Contact Number *</label>
-                  <input type="tel" name="phone" className="form-control" placeholder="+91 98909 33567" required />
+                  <input type="tel" name="phone" className="form-control" placeholder="+91 95353 43935" required />
                 </div>
               </div>
 
@@ -133,12 +150,12 @@ export default function BookingForm() {
 
               <div className="form-group">
                 <label>Project Vision & Land Details</label>
-                <textarea
+                <input
+                  type="text"
                   name="message"
                   className="form-control"
-                  rows={4}
                   placeholder="Describe your land dimensions, foundation status, required mandapas, or specific stone preferences..."
-                ></textarea>
+                />
               </div>
 
               <button type="submit" className="btn btn-saffron" style={{ width: '100%', padding: '1rem' }} disabled={loading}>

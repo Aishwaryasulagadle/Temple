@@ -312,7 +312,7 @@ function ContactPage() {
                                                         type: "tel",
                                                         name: "phone",
                                                         className: "form-control",
-                                                        placeholder: "+91 98909 33567",
+                                                        placeholder: "+91 95353 43935",
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/contact/page.tsx",

@@ -61,16 +61,33 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Connect Directly</h4>
             <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
-              GINI Viviana, Balewadi Highstreet, Pune - 411045, Maharashtra, India
+              📍{' '}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Loha,+Nanded,+Maharashtra+431708"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'var(--gold-light)', textDecoration: 'none' }}
+                title="Open location in Google Maps"
+              >
+                At Loha Tq Loha Dist Nanded Maharashtra Pin 431708
+              </a>
             </p>
             <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
               📞{' '}
-              <a href="tel:+919890933567" style={{ color: 'var(--gold-light)' }}>
-                +91 98909 33567
+              <a href="tel:+919535343935" style={{ color: 'var(--gold-light)' }}>
+                +91 95353 43935
               </a>
             </p>
             <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem' }}>
-              ✉️ temple@gmail.com
+              ✉️{' '}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=omkartemplecontractions@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'var(--gold-light)' }}
+              >
+                omkartemplecontractions@gmail.com
+              </a>
             </p>
           </div>
         </div>

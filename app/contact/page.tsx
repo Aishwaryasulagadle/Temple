@@ -129,7 +129,7 @@ export default function ContactPage() {
                   </div>
                   <div className="form-group">
                     <label>Mobile Number (WhatsApp Enabled) *</label>
-                    <input type="tel" name="phone" className="form-control" placeholder="+91 98909 33567" required />
+                    <input type="tel" name="phone" className="form-control" placeholder="+91 95353 43935" required />
                   </div>
                 </div>
 

@@ -1,4 +1,4 @@
-# 🏛️ The Temple Construct - Pan-India Master Temple Contractor & Shilpa Shastra Portal
+ # 🏛️ The Temple Construct - Pan-India Master Temple Contractor & Shilpa Shastra Portal
 
 A modern, high-performance web application and master contractor portal for traditional stone and RCC temple construction across all 28 states of India. Rooted in classical **Shilpa Shastra**, **Agama Shastras**, and **Vedic Vastu**, this platform showcases canonical temple architecture, live on-site construction works, and provides a direct turnkey consultation & booking system.
 

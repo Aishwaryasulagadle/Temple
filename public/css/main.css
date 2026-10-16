@@ -1351,8 +1351,21 @@ p, li, span, blockquote, label, input, textarea, select, button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   font-size: 0.88rem;
   color: var(--text-light-muted);
+}
+
+.footer-bottom a {
+  color: var(--gold-light);
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* Lightbox Modal */

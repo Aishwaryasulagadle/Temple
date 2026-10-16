@@ -95,6 +95,18 @@ export default function Footer() {
         <div className="footer-bottom">
           <div>© {new Date().getFullYear()} The Divine Temple Construction India. Shilpa Shastra · Agama · Vastu.</div>
           <div>Turnkey Temple Construction Across Pan-India</div>
+          <div>
+            Design & Developed by{' '}
+            <a
+              href="https://www.jisnudigital.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'var(--gold-light)', textDecoration: 'none', fontWeight: 500 }}
+              title="Best Digital Marketing Agency in Pune | Jisnu Digital"
+            >
+              Jisnu Digital Solutions
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -2,7 +2,6 @@
   "name": "temple-construction-portal",
   "version": "1.0.0",
   "description": "Premium Temple Architecture & Construction Portal with Admin Panel",
-  "main": "server.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

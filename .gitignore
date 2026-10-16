@@ -1,7 +1,34 @@
-node_modules/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js build outputs (CRITICAL: must never be committed to git)
+/.next/
+/out/
+/build
+
+# local environment files
 .env
-.env.local
+.env*.local
 .env.*
+
+# vercel
+.vercel
+
+# typescript build cache
+*.tsbuildinfo
+next-env.d.ts
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
+
+# system files
 .DS_Store
 Thumbs.db

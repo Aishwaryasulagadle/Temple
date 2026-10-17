@@ -16,6 +16,8 @@ export default function AdminPage() {
   const [temples, setTemples] = useState<Temple[]>([]);
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [toastMsg, setToastMsg] = useState('');
+  const [expandedCard, setExpandedCard] = useState<'temples' | 'enquiries' | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<'temples' | 'enquiries' | null>(null);
 
   // Modal State for Add / Edit Temple
   const [showModal, setShowModal] = useState(false);
@@ -605,54 +607,430 @@ export default function AdminPage() {
               </button>
             </div>
 
-            {/* Stats Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem', marginBottom: '3rem' }}>
+            {/* Interactive Stats Cards with Hover & Click Inside Details */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem', marginBottom: '2rem' }}>
+              {/* Card 1: Total Temples In Portfolio */}
               <div
+                onClick={() => setExpandedCard(expandedCard === 'temples' ? null : 'temples')}
+                onMouseEnter={() => setHoveredCard('temples')}
+                onMouseLeave={() => setHoveredCard(null)}
                 style={{
-                  background: 'var(--bg-card)',
-                  border: '1.5px solid var(--border-gold)',
-                  borderRadius: '12px',
-                  padding: '1.75rem 2rem',
+                  background: expandedCard === 'temples'
+                    ? 'linear-gradient(135deg, rgba(198, 162, 74, 0.16) 0%, rgba(255, 255, 255, 0.95) 100%)'
+                    : hoveredCard === 'temples'
+                    ? 'linear-gradient(135deg, rgba(198, 162, 74, 0.08) 0%, rgba(255, 255, 255, 0.98) 100%)'
+                    : 'var(--bg-card)',
+                  border: expandedCard === 'temples'
+                    ? '2px solid var(--gold-primary)'
+                    : hoveredCard === 'temples'
+                    ? '2px solid var(--saffron)'
+                    : '1.5px solid var(--border-gold)',
+                  borderRadius: '14px',
+                  padding: '1.75rem 2rem 1.25rem',
                   display: 'flex',
+                  flexDirection: 'column',
                   justifyContent: 'space-between',
-                  alignItems: 'center',
-                  boxShadow: '0 8px 24px rgba(41, 28, 20, 0.06)'
+                  boxShadow: expandedCard === 'temples'
+                    ? '0 14px 32px rgba(198, 162, 74, 0.25)'
+                    : hoveredCard === 'temples'
+                    ? '0 16px 36px rgba(198, 162, 74, 0.22)'
+                    : '0 8px 24px rgba(41, 28, 20, 0.06)',
+                  transform: hoveredCard === 'temples' ? 'translateY(-6px)' : 'translateY(0)',
+                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer',
+                  userSelect: 'none'
                 }}
               >
-                <div>
-                  <div className="stat-label" style={{ color: 'var(--saffron)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
-                    Total Temples In Portfolio
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <div className="stat-label" style={{ color: 'var(--saffron)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem', fontWeight: 600 }}>
+                      Total Temples In Portfolio
+                    </div>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--maroon)', fontFamily: 'var(--font-heading)' }}>
+                      {temples.length}
+                    </div>
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--maroon)', fontFamily: 'var(--font-heading)' }}>
-                    {temples.length}
+                  <div style={{ fontSize: '2.75rem', opacity: hoveredCard === 'temples' ? 1 : 0.85, transform: hoveredCard === 'temples' ? 'scale(1.1)' : 'scale(1)', transition: 'all 0.25s ease' }}>
+                    🏛️
                   </div>
                 </div>
-                <div style={{ fontSize: '2.75rem', opacity: 0.85 }}>🏛️</div>
+
+                <div
+                  style={{
+                    marginTop: '1.25rem',
+                    paddingTop: '0.75rem',
+                    borderTop: '1px dashed var(--border-stone)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontSize: '0.82rem',
+                    color: expandedCard === 'temples' ? 'var(--maroon)' : 'var(--saffron)',
+                    fontWeight: 600
+                  }}
+                >
+                  <span>{expandedCard === 'temples' ? '▲ Hide Inside Details' : '▼ Click to View Inside Details'}</span>
+                  <span
+                    style={{
+                      background: expandedCard === 'temples' ? 'var(--maroon)' : hoveredCard === 'temples' ? 'var(--gold-primary)' : 'rgba(198, 162, 74, 0.15)',
+                      color: expandedCard === 'temples' || hoveredCard === 'temples' ? '#fff' : 'var(--maroon)',
+                      padding: '0.2rem 0.6rem',
+                      borderRadius: '12px',
+                      fontSize: '0.72rem',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    {expandedCard === 'temples' ? 'Viewing' : 'Inspect'}
+                  </span>
+                </div>
               </div>
 
+              {/* Card 2: Consultation Requests */}
+              <div
+                onClick={() => setExpandedCard(expandedCard === 'enquiries' ? null : 'enquiries')}
+                onMouseEnter={() => setHoveredCard('enquiries')}
+                onMouseLeave={() => setHoveredCard(null)}
+                style={{
+                  background: expandedCard === 'enquiries'
+                    ? 'linear-gradient(135deg, rgba(184, 92, 36, 0.14) 0%, rgba(255, 255, 255, 0.95) 100%)'
+                    : hoveredCard === 'enquiries'
+                    ? 'linear-gradient(135deg, rgba(184, 92, 36, 0.08) 0%, rgba(255, 255, 255, 0.98) 100%)'
+                    : 'var(--bg-card)',
+                  border: expandedCard === 'enquiries'
+                    ? '2px solid var(--gold-primary)'
+                    : hoveredCard === 'enquiries'
+                    ? '2px solid var(--saffron)'
+                    : '1.5px solid var(--border-gold)',
+                  borderRadius: '14px',
+                  padding: '1.75rem 2rem 1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxShadow: expandedCard === 'enquiries'
+                    ? '0 14px 32px rgba(184, 92, 36, 0.25)'
+                    : hoveredCard === 'enquiries'
+                    ? '0 16px 36px rgba(184, 92, 36, 0.22)'
+                    : '0 8px 24px rgba(41, 28, 20, 0.06)',
+                  transform: hoveredCard === 'enquiries' ? 'translateY(-6px)' : 'translateY(0)',
+                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer',
+                  userSelect: 'none'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <div className="stat-label" style={{ color: 'var(--saffron)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem', fontWeight: 600 }}>
+                      Consultation Requests
+                    </div>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--gold-deep)', fontFamily: 'var(--font-heading)' }}>
+                      {enquiries.length}
+                    </div>
+                  </div>
+                  <div style={{ fontSize: '2.75rem', opacity: hoveredCard === 'enquiries' ? 1 : 0.85, transform: hoveredCard === 'enquiries' ? 'scale(1.1)' : 'scale(1)', transition: 'all 0.25s ease' }}>
+                    📬
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    marginTop: '1.25rem',
+                    paddingTop: '0.75rem',
+                    borderTop: '1px dashed var(--border-stone)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontSize: '0.82rem',
+                    color: expandedCard === 'enquiries' ? 'var(--maroon)' : 'var(--saffron)',
+                    fontWeight: 600
+                  }}
+                >
+                  <span>{expandedCard === 'enquiries' ? '▲ Hide Inside Details' : '▼ Click to View Inside Details'}</span>
+                  <span
+                    style={{
+                      background: expandedCard === 'enquiries' ? 'var(--maroon)' : hoveredCard === 'enquiries' ? 'var(--gold-primary)' : 'rgba(198, 162, 74, 0.15)',
+                      color: expandedCard === 'enquiries' || hoveredCard === 'enquiries' ? '#fff' : 'var(--maroon)',
+                      padding: '0.2rem 0.6rem',
+                      borderRadius: '12px',
+                      fontSize: '0.72rem',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    {expandedCard === 'enquiries' ? 'Viewing' : 'Inspect'}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* EXPANDABLE INSIDE DETAILS: TOTAL TEMPLES IN PORTFOLIO */}
+            {expandedCard === 'temples' && (
               <div
                 style={{
                   background: 'var(--bg-card)',
-                  border: '1.5px solid var(--border-gold)',
-                  borderRadius: '12px',
-                  padding: '1.75rem 2rem',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  boxShadow: '0 8px 24px rgba(41, 28, 20, 0.06)'
+                  border: '2px solid var(--gold-primary)',
+                  borderRadius: '14px',
+                  padding: '2rem',
+                  marginBottom: '2.5rem',
+                  boxShadow: '0 16px 40px rgba(198, 162, 74, 0.16)'
                 }}
               >
-                <div>
-                  <div className="stat-label" style={{ color: 'var(--saffron)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
-                    Consultation Requests
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-stone)', paddingBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+                  <div>
+                    <div className="eyebrow">Portfolio Inside Details</div>
+                    <h3 style={{ margin: 0, color: 'var(--maroon)', fontSize: '1.45rem', fontFamily: 'var(--font-heading)' }}>
+                      🏛️ Temples In Portfolio ({temples.length} Total Masterworks)
+                    </h3>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', margin: '0.25rem 0 0 0' }}>
+                      Click on any temple to edit its architectural data, stone material, or gallery photos.
+                    </p>
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--gold-deep)', fontFamily: 'var(--font-heading)' }}>
-                    {enquiries.length}
+                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                    <button
+                      onClick={() => setActiveTab('temples')}
+                      className="btn btn-gold"
+                      style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
+                    >
+                      Open Full Temple Manager →
+                    </button>
+                    <button
+                      onClick={() => setExpandedCard(null)}
+                      style={{
+                        background: 'var(--bg-paper)',
+                        border: '1px solid var(--border-stone)',
+                        borderRadius: '6px',
+                        padding: '0.5rem 0.85rem',
+                        cursor: 'pointer',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        color: 'var(--text-muted)'
+                      }}
+                    >
+                      ✕ Close Details
+                    </button>
                   </div>
                 </div>
-                <div style={{ fontSize: '2.75rem', opacity: 0.85 }}>📬</div>
+
+                {/* Architectural Tradition Summary Badges */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                  <span style={{ background: 'rgba(184,92,36,0.12)', color: 'var(--saffron)', padding: '0.4rem 0.85rem', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600 }}>
+                    Nagara Spire: {temples.filter(t => t.tradition?.includes('Nagara')).length}
+                  </span>
+                  <span style={{ background: 'rgba(100,31,31,0.12)', color: 'var(--maroon)', padding: '0.4rem 0.85rem', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600 }}>
+                    Dravida Vimana: {temples.filter(t => t.tradition?.includes('Dravida')).length}
+                  </span>
+                  <span style={{ background: 'rgba(198,162,74,0.15)', color: 'var(--gold-deep)', padding: '0.4rem 0.85rem', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600 }}>
+                    Vesara & Star Plan: {temples.filter(t => t.tradition?.includes('Vesara') || (!t.tradition?.includes('Nagara') && !t.tradition?.includes('Dravida'))).length}
+                  </span>
+                  <span style={{ background: 'rgba(38,115,60,0.12)', color: '#26733c', padding: '0.4rem 0.85rem', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600 }}>
+                    Completed Sanctums: {temples.filter(t => t.status === 'Completed').length}
+                  </span>
+                </div>
+
+                {/* Temples List Inside Details Grid */}
+                {temples.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: '2rem 1rem', color: 'var(--text-muted)' }}>
+                    No temples uploaded in portfolio yet. Click &quot;+ Upload New Temple &amp; Photos&quot; to add your first work.
+                  </div>
+                ) : (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '1.25rem' }}>
+                    {temples.map((temple) => (
+                      <div
+                        key={temple.id}
+                        style={{
+                          background: '#FFFFFF',
+                          border: '1.5px solid var(--border-stone)',
+                          borderRadius: '10px',
+                          padding: '1.1rem',
+                          display: 'flex',
+                          gap: '1rem',
+                          alignItems: 'center',
+                          boxShadow: '0 4px 12px rgba(41,28,20,0.04)',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <img
+                          src={temple.coverImage || '/images/white_gopuram_hero.png'}
+                          alt={temple.name}
+                          style={{ width: '68px', height: '68px', borderRadius: '8px', objectFit: 'cover', border: '1px solid var(--border-gold)', flexShrink: 0 }}
+                        />
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontWeight: 700, fontSize: '0.98rem', color: 'var(--maroon)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {temple.name}
+                          </div>
+                          <div style={{ fontSize: '0.82rem', color: 'var(--saffron)', fontWeight: 600, marginTop: '0.15rem' }}>
+                            {temple.deity} • {temple.tradition}
+                          </div>
+                          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                            📍 {temple.location || 'Pan-India'}
+                          </div>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: '0.15rem' }}>
+                            📸 {temple.images?.length || 1} Site Photos
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => openEditTempleModal(temple)}
+                          style={{
+                            background: 'rgba(198,162,74,0.12)',
+                            border: '1px solid var(--gold-primary)',
+                            color: 'var(--maroon)',
+                            padding: '0.4rem 0.75rem',
+                            borderRadius: '6px',
+                            cursor: 'pointer',
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            whiteSpace: 'nowrap',
+                            alignSelf: 'center'
+                          }}
+                        >
+                          ✏️ Edit
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
+            )}
+
+            {/* EXPANDABLE INSIDE DETAILS: CONSULTATION REQUESTS */}
+            {expandedCard === 'enquiries' && (
+              <div
+                style={{
+                  background: 'var(--bg-card)',
+                  border: '2px solid var(--gold-primary)',
+                  borderRadius: '14px',
+                  padding: '2rem',
+                  marginBottom: '2.5rem',
+                  boxShadow: '0 16px 40px rgba(184, 92, 36, 0.16)'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-stone)', paddingBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+                  <div>
+                    <div className="eyebrow">Client Communications Inside Details</div>
+                    <h3 style={{ margin: 0, color: 'var(--maroon)', fontSize: '1.45rem', fontFamily: 'var(--font-heading)' }}>
+                      📬 Consultation &amp; Construction Requests ({enquiries.length} Inquiries)
+                    </h3>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', margin: '0.25rem 0 0 0' }}>
+                      Devotees, temple trusts, and committees requesting Sthapati project consultation.
+                    </p>
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                    <button
+                      onClick={() => setActiveTab('enquiries')}
+                      className="btn btn-gold"
+                      style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
+                    >
+                      Open Full Enquiries Manager →
+                    </button>
+                    <button
+                      onClick={() => setExpandedCard(null)}
+                      style={{
+                        background: 'var(--bg-paper)',
+                        border: '1px solid var(--border-stone)',
+                        borderRadius: '6px',
+                        padding: '0.5rem 0.85rem',
+                        cursor: 'pointer',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        color: 'var(--text-muted)'
+                      }}
+                    >
+                      ✕ Close Details
+                    </button>
+                  </div>
+                </div>
+
+                {enquiries.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: '2.5rem 1rem', color: 'var(--text-muted)' }}>
+                    <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>📬</div>
+                    <p style={{ margin: 0 }}>No consultation requests received yet. As soon as a devotee fills the booking form, it will show here.</p>
+                  </div>
+                ) : (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
+                    {enquiries.map((enq) => (
+                      <div
+                        key={enq.id}
+                        style={{
+                          background: '#FFFFFF',
+                          border: '1.5px solid var(--border-stone)',
+                          borderRadius: '10px',
+                          padding: '1.25rem',
+                          boxShadow: '0 4px 12px rgba(41,28,20,0.04)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'space-between'
+                        }}
+                      >
+                        <div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem', gap: '0.5rem' }}>
+                            <div>
+                              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--maroon)' }}>{enq.name}</div>
+                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                                📍 {enq.location || 'Pan-India'} • {new Date(enq.date).toLocaleDateString()}
+                              </div>
+                            </div>
+                            <a
+                              href={`https://wa.me/${(enq.phone || '').replace(/[^0-9]/g, '')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                color: '#128C7E',
+                                fontWeight: 700,
+                                textDecoration: 'none',
+                                background: 'rgba(37, 211, 102, 0.12)',
+                                padding: '0.35rem 0.65rem',
+                                borderRadius: '20px',
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: '0.8rem',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.3rem',
+                                whiteSpace: 'nowrap'
+                              }}
+                            >
+                              💬 WhatsApp
+                            </a>
+                          </div>
+
+                          <div style={{ fontSize: '0.85rem', color: 'var(--saffron)', fontWeight: 600, marginTop: '0.4rem' }}>
+                            🛕 Deity: {enq.deity || 'Not specified'} ({enq.tradition || 'General'})
+                          </div>
+                          <div style={{ fontSize: '0.82rem', color: 'var(--text-main)', marginTop: '0.2rem', fontFamily: 'var(--font-mono)' }}>
+                            💰 Budget Scope: {enq.budget || 'Custom Scope'}
+                          </div>
+
+                          {enq.message && (
+                            <div
+                              style={{
+                                fontSize: '0.82rem',
+                                color: 'var(--text-muted)',
+                                marginTop: '0.65rem',
+                                background: 'var(--bg-paper)',
+                                padding: '0.5rem 0.75rem',
+                                borderRadius: '6px',
+                                borderLeft: '3px solid var(--gold-primary)',
+                                fontStyle: 'italic',
+                                lineHeight: '1.45'
+                              }}
+                            >
+                              &quot;{enq.message}&quot;
+                            </div>
+                          )}
+                        </div>
+
+                        <div style={{ marginTop: '1rem', paddingTop: '0.65rem', borderTop: '1px solid var(--border-stone)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                            📞 {enq.phone}
+                          </span>
+                          {enq.email && (
+                            <a href={`mailto:${enq.email}`} style={{ fontSize: '0.82rem', color: 'var(--saffron)', textDecoration: 'none', fontWeight: 600 }}>
+                              ✉️ Email
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
 

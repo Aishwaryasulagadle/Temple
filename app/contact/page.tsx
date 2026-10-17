@@ -52,7 +52,7 @@ export default function ContactPage() {
       <section className="section" style={{ paddingTop: '8.5rem', paddingBottom: '3rem', background: 'var(--bg-paper)', borderBottom: '1px solid var(--border-stone)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
           <div className="eyebrow">Pan-India Turnkey Contract Portal</div>
-          <h1 className="section-title">Temple Construction Booking Application</h1>
+          <h1 className="section-title">Temple Construction  Booking Application</h1>
           <p className="section-desc">
             Direct turnkey consultation with Acharya Someshwar Sthapati. Complete structural planning, stone selection, 3D Shastra elevations, foundation engineering, and on-site crane erection.
           </p>

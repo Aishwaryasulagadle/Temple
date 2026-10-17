@@ -23,7 +23,7 @@ export default function ContactPage() {
       tradition: (form.elements.namedItem('tradition') as HTMLSelectElement).value,
       budget: (form.elements.namedItem('budget') as HTMLSelectElement).value,
       landArea: (form.elements.namedItem('landArea') as HTMLInputElement).value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value
+      message: (form.elements.namedItem('message') as HTMLInputElement).value
     };
 
     try {
@@ -205,12 +205,12 @@ export default function ContactPage() {
 
                 <div className="form-group">
                   <label>Specific Requirements / Shikhara Height / Mandapa Needs</label>
-                  <textarea
+                  <input
+                    type="text"
                     name="message"
                     className="form-control"
-                    rows={4}
                     placeholder="Provide additional details regarding soil status, RCC base readiness, stone preference (Makrana, Bansi Paharpur, Granite), or timeline..."
-                  ></textarea>
+                  />
                 </div>
 
                 <button type="submit" className="btn btn-gold" style={{ width: '100%', padding: '1.1rem', fontSize: '1rem' }} disabled={loading}>

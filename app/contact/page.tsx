@@ -47,7 +47,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main style={{ background: 'var(--bg-main)', minHeight: '100vh' }}>
+    <main suppressHydrationWarning style={{ background: 'var(--bg-main)', minHeight: '100vh' }}>
       {/* Header Banner */}
       <section className="section" style={{ paddingTop: '8.5rem', paddingBottom: '3rem', background: 'var(--bg-paper)', borderBottom: '1px solid var(--border-stone)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>

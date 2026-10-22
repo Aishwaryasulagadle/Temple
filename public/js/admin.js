@@ -228,6 +228,53 @@ function initTempleForm() {
     });
   }
 
+function compressImageFile(file, maxWidth = 1600, maxHeight = 1600, quality = 0.82) {
+  return new Promise((resolve) => {
+    if (!file.type || !file.type.startsWith('image/')) {
+      resolve(file);
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+        if (width > maxWidth || height > maxHeight) {
+          if (width > height) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          } else {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) { resolve(file); return; }
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const compressed = new File([blob], file.name.replace(/\.[^/.]+$/, '.jpg'), {
+              type: 'image/jpeg',
+              lastModified: Date.now()
+            });
+            resolve(compressed);
+          } else {
+            resolve(file);
+          }
+        }, 'image/jpeg', quality);
+      };
+      img.onerror = () => resolve(file);
+      img.src = e.target.result;
+    };
+    reader.onerror = () => resolve(file);
+    reader.readAsDataURL(file);
+  });
+}
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -235,6 +282,15 @@ function initTempleForm() {
     submitBtn.textContent = "Uploading & Saving...";
 
     const formData = new FormData(form);
+
+    // Compress any selected photo files so they upload instantly on Vercel
+    if (fileInput && fileInput.files && fileInput.files.length > 0) {
+      formData.delete('photos');
+      for (const f of Array.from(fileInput.files)) {
+        const compressed = await compressImageFile(f);
+        formData.append('photos', compressed);
+      }
+    }
 
     const url = editingTempleId 
       ? `/api/admin/temples/${editingTempleId}` 

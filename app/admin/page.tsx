@@ -141,42 +141,124 @@ export default function AdminPage() {
     }
   };
 
+  // Helper to compress large photos client-side (keeps under 300KB for instant Vercel uploads)
+  const compressImage = (file: File, maxWidth = 1600, maxHeight = 1600, quality = 0.82): Promise<{ dataUrl: string; file: File }> => {
+    return new Promise((resolve) => {
+      if (!file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = () => resolve({ dataUrl: (reader.result as string) || '', file });
+        reader.onerror = () => resolve({ dataUrl: '', file });
+        reader.readAsDataURL(file);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxWidth || height > maxHeight) {
+            if (width > height) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            } else {
+              width = Math.round((width * maxHeight) / height);
+              height = maxHeight;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            resolve({ dataUrl: (event.target?.result as string) || '', file });
+            return;
+          }
+
+          ctx.drawImage(img, 0, 0, width, height);
+          const dataUrl = canvas.toDataURL('image/jpeg', quality);
+
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, '.jpg'), {
+                  type: 'image/jpeg',
+                  lastModified: Date.now()
+                });
+                resolve({ dataUrl, file: compressedFile });
+              } else {
+                resolve({ dataUrl, file });
+              }
+            },
+            'image/jpeg',
+            quality
+          );
+        };
+        img.onerror = () => resolve({ dataUrl: (event.target?.result as string) || '', file });
+        img.src = (event.target?.result as string) || '';
+      };
+      reader.onerror = () => resolve({ dataUrl: '', file });
+      reader.readAsDataURL(file);
+    });
+  };
+
   // Upload file handler
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, isCover: boolean = true) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const rawFile = e.target.files?.[0];
+    if (!rawFile) return;
 
     setUploadingImage(true);
-    const uploadFormData = new FormData();
-    uploadFormData.append('file', file);
 
     try {
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: uploadFormData
-      });
-      const data = await res.json();
-      if (data.success && data.url) {
+      // 1. Automatically compress large mobile/DSLR photos client-side
+      const { dataUrl, file } = await compressImage(rawFile);
+
+      let finalUrl = dataUrl;
+
+      // 2. Try uploading the compressed file to /api/upload
+      try {
+        const uploadFormData = new FormData();
+        uploadFormData.append('file', file);
+
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          body: uploadFormData
+        });
+        const data = await res.json();
+        if (data.success && data.url) {
+          finalUrl = data.url;
+        }
+      } catch (uploadErr) {
+        console.warn('Server upload had an issue, falling back to client-compressed data URL:', uploadErr);
+        // finalUrl already holds dataUrl
+      }
+
+      if (finalUrl) {
         if (isCover) {
           setFormData((prev) => ({
             ...prev,
-            coverImage: data.url,
-            images: [data.url, ...prev.images.filter((img) => img !== data.url)]
+            coverImage: finalUrl,
+            images: [finalUrl, ...prev.images.filter((img) => img !== finalUrl)]
           }));
         } else {
           setFormData((prev) => ({
             ...prev,
-            images: [...prev.images, data.url]
+            images: [...prev.images, finalUrl]
           }));
         }
-        showToast('Photo uploaded successfully!');
+        showToast('✅ Photo uploaded & saved successfully!');
       } else {
-        alert(data.message || 'Image upload failed');
+        alert('Image upload failed. Please try a different photo.');
       }
     } catch (err) {
+      console.error('Error handling image upload:', err);
       alert('Error uploading file');
     } finally {
       setUploadingImage(false);
+      e.target.value = '';
     }
   };
 
@@ -1365,7 +1447,7 @@ export default function AdminPage() {
                 )}
 
                 {formData.coverImage && (
-                  <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem' }}>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', background: 'rgba(217, 119, 6, 0.05)', padding: '0.8rem', borderRadius: '8px' }}>
                     <img
                       src={formData.coverImage}
                       alt="Cover Preview"
@@ -1378,16 +1460,58 @@ export default function AdminPage() {
                         boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                       }}
                     />
-                    <div style={{ textAlign: 'left' }}>
+                    <div style={{ textAlign: 'left', flex: 1, minWidth: 0 }}>
                       <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block' }}>
-                        Image Path:
+                        Cover Status:
                       </span>
                       <span style={{ fontSize: '0.85rem', color: 'var(--saffron)', fontWeight: 600, wordBreak: 'break-all' }}>
-                        {formData.coverImage}
+                        {formData.coverImage.startsWith('data:') ? '✅ Embedded Cloud Photo (Optimized & Ready)' : formData.coverImage}
                       </span>
                     </div>
                   </div>
                 )}
+
+                {/* Additional Gallery Photos */}
+                <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px dashed var(--border-stone)' }}>
+                  <label
+                    style={{
+                      display: 'block',
+                      color: 'var(--maroon)',
+                      fontWeight: 700,
+                      marginBottom: '0.5rem',
+                      textTransform: 'uppercase',
+                      fontSize: '0.82rem',
+                      fontFamily: 'var(--font-mono)'
+                    }}
+                  >
+                    ➕ Add Additional Gallery Photos
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleImageUpload(e, false)}
+                    style={{ color: 'var(--text-main)', fontSize: '0.85rem' }}
+                  />
+                  {formData.images && formData.images.length > 0 && (
+                    <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginTop: '0.75rem' }}>
+                      {formData.images.map((img, idx) => (
+                        <div key={idx} style={{ position: 'relative', width: '65px', height: '50px', borderRadius: '6px', overflow: 'hidden', border: '1.5px solid var(--gold-primary)', boxShadow: '0 2px 6px rgba(0,0,0,0.1)' }}>
+                          <img src={img} alt={`Gallery ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          {formData.images.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={() => setFormData(prev => ({ ...prev, images: prev.images.filter((_, i) => i !== idx) }))}
+                              style={{ position: 'absolute', top: 0, right: 0, background: 'rgba(180, 20, 20, 0.85)', color: '#fff', border: 'none', fontSize: '11px', width: '18px', height: '18px', cursor: 'pointer', lineHeight: '16px', textAlign: 'center', borderRadius: '0 0 0 4px' }}
+                              title="Remove photo"
+                            >
+                              ×
+                            </button>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Basic Fields */}

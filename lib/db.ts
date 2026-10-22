@@ -27,8 +27,8 @@ export function readDb(): DatabaseSchema {
           stats: {
             templesCompleted: "1,200+",
             statesCovered: "22 Indian States",
-            artisansEmployed: "350+ Karigars & Sthapatis",
-            heritageYears: "75+ Years & 4 Generations"
+            artisansEmployed: "20+ Years Experience",
+            heritageYears: "4 Generations"
           }
         },
         temples: [],

@@ -48,17 +48,17 @@ const SITE_PHOTOS = [
     captionDesc: 'Precision level alignment on stepped tower masonry using traditional plumb-bob and brass templates.'
   },
   {
-    src: '/images/site_work_mahadwara_archway.jpg',
-    title: 'Consecrated Monumental Entrance Mahadwara',
-    desc: 'Awe-inspiring completed white Rajagopuram archway with decorative relief moulding, lotus rosettes, and sanctum passage doorway.',
+    src: '/images/site_shikhara_bell_scaffolding.jpg',
+    title: 'Consecrated Monumental Entrance Mahadwara & Shikhara',
+    desc: 'Pure monolithic stone sanctum shikhara under construction with hand-sculpted sacred bell relief, auspicious swastika motifs, and layered cornices under traditional bamboo scaffolding.',
     badge: 'Consecrated Work',
     captionTitle: 'Finished Gateway Arch & Gopuram',
     captionDesc: 'Pure white monolithic entry portal framing the sanctum with ornamental stone rosettes and lintel mouldings.'
   },
   {
-    src: '/images/white_gopuram_hero.png',
-    title: 'Monumental 7-Tier White Dravidian Rajagopuram',
-    desc: 'Magnificent multi-tiered white Rajagopuram with gold deity sculptures and 9 golden Kalasham pinnacles erected under turnkey contract.',
+    src: '/images/site_tiered_shikhara_artisans.jpg',
+    title: 'Monumental 7-Tier Dravidian & Nagara Shikhara',
+    desc: 'Towering multi-tier stone Shikhara with intricately carved lotuses, ornamental kalashas, fluted pillars, and master artisans on site scaffolding.',
     badge: '🌟 Monumental Turnkey',
     captionTitle: '7-Tier White Gopuram & Kalashams',
     captionDesc: '128 ft white Dravidian tower with golden sculptures and 9 gold kalashas erected with heavy cranes.'

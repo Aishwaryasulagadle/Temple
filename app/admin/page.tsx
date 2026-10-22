@@ -10,7 +10,7 @@ export default function AdminPage() {
   
   // Login form state
   const [loginEmail, setLoginEmail] = useState('temple@gmail.com');
-  const [loginPassword, setLoginPassword] = useState('temple123');
+  const [loginPassword, setLoginPassword] = useState('pawar1991');
   const [loginError, setLoginError] = useState('');
 
   const [temples, setTemples] = useState<Temple[]>([]);

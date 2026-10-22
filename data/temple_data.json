@@ -22,7 +22,7 @@
     "stats": {
       "templesCompleted": "1,200+",
       "statesCovered": "22 Indian States",
-      "artisansEmployed": "350+ Karigars & Sthapatis",
+      "artisansEmployed": "20+ Years Expereince",
       "heritageYears": "75+ Years & 4 Generations"
     }
   },
@@ -536,6 +536,95 @@
       "likes": 640,
       "featured": true,
       "createdAt": "2026-09-23T10:20:00.000Z"
+    },
+    {
+      "id": "temple-19",
+      "name": "Renuka Temple, Mahagaon",
+      "deity": "Goddess Renuka Devi",
+      "tradition": "Dravida & Nagara",
+      "subType": "Size 29×8 ft · Temple Height 27 Feet",
+      "stoneType": "Monolithic Dressed Stone & Traditional Temple Stucco",
+      "location": "Mahagaon, Tq: Umarkhed, Dist: Nanded, Maharashtra",
+      "country": "India",
+      "status": "Completed",
+      "year": "2025",
+      "height": "27 Feet",
+      "area": "Size 29×8 ft",
+      "coverImage": "/images/consecrated_yellow_mahadwara.jpg",
+      "images": [
+        "/images/consecrated_yellow_mahadwara.jpg"
+      ],
+      "description": "Renuka temple size 29×8 hight 27 feet, Mahagaon tq umarkhed dist nanded. Consecrated ceremonial entrance Mahadwara portal featuring multi-tier yellow Dravidian stepped gopuram crest, sculpted seated deity niche, guardian dwarapalakas, and ceremonial scalloped archway.",
+      "features": [
+        "Renuka temple Mahagaon tq umarkhed dist nanded",
+        "Size 29×8 ft",
+        "Temple height 27 feet",
+        "Stepped yellow Dravidian temple gateway crest with central deity shrine",
+        "Sculpted dwarapalaka attendants in prayer posture (Anjali Mudra)",
+        "Traditional scalloped archway framing the temple inner compound",
+        "Sturdy monolithic square columns with layered stone plinths"
+      ],
+      "likes": 512,
+      "featured": true,
+      "createdAt": "2026-09-24T10:00:00.000Z"
+    },
+    {
+      "id": "temple-20",
+      "name": "Khondoba Temple, Shrigonda",
+      "deity": "Lord Khandoba (Martanda Bhairava)",
+      "tradition": "Nagara",
+      "subType": "Size 30×40 ft · Temple 31 Feet + 11 Feet",
+      "stoneType": "RCC Reinforced Core with Ornate Traditional Stucco Craft",
+      "location": "Shrigonda, Tq: Shrigonda, Dist: Ahilyanagar, Maharashtra",
+      "country": "India",
+      "status": "Completed",
+      "year": "2024",
+      "height": "31 feet + 11 feet (Total 42 Feet)",
+      "area": "Size 30×40 ft",
+      "coverImage": "/images/consecrated_dual_shikhara_mandir.jpg",
+      "images": [
+        "/images/consecrated_dual_shikhara_mandir.jpg"
+      ],
+      "description": "Khondoba temple shrigonda tq shrigonda dist ahilanagar size 30×40 temple 31 feet +11 feet. Consecrated Lord Khandoba Mandir featuring dual tiered colorful conical Shikharas with sacred Kalasham pinnacles, arched sanctum windows, and spacious compound.",
+      "features": [
+        "Khondoba temple shrigonda tq shrigonda dist ahilanagar",
+        "Size 30×40 ft",
+        "Temple 31 feet + 11 feet (Total 42 Feet)",
+        "Dual tiered conical Shikharas with sacred kalasham pinnacles and flagposts",
+        "Enclosed Garbhagriha with traditional arched ventilation windows and raised stone plinth"
+      ],
+      "likes": 628,
+      "featured": true,
+      "createdAt": "2026-09-24T10:10:00.000Z"
+    },
+    {
+      "id": "temple-21",
+      "name": "Mahadev Temple, Jamner",
+      "deity": "Lord Shiva (Mahadev)",
+      "tradition": "Nagara",
+      "subType": "Size 25×25 ft · Temple Height 25 Feet",
+      "stoneType": "Carved Stone Pillars & Vibrant Shikhara Superstructure",
+      "location": "Jamner, Tq: Jamner, Dist: Jalgaon, Maharashtra",
+      "country": "India",
+      "status": "Completed",
+      "year": "2024",
+      "height": "25 Feet",
+      "area": "Size 25×25 ft",
+      "coverImage": "/images/consecrated_polychrome_spire_mandapa.jpg",
+      "images": [
+        "/images/consecrated_polychrome_spire_mandapa.jpg"
+      ],
+      "description": "Mahadev temple jamner tq jamner dist Jalgaon size 25×25 temple hight 25 feet. Magnificent finished temple with an open pillared Sabha Mandapa, sculpted decorative columns, archway brackets, carved lotus balustrades, and a soaring multi-tier polychrome Nagara Shikhara spire.",
+      "features": [
+        "Mahadev temple jamner tq jamner dist Jalgaon",
+        "Size 25×25 ft",
+        "Temple height 25 feet",
+        "Soaring multi-color tiered Nagara Shikhara with crowning golden Kalasham",
+        "Open-air Sabha Mandapa with sculpted decorative stone pillars and scalloped arches"
+      ],
+      "likes": 735,
+      "featured": true,
+      "createdAt": "2026-09-24T10:20:00.000Z"
     }
   ],
   "enquiries": [

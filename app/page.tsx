@@ -8,7 +8,7 @@ import BookingForm from '@/components/BookingForm';
 export default function HomePage() {
   const db = readDb();
   // Grand Temple Spires, Gopurams, Vimanas, Sanctums & Monolithic Sculptures
-  const targetIds = ['temple-17', 'temple-18', 'temple-14', 'temple-15', 'temple-16', 'temple-11', 'temple-12', 'temple-10', 'temple-13'];
+  const targetIds = ['temple-19', 'temple-20', 'temple-21', 'temple-17', 'temple-18', 'temple-14', 'temple-15', 'temple-16', 'temple-11', 'temple-12', 'temple-10', 'temple-13'];
   const featuredTemples = (db.temples || []).filter(t => targetIds.includes(t.id)).sort((a, b) => targetIds.indexOf(a.id) - targetIds.indexOf(b.id));
 
   return (
@@ -60,8 +60,8 @@ export default function HomePage() {
               <div className="stat-label">Generations of Sthapatis</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">350+</div>
-              <div className="stat-label">Karigars & Artisans</div>
+              <div className="stat-num">20+</div>
+              <div className="stat-label">Years Expereince</div>
             </div>
             <div className="stat-item">
               <div className="stat-num">Turnkey</div>

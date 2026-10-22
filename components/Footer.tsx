@@ -77,6 +77,10 @@ export default function Footer() {
               <a href="tel:+919535343935" style={{ color: 'var(--gold-light)' }}>
                 +91 95353 43935
               </a>
+              <br></br>
+              <a href="tel:+9405266291" style={{ color: 'var(--gold-light)' }}>
+                +91 94052 66291
+              </a>
             </p>
             <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem' }}>
               ✉️{' '}
@@ -112,3 +116,4 @@ export default function Footer() {
     </footer>
   );
 }
+

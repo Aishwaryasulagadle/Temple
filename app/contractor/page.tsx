@@ -111,9 +111,9 @@ export default function ContractorPage() {
                 </div>
               </div>
               <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', background: '#fff' }}>
-                <img src="/images/site_work_mahadwara_archway.jpg" alt="Completed Sacred Mahadwara" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <img src="/images/site_shikhara_bell_scaffolding.jpg" alt="Completed Sacred Mahadwara & Shikhara" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                 <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
-                  Consecrated Gateway
+                  Consecrated Gateway & Shikhara
                 </div>
               </div>
             </div>

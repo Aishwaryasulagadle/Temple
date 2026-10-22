@@ -106,6 +106,48 @@ app.post('/api/enquiries', (req, res) => {
   });
 });
 
+// Admin Authentication Endpoints
+let adminSessionActive = false;
+
+app.post('/api/admin/login', (req, res) => {
+  const { username, email, password } = req.body;
+  const identifier = (username || email || '').trim().toLowerCase();
+  const isUserValid = identifier === 'admin' || identifier === 'temple@gmail.com' || identifier === 'pawar' || identifier === 'laxmanpawar1227@gmail.com';
+  const isPassValid = password === 'pawar1991' || password === 'templeadmin123' || password === 'temple123';
+
+  if (isUserValid && isPassValid) {
+    adminSessionActive = true;
+    return res.json({ success: true, message: 'Authentication successful', user: { username: identifier, role: 'Chief Sthapati Admin' } });
+  }
+  return res.status(401).json({ success: false, message: 'Invalid credentials. Please enter the correct admin password.' });
+});
+
+app.get('/api/admin/check-auth', (req, res) => {
+  res.json({ authenticated: adminSessionActive });
+});
+
+app.post('/api/admin/logout', (req, res) => {
+  adminSessionActive = false;
+  res.json({ success: true });
+});
+
+app.get('/api/admin/stats', (req, res) => {
+  const db = readDb();
+  const temples = db.temples || [];
+  const enquiries = db.enquiries || [];
+  const totalLikes = temples.reduce((sum, t) => sum + (t.likes || 0), 0);
+  res.json({
+    success: true,
+    data: {
+      totalTemples: temples.length,
+      completedTemples: temples.filter(t => t.status === 'Completed').length,
+      inProgressTemples: temples.filter(t => t.status === 'In Progress').length,
+      totalLikes,
+      totalEnquiries: enquiries.length
+    }
+  });
+});
+
 // -------------------------------------------------------------
 // PAGE ROUTING
 // -------------------------------------------------------------

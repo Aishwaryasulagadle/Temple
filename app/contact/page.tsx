@@ -60,7 +60,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Form Wrapper */}
-      <section className="section" style={{ paddingTop: '3.5rem' }}>
+      <section className="section" style={{ paddingTop: '3.5rem', paddingBottom: '3rem' }} id="booking-form-wrapper">
         <div className="container" style={{ maxWidth: '960px', margin: '0 auto' }}>
           <div
             style={{
@@ -218,6 +218,73 @@ export default function ContactPage() {
                 </button>
               </form>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Official Master Contractor Visiting Card Section - At Bottom of Form */}
+      <section className="visiting-card-stage" style={{ padding: '3.5rem 1rem 5rem', background: 'var(--bg-paper)', borderTop: '1px solid var(--border-stone)' }}>
+        <div className="container" style={{ maxWidth: '1060px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          
+          {/* Card Presentation Eyebrow Badge */}
+          <div className="visiting-card-badge" style={{ marginBottom: '1.25rem' }}>
+            <span>📇</span>
+            <span>Official Master Contractor Visiting Card</span>
+          </div>
+
+          {/* Real Official Visiting Card - As It Is */}
+          <div 
+            style={{
+              position: 'relative',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 45px rgba(44, 24, 16, 0.22), 0 4px 14px rgba(212, 160, 23, 0.25)',
+              border: '3px solid var(--gold-primary)',
+              maxWidth: '920px',
+              width: '100%',
+              background: '#fff',
+            }}
+          >
+            <img
+              src="/images/omkar_visiting_card.jpg"
+              alt="Omkar Temple Construction Company - Master Sculptor Laxman Keshav Pawar Official Visiting Card"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+              }}
+            />
+          </div>
+
+          {/* Action Toolbar directly below the card */}
+          <div className="vc-actions" style={{ marginTop: '1.75rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a
+              href="#booking-form-wrapper"
+              className="btn btn-gold"
+              style={{
+                padding: '0.75rem 1.6rem',
+                fontSize: '0.92rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+              }}
+            >
+              <span>↑ Back to Top of Booking Form</span>
+            </a>
+            <a
+              href="mailto:laxmanpawar1227@gmail.com"
+              className="btn btn-outline-gold"
+              style={{
+                padding: '0.75rem 1.5rem',
+                fontSize: '0.92rem',
+                background: 'rgba(255, 255, 255, 0.85)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+              }}
+            >
+              <span>✉️ Email: laxmanpawar1227@gmail.com</span>
+            </a>
           </div>
         </div>
       </section>

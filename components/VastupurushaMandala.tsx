@@ -48,19 +48,18 @@ function getPadaInfo(row: number, col: number) {
 
 export default function VastupurushaMandala() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
   // Auto-advance to the next box on a 2-second timeline (2000ms)
   useEffect(() => {
-    if (!isAutoPlaying || isHovered) return;
+    if (isHovered) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % 81);
     }, 2000);
 
     return () => clearInterval(timer);
-  }, [isAutoPlaying, isHovered]);
+  }, [isHovered]);
 
   const activeRow = Math.floor(currentIndex / 9);
   const activeCol = currentIndex % 9;
@@ -70,18 +69,6 @@ export default function VastupurushaMandala() {
     setCurrentIndex(row * 9 + col);
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + 81) % 81);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % 81);
-  };
-
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying((prev) => !prev);
-  };
-
   return (
     <section id="mandala" className="section dark-section">
       <div className="container">
@@ -89,7 +76,7 @@ export default function VastupurushaMandala() {
           <div className="eyebrow">Sacred Geometry</div>
           <h2 className="section-title">The Vastupurusha Mandala</h2>
           <p className="section-desc">
-            Before a single stone is carved, the cosmic grid of 81 cells (Paramasayika) is struck on the earth. Hover over the grid to explore sacred placements or follow the automated 2-second sacred tour.
+            Before a single stone is carved, the cosmic grid of 81 cells (Paramasayika) is struck on the earth. Hover over the grid to explore sacred placements.
           </p>
         </div>
 
@@ -137,55 +124,7 @@ export default function VastupurushaMandala() {
               )}
             </div>
 
-            {/* 2-Second Timeline Bar & Controls */}
-            <div className="mandala-timeline-wrapper">
-              <div className="mandala-timeline-track">
-                <div
-                  key={`${currentIndex}-${isAutoPlaying && !isHovered}`}
-                  className={`mandala-timeline-bar ${isAutoPlaying && !isHovered ? 'animating' : 'paused'}`}
-                />
-              </div>
-              <div className="mandala-timeline-footer">
-                <div className="mandala-timeline-badge">
-                  <span className={`mandala-timeline-pulse-dot ${!isAutoPlaying || isHovered ? 'paused' : ''}`} />
-                  <span>
-                    {isHovered ? 'Hovering (Paused)' : isAutoPlaying ? '2s Timeline Tour' : 'Paused'}
-                  </span>
-                  <span style={{ opacity: 0.65, fontSize: '0.78rem' }}>
-                    • Box {currentIndex + 1}/81
-                  </span>
-                </div>
-
-                <div className="mandala-timeline-actions">
-                  <button
-                    type="button"
-                    className="mandala-btn-icon"
-                    onClick={handlePrev}
-                    title="Previous Pada Box"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    type="button"
-                    className="mandala-btn-icon"
-                    onClick={toggleAutoPlay}
-                    title={isAutoPlaying ? "Pause 2s Timeline" : "Start 2s Timeline"}
-                  >
-                    {isAutoPlaying ? '⏸' : '▶'}
-                  </button>
-                  <button
-                    type="button"
-                    className="mandala-btn-icon"
-                    onClick={handleNext}
-                    title="Next Pada Box"
-                  >
-                    ›
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <p style={{ textAlign: 'center', color: 'var(--gold-light)', fontSize: '0.88rem', marginTop: '0.85rem', fontFamily: 'var(--font-mono)' }}>
+            <p style={{ textAlign: 'center', color: 'var(--gold-light)', fontSize: '0.88rem', marginTop: '1rem', fontFamily: 'var(--font-mono)' }}>
               81-Cell Paramasayika Grid (Centre 9 Gold Cells: Brahmasthana)
             </p>
           </div>

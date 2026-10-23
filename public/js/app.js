@@ -155,22 +155,12 @@ function initMandalaVisualizer() {
       if (infoTitle) infoTitle.textContent = `Pada [${row + 1}, ${col + 1}]: ${formattedName}`;
       if (infoDesc) infoDesc.textContent = `Governed by sacred deity ${formattedName}. This consecrated boundary quadrant dictates the placement of outer mandapas, circumambulatory pradakshina paths, gopurams, and ritual water bodies.`;
     }
-
-    // Restart timeline animation
-    const timelineBar = document.getElementById('mandala-timeline-bar');
-    if (timelineBar) {
-      timelineBar.classList.remove('animating');
-      void timelineBar.offsetWidth; // trigger reflow
-      if (isAutoPlaying && !isHovered) {
-        timelineBar.classList.add('animating');
-      }
-    }
   }
 
   function startAutoCycle() {
     stopAutoCycle();
     autoTimer = setInterval(() => {
-      if (isAutoPlaying && !isHovered) {
+      if (!isHovered) {
         currentIndex = (currentIndex + 1) % 81;
         selectCell(currentIndex);
       }
@@ -223,58 +213,11 @@ function initMandalaVisualizer() {
 
   mandalaContainer.addEventListener('mouseenter', () => {
     isHovered = true;
-    const badge = document.getElementById('mandala-status-text');
-    if (badge) badge.textContent = 'Hovering (Paused)';
-    const timelineBar = document.getElementById('mandala-timeline-bar');
-    if (timelineBar) timelineBar.classList.add('paused');
   });
 
   mandalaContainer.addEventListener('mouseleave', () => {
     isHovered = false;
-    const badge = document.getElementById('mandala-status-text');
-    if (badge) badge.textContent = isAutoPlaying ? '2s Timeline Tour' : 'Paused';
-    const timelineBar = document.getElementById('mandala-timeline-bar');
-    if (timelineBar) {
-      timelineBar.classList.remove('paused');
-      timelineBar.classList.add('animating');
-    }
   });
-
-  const prevBtn = document.getElementById('mandala-prev-btn');
-  const nextBtn = document.getElementById('mandala-next-btn');
-  const playBtn = document.getElementById('mandala-play-btn');
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + 81) % 81;
-      selectCell(currentIndex);
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % 81;
-      selectCell(currentIndex);
-    });
-  }
-
-  if (playBtn) {
-    playBtn.addEventListener('click', () => {
-      isAutoPlaying = !isAutoPlaying;
-      playBtn.textContent = isAutoPlaying ? '⏸' : '▶';
-      const badge = document.getElementById('mandala-status-text');
-      if (badge) badge.textContent = isAutoPlaying ? '2s Timeline Tour' : 'Paused';
-      const timelineBar = document.getElementById('mandala-timeline-bar');
-      if (timelineBar) {
-        if (isAutoPlaying && !isHovered) {
-          timelineBar.classList.remove('paused');
-          timelineBar.classList.add('animating');
-        } else {
-          timelineBar.classList.add('paused');
-        }
-      }
-    });
-  }
 
   // Start at cell 0 and auto-cycle every 2 seconds
   selectCell(0);

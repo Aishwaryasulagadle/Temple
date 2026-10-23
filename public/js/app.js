@@ -114,6 +114,76 @@ function initMandalaVisualizer() {
     ["वायु\n(Vayu)", "शोष\n(Shosha)", "असुर\n(Asura)", "वरुण\n(Varuna)", "पुष्पदन्त\n(Pushpadanta)", "सुग्रीव\n(Sugriva)", "दौवारिक\n(Dauvarika)", "पितृ\n(Pitri)", "निर्ऋति\n(Nirriti)"]
   ];
 
+  const cells = [];
+  let currentIndex = 0;
+  let isHovered = false;
+  let isAutoPlaying = true;
+  let autoTimer = null;
+
+  function selectCell(index) {
+    currentIndex = index;
+    cells.forEach((c, idx) => {
+      if (idx === index) {
+        c.classList.add('active');
+      } else {
+        c.classList.remove('active');
+      }
+    });
+
+    const row = Math.floor(index / 9);
+    const col = index % 9;
+    const isBrahma = (row >= 3 && row <= 5 && col >= 3 && col <= 5);
+    const isCenterCore = (row === 4 && col === 4);
+    const devataText = devataGrid[row][col];
+    const formattedName = devataText.replace('\n', ' ');
+
+    const infoTitle = document.getElementById('mandala-info-title');
+    const infoDesc = document.getElementById('mandala-info-desc');
+    const boxCounter = document.getElementById('mandala-box-counter');
+
+    if (boxCounter) {
+      boxCounter.textContent = `• Box ${index + 1}/81`;
+    }
+
+    if (isCenterCore) {
+      if (infoTitle) infoTitle.textContent = "ब्रह्मस्थान हृदय • Brahmasthana (Core Bindu)";
+      if (infoDesc) infoDesc.textContent = "The absolute bindu (central nexus) of the 81-cell Paramasayika Mandala. In sacred temple construction, this central axis aligns with the Garbhagriha spire, channeling cosmic prana into the consecrated sanctum.";
+    } else if (isBrahma) {
+      if (infoTitle) infoTitle.textContent = `ब्रह्मस्थान • Brahmasthana [${row + 1}, ${col + 1}]`;
+      if (infoDesc) infoDesc.textContent = "The central 9 cells of the 81-cell Paramasayika Mandala. In Vedic temple architecture, this zone remains completely unweighted by heavy superstructures, channeling cosmic prana directly to the deity's Garbhagriha.";
+    } else {
+      if (infoTitle) infoTitle.textContent = `Pada [${row + 1}, ${col + 1}]: ${formattedName}`;
+      if (infoDesc) infoDesc.textContent = `Governed by sacred deity ${formattedName}. This consecrated boundary quadrant dictates the placement of outer mandapas, circumambulatory pradakshina paths, gopurams, and ritual water bodies.`;
+    }
+
+    // Restart timeline animation
+    const timelineBar = document.getElementById('mandala-timeline-bar');
+    if (timelineBar) {
+      timelineBar.classList.remove('animating');
+      void timelineBar.offsetWidth; // trigger reflow
+      if (isAutoPlaying && !isHovered) {
+        timelineBar.classList.add('animating');
+      }
+    }
+  }
+
+  function startAutoCycle() {
+    stopAutoCycle();
+    autoTimer = setInterval(() => {
+      if (isAutoPlaying && !isHovered) {
+        currentIndex = (currentIndex + 1) % 81;
+        selectCell(currentIndex);
+      }
+    }, 2000);
+  }
+
+  function stopAutoCycle() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
       const cell = document.createElement('div');
@@ -122,6 +192,7 @@ function initMandalaVisualizer() {
       const devataText = devataGrid[row][col];
       const isBrahma = (row >= 3 && row <= 5 && col >= 3 && col <= 5);
       const isCenterCore = (row === 4 && col === 4);
+      const cellIndex = row * 9 + col;
 
       if (isBrahma) {
         cell.classList.add('brahma');
@@ -138,25 +209,76 @@ function initMandalaVisualizer() {
       }
 
       cell.addEventListener('mouseenter', () => {
-        document.querySelectorAll('.mandala-cell').forEach(c => c.classList.remove('active'));
-        cell.classList.add('active');
+        selectCell(cellIndex);
+      });
 
-        const infoTitle = document.getElementById('mandala-info-title');
-        const infoDesc = document.getElementById('mandala-info-desc');
-        
-        if (isBrahma) {
-          if (infoTitle) infoTitle.textContent = "Brahmasthana (The Sacred Nucleus)";
-          if (infoDesc) infoDesc.textContent = "The central 9 cells of the 81-cell Paramasayika Mandala. In Vedic temple architecture, this zone remains completely unweighted by heavy superstructures, channeling cosmic prana directly to the deity's Garbhagriha.";
-        } else {
-          const formattedName = devataText.replace('\n', ' ');
-          if (infoTitle) infoTitle.textContent = `Pada [${row+1}, ${col+1}]: ${formattedName}`;
-          if (infoDesc) infoDesc.textContent = `Governed by sacred deity ${formattedName}. This consecrated boundary quadrant dictates the placement of outer mandapas, circumambulatory pradakshina paths, gopurams, and ritual water bodies.`;
-        }
+      cell.addEventListener('click', () => {
+        selectCell(cellIndex);
       });
 
       mandalaContainer.appendChild(cell);
+      cells.push(cell);
     }
   }
+
+  mandalaContainer.addEventListener('mouseenter', () => {
+    isHovered = true;
+    const badge = document.getElementById('mandala-status-text');
+    if (badge) badge.textContent = 'Hovering (Paused)';
+    const timelineBar = document.getElementById('mandala-timeline-bar');
+    if (timelineBar) timelineBar.classList.add('paused');
+  });
+
+  mandalaContainer.addEventListener('mouseleave', () => {
+    isHovered = false;
+    const badge = document.getElementById('mandala-status-text');
+    if (badge) badge.textContent = isAutoPlaying ? '2s Timeline Tour' : 'Paused';
+    const timelineBar = document.getElementById('mandala-timeline-bar');
+    if (timelineBar) {
+      timelineBar.classList.remove('paused');
+      timelineBar.classList.add('animating');
+    }
+  });
+
+  const prevBtn = document.getElementById('mandala-prev-btn');
+  const nextBtn = document.getElementById('mandala-next-btn');
+  const playBtn = document.getElementById('mandala-play-btn');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + 81) % 81;
+      selectCell(currentIndex);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % 81;
+      selectCell(currentIndex);
+    });
+  }
+
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      isAutoPlaying = !isAutoPlaying;
+      playBtn.textContent = isAutoPlaying ? '⏸' : '▶';
+      const badge = document.getElementById('mandala-status-text');
+      if (badge) badge.textContent = isAutoPlaying ? '2s Timeline Tour' : 'Paused';
+      const timelineBar = document.getElementById('mandala-timeline-bar');
+      if (timelineBar) {
+        if (isAutoPlaying && !isHovered) {
+          timelineBar.classList.remove('paused');
+          timelineBar.classList.add('animating');
+        } else {
+          timelineBar.classList.add('paused');
+        }
+      }
+    });
+  }
+
+  // Start at cell 0 and auto-cycle every 2 seconds
+  selectCell(0);
+  startAutoCycle();
 }
 
 // Consultation Form Submission

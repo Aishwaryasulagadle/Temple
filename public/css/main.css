@@ -804,16 +804,22 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .mandala-cell:hover, .mandala-cell.active {
-  background: var(--gold-primary) !important;
-  border-color: #ffd700 !important;
-  transform: scale(1.06);
-  z-index: 5;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%) !important;
+  border-color: #ffffff !important;
+  outline: 2px solid #ffd700;
+  outline-offset: -1px;
+  transform: scale(1.09);
+  z-index: 10;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.9), inset 0 0 4px rgba(255, 255, 255, 0.6) !important;
 }
 
 .mandala-cell:hover .cell-label, .mandala-cell.active .cell-label {
   color: #1a0f07 !important;
-  font-weight: 700;
+  font-weight: 800 !important;
+}
+
+.mandala-cell:hover .cell-om, .mandala-cell.active .cell-om {
+  color: #1a0f07 !important;
 }
 
 .mandala-cell.brahma {
@@ -825,6 +831,124 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .mandala-cell.brahma .cell-label {
   color: #2b0805;
   font-weight: 700;
+}
+
+/* Vastupurusha Mandala 2-Second Timeline Controls */
+.mandala-timeline-wrapper {
+  margin-top: 1.1rem;
+  background: rgba(22, 13, 7, 0.85);
+  border: 1px solid rgba(198, 162, 74, 0.4);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.mandala-timeline-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mandala-timeline-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+  width: 0%;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+.mandala-timeline-bar.animating {
+  animation: mandalaTimelineProgress 2s linear infinite;
+}
+
+.mandala-timeline-bar.paused {
+  width: 100%;
+  animation: none;
+  opacity: 0.4;
+}
+
+@keyframes mandalaTimelineProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.mandala-timeline-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--gold-light, #dfd2b8);
+  font-family: var(--font-mono, monospace);
+}
+
+.mandala-timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: #f7e7ce;
+}
+
+.mandala-timeline-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffd700;
+  box-shadow: 0 0 8px #ffd700;
+  display: inline-block;
+  animation: mandalaPulseDot 1s infinite alternate;
+}
+
+.mandala-timeline-pulse-dot.paused {
+  animation: none;
+  background: #a89476;
+  box-shadow: none;
+}
+
+@keyframes mandalaPulseDot {
+  from { opacity: 0.35; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+.mandala-timeline-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mandala-btn-icon {
+  background: rgba(198, 162, 74, 0.15);
+  border: 1px solid rgba(198, 162, 74, 0.45);
+  color: var(--gold-light, #ffd700);
+  border-radius: 4px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.mandala-btn-icon:hover {
+  background: var(--gold-primary, #c6a24a);
+  color: #1a0f07;
+  border-color: #ffd700;
 }
 
 .anatomy-details-panel {

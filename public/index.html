@@ -287,7 +287,27 @@
           <div id="mandala-grid" class="mandala-grid-canvas">
             <!-- 9x9 Cells generated dynamically -->
           </div>
-          <p style="text-align: center; color: var(--gold-light); font-size: 0.88rem; margin-top: 1rem; font-family: var(--font-mono);">
+
+          <!-- 2-Second Timeline Bar & Controls -->
+          <div class="mandala-timeline-wrapper">
+            <div class="mandala-timeline-track">
+              <div id="mandala-timeline-bar" class="mandala-timeline-bar animating"></div>
+            </div>
+            <div class="mandala-timeline-footer">
+              <div class="mandala-timeline-badge">
+                <span class="mandala-timeline-pulse-dot"></span>
+                <span id="mandala-status-text">2s Timeline Tour</span>
+                <span id="mandala-box-counter" style="opacity: 0.65; font-size: 0.78rem;">• Box 1/81</span>
+              </div>
+              <div class="mandala-timeline-actions">
+                <button type="button" id="mandala-prev-btn" class="mandala-btn-icon" title="Previous Pada Box">‹</button>
+                <button type="button" id="mandala-play-btn" class="mandala-btn-icon" title="Pause / Play 2s Timeline">⏸</button>
+                <button type="button" id="mandala-next-btn" class="mandala-btn-icon" title="Next Pada Box">›</button>
+              </div>
+            </div>
+          </div>
+
+          <p style="text-align: center; color: var(--gold-light); font-size: 0.88rem; margin-top: 0.85rem; font-family: var(--font-mono);">
             81-Cell Paramasayika Grid (Centre 9 Gold Cells: Brahmasthana)
           </p>
         </div>

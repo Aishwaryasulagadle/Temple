@@ -52,9 +52,9 @@ const initialData = {
       year: "2024",
       height: "128 ft",
       area: "55,000 sq.ft",
-      coverImage: "/images/white_gopuram_hero.png",
+      coverImage: "/images/rajagopuram_venkateswara.jpg",
       images: [
-        "/images/white_gopuram_hero.png",
+        "/images/rajagopuram_venkateswara.jpg",
         "/images/dravida_grand.png",
         "/images/carving_detail_1.png"
       ],
@@ -82,9 +82,9 @@ const initialData = {
       year: "2023",
       height: "155 ft",
       area: "42,000 sq.ft",
-      coverImage: "/images/somnath_grand.png",
+      coverImage: "/images/somnath_temple_shikhara.jpg",
       images: [
-        "/images/somnath_grand.png",
+        "/images/somnath_temple_shikhara.jpg",
         "/images/carving_detail_1.png"
       ],
       description: "A monumental 7-tiered Nagara style sandstone temple built according to the classical Shilpa Ratnakara treatises. Featuring an expansive Sabha Mandapa with 72 hand-carved pillars, a gold-plated Kalasha crown, and an impenetrable corbelled shikhara.",
@@ -110,8 +110,9 @@ const initialData = {
       year: "2022",
       height: "85 ft",
       area: "30,000 sq.ft",
-      coverImage: "/images/vesara_grand.png",
+      coverImage: "/images/chennakesava_vesara_temple.jpg",
       images: [
+        "/images/chennakesava_vesara_temple.jpg",
         "/images/vesara_grand.png"
       ],
       description: "The pinnacle of Deccan Hoysala & Chalukya fusion architecture. Raised upon a 5-foot star-shaped Jagati plinth with intricate friezes of elephants, lions, and dancing Madanikas with lathe-turned pillars.",
@@ -137,9 +138,9 @@ const initialData = {
       year: "2025-2026",
       height: "92 ft",
       area: "48,000 sq.ft",
-      coverImage: "/images/marble_temple.png",
+      coverImage: "/images/radha_krishna_temple.jpg",
       images: [
-        "/images/marble_temple.png"
+        "/images/radha_krishna_temple.jpg"
       ],
       description: "Carved entirely in Grade-A Makrana marble at our specialized karkhana, every stone is dry-fitted and crated for assembly by our master Karigars.",
       features: [
@@ -164,9 +165,9 @@ const initialData = {
       year: "2025",
       height: "65 ft",
       area: "25,000 sq.ft",
-      coverImage: "/images/ganesh_temple.png",
+      coverImage: "/images/ganesh_temple_pune.jpg",
       images: [
-        "/images/ganesh_temple.png"
+        "/images/ganesh_temple_pune.jpg"
       ],
       description: "Traditional Dravidian sanctum with hand-carved monolithic Deepastambha lamp tower and 32 postures of Lord Ganesha sculpted along outer walls.",
       features: [

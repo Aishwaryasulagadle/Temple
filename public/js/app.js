@@ -303,3 +303,39 @@ function showToast(msg) {
     setTimeout(() => { toast.style.display = 'none'; }, 300);
   }, 4000);
 }
+
+// Direct Download Visiting Card
+function downloadVisitingCard(e) {
+  if (e) e.preventDefault();
+  const btn = document.getElementById('download-visiting-card-btn');
+  const originalHtml = btn ? btn.innerHTML : '';
+  if (btn) btn.innerHTML = '<span>Downloading...</span>';
+
+  fetch('/images/omkar_visiting_card.jpg')
+    .then(res => res.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      if (typeof showToast === 'function') {
+        showToast('📇 Visiting Card downloaded successfully!');
+      }
+    })
+    .catch(() => {
+      const link = document.createElement('a');
+      link.href = '/images/omkar_visiting_card.jpg';
+      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      link.target = '_blank';
+      link.click();
+    })
+    .finally(() => {
+      setTimeout(() => {
+        if (btn) btn.innerHTML = originalHtml;
+      }, 800);
+    });
+}

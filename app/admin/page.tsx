@@ -9,7 +9,7 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'temples' | 'enquiries'>('dashboard');
   
   // Login form state
-  const [loginEmail, setLoginEmail] = useState('temple@gmail.com');
+  const [loginEmail, setLoginEmail] = useState('omkartemplecontractions@gmail.com');
   const [loginPassword, setLoginPassword] = useState('pawar1991');
   const [loginError, setLoginError] = useState('');
 
@@ -337,8 +337,8 @@ export default function AdminPage() {
         >
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
             <img
-              src="/images/omkar_logo.jpg"
-              alt="Omkar Temple Construction"
+              src="/images/pawar_temples_logo.jpg"
+              alt="Pawar Temples"
               style={{
                 width: '84px',
                 height: '84px',
@@ -508,8 +508,8 @@ export default function AdminPage() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '2.5rem', paddingLeft: '0.35rem' }}>
           <img
-            src="/images/omkar_logo.jpg"
-            alt="Logo"
+            src="/images/pawar_temples_logo.jpg"
+            alt="Pawar Temples"
             style={{
               width: '46px',
               height: '46px',
@@ -622,7 +622,7 @@ export default function AdminPage() {
 
         <div style={{ marginTop: 'auto', paddingTop: '1.75rem', borderTop: '1px solid var(--border-stone)' }}>
           <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem', paddingLeft: '0.5rem', fontFamily: 'var(--font-mono)' }}>
-            Logged in: <strong style={{ color: 'var(--saffron)' }}>temple@gmail.com</strong>
+            Logged in: <strong style={{ color: 'var(--saffron)' }}>{loginEmail || 'omkartemplecontractions@gmail.com'}</strong>
           </div>
           <Link
             href="/"

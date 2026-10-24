@@ -12,6 +12,20 @@ const DB_FILE = path.join(process.cwd(), 'data', 'temple_data.json');
 const TMP_DB_FILE = path.join('/tmp', 'temple_data.json');
 
 export function readDb(): DatabaseSchema {
+  // In development, always read from DB_FILE so changes reflect immediately
+  if (process.env.NODE_ENV !== 'production') {
+    try {
+      if (fs.existsSync(DB_FILE)) {
+        const data = fs.readFileSync(DB_FILE, 'utf-8');
+        const parsed = JSON.parse(data);
+        globalThis.__temple_memory_db__ = parsed;
+        return parsed;
+      }
+    } catch (err) {
+      console.error('Dev database read error:', err);
+    }
+  }
+
   // 1. If in-memory state exists, return it
   if (globalThis.__temple_memory_db__) {
     return globalThis.__temple_memory_db__;

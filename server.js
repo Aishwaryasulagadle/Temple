@@ -112,7 +112,13 @@ let adminSessionActive = false;
 app.post('/api/admin/login', (req, res) => {
   const { username, email, password } = req.body;
   const identifier = (username || email || '').trim().toLowerCase();
-  const isUserValid = identifier === 'admin' || identifier === 'temple@gmail.com' || identifier === 'pawar' || identifier === 'laxmanpawar1227@gmail.com';
+  const isUserValid = 
+    identifier === 'omkartemplecontractions@gmail.com' ||
+    identifier === 'omkartempleconstructions@gmail.com' ||
+    identifier === 'admin' || 
+    identifier === 'temple@gmail.com' || 
+    identifier === 'pawar' || 
+    identifier === 'laxmanpawar1227@gmail.com';
   const isPassValid = password === 'pawar1991' || password === 'templeadmin123' || password === 'temple123';
 
   if (isUserValid && isPassValid) {

@@ -5,8 +5,10 @@ export async function POST(request: NextRequest) {
     const { email, username, password } = await request.json();
     const userIdentifier = (email || username || '').trim().toLowerCase();
 
-    // Authenticate with email temple@gmail.com, admin, or laxmanpawar1227@gmail.com and password pawar1991
+    // Authenticate with admin email or username
     const isEmailValid = 
+      userIdentifier === 'omkartemplecontractions@gmail.com' ||
+      userIdentifier === 'omkartempleconstructions@gmail.com' ||
       userIdentifier === 'temple@gmail.com' || 
       userIdentifier === 'admin' || 
       userIdentifier === 'pawar' ||
@@ -18,7 +20,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         message: 'Authentication successful',
-        user: { email: userIdentifier || 'temple@gmail.com', role: 'Chief Sthapati Admin' }
+        user: { email: userIdentifier || 'omkartemplecontractions@gmail.com', role: 'Chief Sthapati Admin' }
       });
     }
 
@@ -26,9 +28,10 @@ export async function POST(request: NextRequest) {
       { success: false, message: 'Invalid credentials. Please enter the correct admin password.' },
       { status: 401 }
     );
-  } catch (err) {
+  } catch (err: any) {
+    console.error('Login error:', err);
     return NextResponse.json(
-      { success: false, message: 'Server error' },
+      { success: false, message: 'Server error', error: err?.message || String(err) },
       { status: 500 }
     );
   }

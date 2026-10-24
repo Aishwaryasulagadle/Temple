@@ -6,6 +6,32 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadVisitingCard = async () => {
+    try {
+      setDownloading(true);
+      const response = await fetch('/images/omkar_visiting_card.jpg');
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch {
+      // Direct anchor download fallback
+      const link = document.createElement('a');
+      link.href = '/images/omkar_visiting_card.jpg';
+      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      link.target = '_blank';
+      link.click();
+    } finally {
+      setTimeout(() => setDownloading(false), 800);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -258,24 +284,48 @@ export default function ContactPage() {
 
           {/* Action Toolbar directly below the card */}
           <div className="vc-actions" style={{ marginTop: '1.75rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {/* Primary Direct Download Visiting Card Button */}
+            <button
+              type="button"
+              onClick={handleDownloadVisitingCard}
+              disabled={downloading}
+              className="btn btn-gold"
+              id="download-visiting-card-btn"
+              style={{
+                padding: '0.8rem 1.85rem',
+                fontSize: '0.95rem',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 6px 20px rgba(198, 162, 74, 0.45)',
+                cursor: downloading ? 'wait' : 'pointer',
+                transition: 'all 0.25s ease'
+              }}
+            >
+              <span>{downloading ? 'Downloading...' : 'Download Visiting Card'}</span>
+            </button>
+
             <a
               href="#booking-form-wrapper"
-              className="btn btn-gold"
+              className="btn btn-outline-gold"
               style={{
-                padding: '0.75rem 1.6rem',
+                padding: '0.8rem 1.5rem',
                 fontSize: '0.92rem',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.45rem',
+                background: 'rgba(255, 255, 255, 0.85)',
               }}
             >
               <span>↑ Back to Top of Booking Form</span>
             </a>
+
             <a
               href="mailto:laxmanpawar1227@gmail.com"
               className="btn btn-outline-gold"
               style={{
-                padding: '0.75rem 1.5rem',
+                padding: '0.8rem 1.5rem',
                 fontSize: '0.92rem',
                 background: 'rgba(255, 255, 255, 0.85)',
                 display: 'inline-flex',

@@ -55,8 +55,8 @@ export default function Navbar() {
           {/* Brand Logo Only */}
           <Link href="/" className="brand-logo" aria-label="Home">
             <img
-              src="/images/omkar_logo.jpg"
-              alt="Omkar Temple Construction"
+              src="/images/pawar_temples_logo.jpg"
+              alt="Pawar Temples"
               className="brand-logo-img"
             />
           </Link>
@@ -110,8 +110,8 @@ export default function Navbar() {
         <div className="mobile-drawer-header">
           <Link href="/" onClick={() => setMobileMenuOpen(false)} className="brand-logo">
             <img
-              src="/images/omkar_logo.jpg"
-              alt="Omkar Temple Construction"
+              src="/images/pawar_temples_logo.jpg"
+              alt="Pawar Temples"
               className="brand-logo-img"
               style={{ width: '48px', height: '48px' }}
             />

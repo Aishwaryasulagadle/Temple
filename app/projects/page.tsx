@@ -95,15 +95,83 @@ export default function ProjectsPage() {
       .catch((err) => console.error('Error fetching temples:', err));
   }, []);
 
+  const isMaharashtra = (t: Temple) => {
+    const text = `${t.location || ''} ${t.state || ''} ${t.description || ''} ${t.name || ''}`.toLowerCase();
+    return (
+      text.includes('maharashtra') ||
+      text.includes('pune') ||
+      text.includes('mumbai') ||
+      text.includes('jalgaon') ||
+      text.includes('nanded') ||
+      text.includes('ahilyanagar') ||
+      text.includes('ahmednagar') ||
+      text.includes('shrigonda') ||
+      text.includes('jamner') ||
+      text.includes('umarkhed') ||
+      text.includes('ganganbeed') ||
+      text.includes('nagpur') ||
+      text.includes('nashik') ||
+      text.includes('solapur') ||
+      text.includes('kolhapur') ||
+      text.includes('amravati') ||
+      text.includes('aurangabad') ||
+      text.includes('chhatrapati sambhajinagar') ||
+      text.includes('satara') ||
+      text.includes('sangli') ||
+      text.includes('loha')
+    );
+  };
+
+  const isKarnataka = (t: Temple) => {
+    const text = `${t.location || ''} ${t.state || ''} ${t.description || ''} ${t.name || ''}`.toLowerCase();
+    return (
+      text.includes('karnatak') ||
+      text.includes('belgaum') ||
+      text.includes('belagavi') ||
+      text.includes('bagalkot') ||
+      text.includes('bagalkote') ||
+      text.includes('kalaburagi') ||
+      text.includes('kalburgi') ||
+      text.includes('gulbarga') ||
+      text.includes('bellary') ||
+      text.includes('ballari') ||
+      text.includes('vijayanagara') ||
+      text.includes('badami') ||
+      text.includes('belur') ||
+      text.includes('hagaribommanahalli') ||
+      text.includes('hadagali') ||
+      text.includes('ramdurg') ||
+      text.includes('sandur') ||
+      text.includes('bengaluru') ||
+      text.includes('bangalore') ||
+      text.includes('mysuru') ||
+      text.includes('mysore') ||
+      text.includes('hubli') ||
+      text.includes('dharwad') ||
+      text.includes('mangalore') ||
+      text.includes('mangaluru') ||
+      text.includes('udupi') ||
+      text.includes('karkala')
+    );
+  };
+
   const filteredTemples = temples.filter((t) => {
-    const matchesTradition = filter === 'All' || t.tradition.toLowerCase() === filter.toLowerCase();
+    let matchesState = true;
+    if (filter === 'Maharashtra') {
+      matchesState = isMaharashtra(t);
+    } else if (filter === 'Karnataka' || filter === 'Karnatak') {
+      matchesState = isKarnataka(t);
+    }
+
     const matchesSearch =
       !search ||
       t.name.toLowerCase().includes(search.toLowerCase()) ||
       t.deity.toLowerCase().includes(search.toLowerCase()) ||
       t.location.toLowerCase().includes(search.toLowerCase()) ||
-      t.stoneType.toLowerCase().includes(search.toLowerCase());
-    return matchesTradition && matchesSearch;
+      t.stoneType.toLowerCase().includes(search.toLowerCase()) ||
+      (t.tradition && t.tradition.toLowerCase().includes(search.toLowerCase()));
+
+    return matchesState && matchesSearch;
   });
 
   const openLightbox = (src: string, title: string, desc: string) => {
@@ -168,26 +236,30 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* SECTION 2: COMPLETE 18 TEMPLE PROJECTS CATALOG */}
+      {/* SECTION 2: COMPLETE TEMPLE PROJECTS CATALOG */}
       <section id="all-projects-catalog" className="section" style={{ background: 'var(--bg-paper)', borderTop: '1px solid var(--border-stone)' }}>
         <div className="container">
           <div className="section-header">
             <div className="eyebrow">Comprehensive Portfolio</div>
             <h2 className="section-title">Catalog of Consecrated & Active Mandir Works</h2>
             <p className="section-desc">
-              Filter by canonical Shilpa Shastra tradition or search by deity, location, or stone type.
+              Filter by state (Maharashtra, Karnataka) or search by deity, location, or stone type.
             </p>
           </div>
 
-          {/* Filter Bar */}
+          {/* State Filter Bar */}
           <div className="filter-bar">
-            {['All', 'Dravida', 'Nagara', 'Vesara'].map((trad) => (
+            {[
+              { id: 'All', label: 'All State', count: temples.length },
+              { id: 'Maharashtra', label: 'Maharashtra', count: temples.filter(isMaharashtra).length },
+              { id: 'Karnataka', label: 'Karnataka', count: temples.filter(isKarnataka).length }
+            ].map((stateItem) => (
               <button
-                key={trad}
-                className={`filter-btn ${filter === trad ? 'active' : ''}`}
-                onClick={() => setFilter(trad)}
+                key={stateItem.id}
+                className={`filter-btn ${filter === stateItem.id ? 'active' : ''}`}
+                onClick={() => setFilter(stateItem.id)}
               >
-                {trad === 'All' ? `All Traditions (${temples.length || 18} Projects)` : `${trad} Orders`}
+                {stateItem.label} {stateItem.count > 0 ? `(${stateItem.count})` : ''}
               </button>
             ))}
           </div>

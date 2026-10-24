@@ -37,6 +37,7 @@ export interface Temple {
   features: string[];
   likes: number;
   featured?: boolean;
+  state?: string;
   createdAt: string;
 }
 

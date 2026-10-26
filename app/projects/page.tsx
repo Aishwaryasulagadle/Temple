@@ -8,6 +8,30 @@ import Lightbox from '@/components/Lightbox';
 
 const SITE_PHOTOS = [
   {
+    src: '/images/site_erection_elevated_shikhara.jpg',
+    title: 'Monolithic Stone Shikhara Spire on Elevated Mandapa Platform',
+    desc: 'Active on-ground erection of a tall grey stone Shikhara tower atop an elevated 4-pillar mandapa structure. Surrounded by heavy multi-tier bamboo scaffolding, devakoshta niches, tiered cornices, and sacred saffron kalasha flag fluttering against the sky.',
+    badge: '🏗️ Live Spire Erection',
+    captionTitle: 'Elevated Shikhara Spire Erection',
+    captionDesc: 'Monolithic stone spire under active high-elevation assembly with multi-tier bamboo scaffolding on elevated sanctum columns.'
+  },
+  {
+    src: '/images/site_grand_mandapa_tiered_vimana.jpg',
+    title: 'Grand Carved Stone Sabha Mandapa & Multi-Tier Vimana Erection',
+    desc: 'Comprehensive temple complex under active execution: open pillared Sabha Mandapa with cusped archways, carved stone balustrades, miniature kalasha parapet finials, and rising stepped Dravidian Vimana tower under bamboo staging.',
+    badge: '🏛️ Mandapa & Vimana',
+    captionTitle: 'Grand Mandapa & Tiered Vimana',
+    captionDesc: 'Intricately carved stone mandapa hall with scalloped archways, ornamental balustrades, and multi-tier vimana spire staging.'
+  },
+  {
+    src: '/images/site_corbelled_brick_dome_masonry.jpg',
+    title: 'Vedic Corbelled Kiln-Brick Dome & Kalasha Base Craftsmanship',
+    desc: 'Pure structural craftsmanship by master Sthapati artisans on the sanctum roof terrace. Building a spherical corbelled brick dome and stepped kalasha plinth with raw kiln-fired bricks, lime mortar, and central plumb alignment.',
+    badge: '🧱 Sanctum Dome Masonry',
+    captionTitle: 'Corbelled Brick Dome & Kalasha Base',
+    captionDesc: 'Handcrafted kiln-brick spherical dome and stepped kalasha base constructed with ancient corbelled masonry techniques.'
+  },
+  {
     src: '/images/site_stone_spire_scaffolding.jpg',
     title: 'Monolithic Stone Vimana Spire & Multi-Tier Bamboo Scaffolding',
     desc: 'Active on-ground erection of a stepped Dravidian stone Vimana superstructure with full surrounding bamboo staging, tiered cornices, and kalasham finial alignment.',
@@ -118,7 +142,16 @@ export default function ProjectsPage() {
       text.includes('chhatrapati sambhajinagar') ||
       text.includes('satara') ||
       text.includes('sangli') ||
-      text.includes('loha')
+      text.includes('loha') ||
+      text.includes('yavatmal') ||
+      text.includes('arni') ||
+      text.includes('latur') ||
+      text.includes('nilanga') ||
+      text.includes('mirghali') ||
+      text.includes('bhootmungli') ||
+      text.includes('bhootmugali') ||
+      text.includes('madha') ||
+      text.includes('kewad')
     );
   };
 
@@ -225,6 +258,7 @@ export default function ProjectsPage() {
                 <div className="site-photo-img-wrap">
                   <img src={photo.src} alt={photo.title} loading="lazy" />
                   <span className="site-photo-overlay-badge">{photo.badge}</span>
+                  <div className="site-photo-zoom-icon">🔍</div>
                 </div>
                 <div className="site-photo-details">
                   <h4>{photo.captionTitle}</h4>

@@ -41,29 +41,30 @@ const initialData = {
   temples: [
     {
       id: "temple-1",
-      name: "Sri Maha Rajagopuram Devasthanam",
-      deity: "Lord Sri Venkateswara (Balaji)",
-      tradition: "Dravida",
-      subType: "7-Tier White Monolith Rajagopuram & Golden Kalasham",
-      stoneType: "Pristine Makrana Marble & Monolithic White Granite",
-      location: "Pan-India Turnkey Project Site",
+      name: "Mahadev Temple, Arni",
+      deity: "Lord Shiva (Mahadev)",
+      tradition: "Nagara",
+      subType: "Size 11×11 ft · Temple Height 21 Feet",
+      stoneType: "Carved Monolithic Stone & Nagara Shikhara Superstructure",
+      location: "Arni, Tq: Arni, Dist: Yavatmal, Maharashtra",
       country: "India",
       status: "Completed",
       year: "2024",
-      height: "128 ft",
-      area: "55,000 sq.ft",
+      height: "21 Feet",
+      area: "Size 11×11 ft",
       coverImage: "/images/rajagopuram_venkateswara.jpg",
       images: [
         "/images/rajagopuram_venkateswara.jpg",
-        "/images/dravida_grand.png",
         "/images/carving_detail_1.png"
       ],
-      description: "A monumental pure white Dravidian Rajagopuram masterpiece featuring intricate multi-tiered white stone masonry with golden deity sculptures on every course, culminating in 9 pure gold-leafed Kalasham pinnacles. Erected by our chief master contractor and travelling guild.",
+      description: "Mahadev temple Arni tq Arni dist Yavatmal size 11×11 temple height 21 feet. Consecrated Lord Shiva sanctum featuring a sculpted corbelled Nagara Shikhara spire, sanctified Garbhagriha, and sacred Kalasham pinnacle executed by master temple artisans.",
       features: [
-        "White stone multi-tier Rajagopuram with gold-plated deities",
-        "81-Cell Paramasayika Vastupurusha Mandala core alignment",
-        "Dry-fit assembled at Pune karkhana before ground crane installation",
-        "Deepastambha and monolithic stone gateway sentinels"
+        "Mahadev temple Arni tq Arni dist Yavatmal",
+        "Size 11×11 ft",
+        "Temple height 21 feet",
+        "Consecrated Lord Shiva (Mahadev) Garbhagriha sanctum",
+        "Tiered Nagara Shikhara spire with crowning Kalasham pinnacle",
+        "Zero iron bar stone masonry engineered according to classical Shilpa Shastra"
       ],
       likes: 345,
       featured: true,
@@ -71,27 +72,30 @@ const initialData = {
     },
     {
       id: "temple-2",
-      name: "Shree Somnath Heritage Maha Mandir",
-      deity: "Lord Shiva (Mahadev)",
+      name: "Hanuman Temple, Mirghali",
+      deity: "Lord Hanuman",
       tradition: "Nagara",
-      subType: "Latina & Sekhari Curvilinear Spire",
-      stoneType: "Jaisalmer Golden Sandstone & Bansi Paharpur",
-      location: "Saurashtra Coast, Gujarat",
+      subType: "Size 11×11 ft · Temple Height 25 Feet",
+      stoneType: "Monolithic Dressed Stone & Nagara Shikhara Superstructure",
+      location: "Mirghali, Tq: Nilanga, Dist: Latur, Maharashtra",
       country: "India",
       status: "Completed",
-      year: "2023",
-      height: "155 ft",
-      area: "42,000 sq.ft",
+      year: "2024",
+      height: "25 Feet",
+      area: "Size 11×11 ft",
       coverImage: "/images/somnath_temple_shikhara.jpg",
       images: [
         "/images/somnath_temple_shikhara.jpg",
         "/images/carving_detail_1.png"
       ],
-      description: "A monumental 7-tiered Nagara style sandstone temple built according to the classical Shilpa Ratnakara treatises. Featuring an expansive Sabha Mandapa with 72 hand-carved pillars, a gold-plated Kalasha crown, and an impenetrable corbelled shikhara.",
+      description: "Hanuman temple Mirghali tq Nilanga dist Latur size 11×11 temple height 25 feet. Consecrated Lord Hanuman sanctum featuring a sculpted corbelled Nagara Shikhara spire, sacred Garbhagriha, ornamental stone mouldings, and auspicious Kalasham pinnacle executed by master temple artisans.",
       features: [
-        "Corbelled hollow shikhara with parabolic curvature",
-        "Zero artificial iron bars used in core sanctum stone joints",
-        "Ornate Rangamandapa with carved dome ceiling"
+        "Hanuman temple Mirghali tq Nilanga dist Latur",
+        "Size 11×11 ft",
+        "Temple height 25 feet",
+        "Consecrated Lord Hanuman Garbhagriha sanctum",
+        "Tiered Nagara Shikhara spire with crowning Kalasham pinnacle",
+        "Precision stone masonry and Shilpa Shastra compliant proportions"
       ],
       likes: 280,
       featured: true,
@@ -99,27 +103,30 @@ const initialData = {
     },
     {
       id: "temple-3",
-      name: "Chennakesava Vesara Heritage Complex",
-      deity: "Lord Vishnu / Chennakesava",
-      tradition: "Vesara",
-      subType: "16-Point Stellate Star Plan",
-      stoneType: "Chloritic Schist & Soapstone Fine Filigree",
-      location: "Deccan Plateau / Belur Region",
+      name: "Veer Hanuman Mandir, Amarwara",
+      deity: "Lord Hanuman (Veer Hanuman)",
+      tradition: "Nagara",
+      subType: "Size 30×40 ft · Temple Height 25 Feet",
+      stoneType: "Carved Monolithic Stone & Nagara Shikhara Superstructure",
+      location: "Amarwara, Tq: Harrai, Dist: Chhindwara, Madhya Pradesh",
       country: "India",
       status: "Completed",
-      year: "2022",
-      height: "85 ft",
-      area: "30,000 sq.ft",
-      coverImage: "/images/chennakesava_vesara_temple.jpg",
+      year: "2024",
+      height: "25 Feet",
+      area: "Size 30×40 ft",
+      coverImage: "/images/veer_hanuman_mandir_amarwara.jpg",
       images: [
-        "/images/chennakesava_vesara_temple.jpg",
-        "/images/vesara_grand.png"
+        "/images/veer_hanuman_mandir_amarwara.jpg",
+        "/images/carving_detail_1.png"
       ],
-      description: "The pinnacle of Deccan Hoysala & Chalukya fusion architecture. Raised upon a 5-foot star-shaped Jagati plinth with intricate friezes of elephants, lions, and dancing Madanikas with lathe-turned pillars.",
+      description: "Veer Hanuman Mandir Amarwara tq Harrai dist Chhindwara Madhya Pradesh size 30×40 temple height 25 feet. Consecrated Lord Veer Hanuman temple featuring a vibrant tiered Nagara Shikhara spire crowned with sacred Kalasham and flagpost, ornamental entrance Mandapa with sculpted pillars, arched sanctum windows, and spacious paved Pradakshina courtyard.",
       features: [
-        "16-pointed stellate star foundation geometry",
-        "Over 650 hand-carved frieze panels",
-        "Lathe-turned monolithic soapstone pillars"
+        "Veer Hanuman Mandir Amarwara tq Harrai dist Chhindwara MP",
+        "Size 30×40 ft",
+        "Temple height 25 feet",
+        "Tiered golden-yellow Nagara Shikhara spire with auspicious Kalasham and sacred Dhwaja flagpost",
+        "Covered entrance Mukha Mandapa with fluted columns and carved dome",
+        "Spacious circumambulatory Pradakshina pathway and ornate window relief mouldings"
       ],
       likes: 198,
       featured: true,
@@ -127,26 +134,30 @@ const initialData = {
     },
     {
       id: "temple-4",
-      name: "Radha Krishna Pristine Marble Sanctum",
-      deity: "Sri Sri Radha Krishna",
+      name: "Hanuman Temple, Bhootmungli",
+      deity: "Lord Hanuman",
       tradition: "Nagara",
-      subType: "Samvarana & Sekhari",
-      stoneType: "Pure Makrana Pristine White Marble",
-      location: "Pan-India & Export Contract",
+      subType: "Size 12×12 ft · Temple Height 31 Feet",
+      stoneType: "Monolithic Dressed Stone & Nagara Shikhara Superstructure",
+      location: "Bhootmungli, Tq: Nilanga, Dist: Latur, Maharashtra",
       country: "India",
-      status: "In Progress",
-      year: "2025-2026",
-      height: "92 ft",
-      area: "48,000 sq.ft",
+      status: "Completed",
+      year: "2024",
+      height: "31 Feet",
+      area: "Size 12×12 ft",
       coverImage: "/images/radha_krishna_temple.jpg",
       images: [
-        "/images/radha_krishna_temple.jpg"
+        "/images/radha_krishna_temple.jpg",
+        "/images/carving_detail_1.png"
       ],
-      description: "Carved entirely in Grade-A Makrana marble at our specialized karkhana, every stone is dry-fitted and crated for assembly by our master Karigars.",
+      description: "Hanuman temple Bhootmungli tq Nilanga dist Latur size 12×12 temple height 31 feet Maharashtra. Consecrated Lord Hanuman sanctum featuring a soaring multi-tier corbelled Nagara Shikhara spire, sanctified Garbhagriha, decorative stone mouldings, and auspicious Kalasham pinnacle executed by master temple artisans.",
       features: [
-        "Translucent Makrana marble with illuminated sanctum",
-        "Elaborate peacocks and floral jali stone lattice screens",
-        "Full circumambulatory pradakshina path"
+        "Hanuman temple Bhootmungli tq Nilanga dist Latur Maharashtra",
+        "Size 12×12 ft",
+        "Temple height 31 feet",
+        "Consecrated Lord Hanuman Garbhagriha sanctum",
+        "Towering 31 ft Nagara Shikhara spire crowned with sacred Kalasham",
+        "Precision stone masonry and Shilpa Shastra compliant proportions"
       ],
       likes: 310,
       featured: true,
@@ -154,28 +165,33 @@ const initialData = {
     },
     {
       id: "temple-5",
-      name: "Maha Ganapati Shilpa Devasthanam",
-      deity: "Lord Ganesha (Vighnaharta)",
-      tradition: "Dravida",
-      subType: "Ekatala Sanctum with Deepa Stambha",
-      stoneType: "Red Sandstone & Chittoor Granite",
-      location: "Pune & Mumbai Region",
+      name: "Veerbhadreshwar Temple, Kewad",
+      deity: "Lord Veerbhadreshwar (Lord Shiva)",
+      tradition: "Nagara",
+      subType: "Size 30×40 ft · Temple 25 Feet + 11 Feet",
+      stoneType: "RCC Reinforced Core with Ornate Traditional Stucco & Stone Craft",
+      location: "Kewad, Tq: Madha, Dist: Solapur, Maharashtra",
       country: "India",
-      status: "In Progress",
-      year: "2025",
-      height: "65 ft",
-      area: "25,000 sq.ft",
+      status: "Completed",
+      year: "2024",
+      height: "25 feet + 11 feet (Total 36 Feet)",
+      area: "Size 30×40 ft",
       coverImage: "/images/ganesh_temple_pune.jpg",
       images: [
-        "/images/ganesh_temple_pune.jpg"
+        "/images/ganesh_temple_pune.jpg",
+        "/images/carving_detail_1.png"
       ],
-      description: "Traditional Dravidian sanctum with hand-carved monolithic Deepastambha lamp tower and 32 postures of Lord Ganesha sculpted along outer walls.",
+      description: "Veerbhadreshwar temple Kewad tq Madha dist Solapur size 30×40 temple 25 feet + 11 feet. Consecrated Lord Veerbhadreshwar Mandir featuring a multi-tier Nagara Shikhara spire of 25 feet with an 11-foot Kalasham pinnacle, sanctified Garbhagriha, spacious Sabha Mandapa, and ornate stone architectural mouldings.",
       features: [
-        "Monolithic granite Deepastambha lamp pillar",
-        "Integrated shaded stone portico and pradakshina"
+        "Veerbhadreshwar temple Kewad tq Madha dist Solapur",
+        "Size 30×40 ft",
+        "Temple 25 feet + 11 feet (Total 36 Feet)",
+        "Consecrated Lord Veerbhadreshwar (Lord Shiva) sanctum",
+        "Tiered Nagara Shikhara spire crowned with sacred Kalasham finial",
+        "Spacious Sabha Mandapa hall with traditional carved pillars and raised plinth"
       ],
       likes: 145,
-      featured: false,
+      featured: true,
       createdAt: new Date().toISOString()
     },
     {
@@ -193,6 +209,7 @@ const initialData = {
       area: "18,500 sq.ft",
       coverImage: "/images/site_work_tower_scaffolding.png",
       images: [
+        "/images/site_erection_elevated_shikhara.jpg",
         "/images/site_work_tower_scaffolding.png",
         "/images/site_work_shikhara_masonry.png",
         "/images/site_work_artisan_carving_tower.jpg"
@@ -223,6 +240,7 @@ const initialData = {
       area: "22,000 sq.ft",
       coverImage: "/images/site_work_mandapa_stone_hall.png",
       images: [
+        "/images/site_grand_mandapa_tiered_vimana.jpg",
         "/images/site_work_mandapa_stone_hall.png",
         "/images/site_work_tower_scaffolding.png",
         "/images/site_work_shikhara_masonry.png"
@@ -282,6 +300,7 @@ const initialData = {
       area: "14,000 sq.ft",
       coverImage: "/images/site_work_artisan_carving_tower.jpg",
       images: [
+        "/images/site_corbelled_brick_dome_masonry.jpg",
         "/images/site_work_artisan_carving_tower.jpg",
         "/images/site_work_shikhara_masonry.png",
         "/images/site_work_tower_scaffolding.png"

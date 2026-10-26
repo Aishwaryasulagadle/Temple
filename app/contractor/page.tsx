@@ -93,6 +93,24 @@ export default function ContractorPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
               <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', background: '#fff' }}>
+                <img src="/images/site_erection_elevated_shikhara.jpg" alt="Elevated Shikhara Spire Erection" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                  Elevated Shikhara Erection
+                </div>
+              </div>
+              <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', background: '#fff' }}>
+                <img src="/images/site_grand_mandapa_tiered_vimana.jpg" alt="Grand Mandapa & Tiered Vimana" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                  Grand Mandapa & Vimana
+                </div>
+              </div>
+              <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', background: '#fff' }}>
+                <img src="/images/site_corbelled_brick_dome_masonry.jpg" alt="Corbelled Brick Dome & Kalasha" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                  Corbelled Brick Dome Base
+                </div>
+              </div>
+              <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', background: '#fff' }}>
                 <img src="/images/site_work_mandapa_stone_hall.png" alt="Monolithic Stone Mandapa Hall" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                 <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
                   Stone Hall Erection
@@ -108,12 +126,6 @@ export default function ContractorPage() {
                 <img src="/images/site_work_artisan_carving_tower.jpg" alt="Artisan at 35+ Ft Height" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                 <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
                   Artisans at 35+ Ft
-                </div>
-              </div>
-              <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-stone)', background: '#fff' }}>
-                <img src="/images/site_shikhara_bell_scaffolding.jpg" alt="Completed Sacred Mahadwara & Shikhara" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
-                <div style={{ padding: '0.85rem', fontSize: '0.88rem', color: 'var(--maroon)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
-                  Consecrated Gateway & Shikhara
                 </div>
               </div>
             </div>

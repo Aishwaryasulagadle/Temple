@@ -1515,26 +1515,11 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .site-photo-zoom-icon {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background: var(--gold-primary);
-  color: var(--bg-dark);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: var(--transition-smooth);
+  display: none !important;
 }
 
 .site-photo-card:hover .site-photo-zoom-icon {
-  opacity: 1;
-  transform: scale(1);
+  display: none !important;
 }
 
 .site-photo-details {

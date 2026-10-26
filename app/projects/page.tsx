@@ -258,7 +258,6 @@ export default function ProjectsPage() {
                 <div className="site-photo-img-wrap">
                   <img src={photo.src} alt={photo.title} loading="lazy" />
                   <span className="site-photo-overlay-badge">{photo.badge}</span>
-                  <div className="site-photo-zoom-icon">🔍</div>
                 </div>
                 <div className="site-photo-details">
                   <h4>{photo.captionTitle}</h4>

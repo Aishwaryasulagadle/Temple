@@ -55,10 +55,21 @@ export default function Navbar() {
           {/* Brand Logo Only */}
           <Link href="/" className="brand-logo" aria-label="Home">
             <img
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.tried) {
+                  target.dataset.tried = '1';
+                  target.src = 'images/pawar_temples_logo.jpg';
+                }
+              }}
               src="/images/pawar_temples_logo.jpg"
-              alt="Pawar Temples"
+              alt="Pawar Temples Logo"
               className="brand-logo-img"
             />
+            <div className="brand-text">
+              <h2>OMKAR TEMPLE CONSTRUCT</h2>
+              <span>MASTER CONTRACTOR · PAN-INDIA</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -110,11 +121,22 @@ export default function Navbar() {
         <div className="mobile-drawer-header">
           <Link href="/" onClick={() => setMobileMenuOpen(false)} className="brand-logo">
             <img
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.tried) {
+                  target.dataset.tried = '1';
+                  target.src = 'images/pawar_temples_logo.jpg';
+                }
+              }}
               src="/images/pawar_temples_logo.jpg"
-              alt="Pawar Temples"
+              alt="Pawar Temples Logo"
               className="brand-logo-img"
               style={{ width: '48px', height: '48px' }}
             />
+            <div className="brand-text">
+              <h2>OMKAR TEMPLE CONSTRUCT</h2>
+              <span>MASTER CONTRACTOR · PAN-INDIA</span>
+            </div>
           </Link>
           <button
             type="button"

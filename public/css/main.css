@@ -154,6 +154,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
   color: var(--gold-primary);
   background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -161,6 +162,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .hero-content .text-gold {
   background: linear-gradient(135deg, #FFF 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

@@ -154,6 +154,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
   color: var(--gold-primary);
   background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -161,6 +162,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .hero-content .text-gold {
   background: linear-gradient(135deg, #FFF 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -288,13 +290,13 @@ p, li, span, blockquote, label, input, textarea, select, button {
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  margin-left: 3.5rem; /* Shifted slightly more to the right */
+  margin-left: 0;
   z-index: 2;
 }
 
 .brand-logo-img {
-  width: 78px;
-  height: 78px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   border: 2.5px solid var(--gold-primary);
   object-fit: cover;
@@ -307,6 +309,34 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .brand-logo:hover .brand-logo-img {
   transform: scale(1.06);
   box-shadow: 0 0 24px var(--gold-primary);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.15rem;
+  margin-left: 0.85rem;
+}
+
+.brand-text h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--text-main);
+  line-height: 1.15;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: var(--font-heading);
+}
+
+.brand-text span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .desktop-nav {

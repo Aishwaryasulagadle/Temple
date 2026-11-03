@@ -42,7 +42,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
+    { href: '/about', label: 'About' },
     { href: '/contractor', label: 'Master Contractor' },
     { href: '/projects', label: 'Projects & Gallery' },
     { href: '/contact', label: 'Book Temple Construction' },
@@ -67,8 +67,7 @@ export default function Navbar() {
               className="brand-logo-img"
             />
             <div className="brand-text">
-              <h2>PAWAR TEMPLE CONSTRUCTOR</h2>
-              <span>MASTER CONTRACTOR · PAN-INDIA</span>
+              <h2>PAWAR TEMPLES</h2>
             </div>
           </Link>
 
@@ -135,8 +134,7 @@ export default function Navbar() {
               style={{ width: '48px', height: '48px' }}
             />
             <div className="brand-text">
-              <h2>PAWAR TEMPLE CONSTRUCTOR</h2>
-              <span>MASTER CONTRACTOR · PAN-INDIA</span>
+              <h2>PAWAR TEMPLES</h2>
             </div>
           </Link>
           <button

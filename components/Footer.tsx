@@ -28,7 +28,7 @@ export default function Footer() {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/about">About Us & Lineage</Link>
+                <Link href="/about">About & Lineage</Link>
               </li>
               <li>
                 <Link href="/contractor">Master Contractor Details</Link>
@@ -97,10 +97,9 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <div>© {new Date().getFullYear()} The Divine Temple Construction India. Shilpa Shastra · Agama · Vastu.</div>
-          <div>Turnkey Temple Construction Across Pan-India</div>
+          <div>@2026 The Pawar Temples</div>
           <div>
-            Design & Developed by{' '}
+            Developed and Design by{' '}
             <a
               href="https://www.jisnudigital.com/"
               target="_blank"

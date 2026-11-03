@@ -16,7 +16,7 @@ export default function ContactPage() {
       const blobUrl = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      link.download = 'Pawar_Temple_Constructor_Official_Visiting_Card.jpg';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -25,7 +25,7 @@ export default function ContactPage() {
       // Direct anchor download fallback
       const link = document.createElement('a');
       link.href = '/images/omkar_visiting_card.jpg';
-      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      link.download = 'Pawar_Temple_Constructor_Official_Visiting_Card.jpg';
       link.target = '_blank';
       link.click();
     } finally {
@@ -273,7 +273,7 @@ export default function ContactPage() {
           >
             <img
               src="/images/omkar_visiting_card.jpg"
-              alt="Omkar Temple Construction Company - Master Sculptor Laxman Keshav Pawar Official Visiting Card"
+              alt="Pawar Temple Constructor - Master Sculptor Laxman Keshav Pawar Official Visiting Card"
               style={{
                 width: '100%',
                 height: 'auto',

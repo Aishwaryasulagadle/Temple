@@ -55,7 +55,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'The Temple Construct',
-    alternateName: ['Pawar Temples', 'Omkar Temple Construct'],
+    alternateName: ['Pawar Temples', 'Pawar Temple Constructor'],
     url: 'https://thetempleconstruction.com',
     logo: 'https://thetempleconstruction.com/images/pawar_temples_logo.jpg',
     image: 'https://thetempleconstruction.com/images/pawar_temples_logo.jpg',

@@ -44,7 +44,7 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
     { href: '/contractor', label: 'Master Contractor' },
-    { href: '/projects', label: 'Projects' },
+    { href: '/projects', label: 'Projects & Gallery' },
     { href: '/contact', label: 'Book Temple Construction' },
   ];
 
@@ -67,7 +67,7 @@ export default function Navbar() {
               className="brand-logo-img"
             />
             <div className="brand-text">
-              <h2>OMKAR TEMPLE CONSTRUCT</h2>
+              <h2>PAWAR TEMPLE CONSTRUCTOR</h2>
               <span>MASTER CONTRACTOR · PAN-INDIA</span>
             </div>
           </Link>
@@ -135,7 +135,7 @@ export default function Navbar() {
               style={{ width: '48px', height: '48px' }}
             />
             <div className="brand-text">
-              <h2>OMKAR TEMPLE CONSTRUCT</h2>
+              <h2>PAWAR TEMPLE CONSTRUCTOR</h2>
               <span>MASTER CONTRACTOR · PAN-INDIA</span>
             </div>
           </Link>
@@ -178,6 +178,13 @@ export default function Navbar() {
             style={{ width: '100%', justifyContent: 'center' }}
           >
             💬 Consult on WhatsApp
+          </a>
+          <a
+            href="tel:+919535343935"
+            className="btn btn-outline-gold"
+            style={{ width: '100%', justifyContent: 'center', marginTop: '0.6rem' }}
+          >
+            📞 Call +91 95353 43935
           </a>
         </div>
       </aside>

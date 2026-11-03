@@ -317,7 +317,7 @@ function downloadVisitingCard(e) {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      link.download = 'Pawar_Temple_Constructor_Official_Visiting_Card.jpg';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -329,7 +329,7 @@ function downloadVisitingCard(e) {
     .catch(() => {
       const link = document.createElement('a');
       link.href = '/images/omkar_visiting_card.jpg';
-      link.download = 'Omkar_Temple_Construction_Official_Visiting_Card.jpg';
+      link.download = 'Pawar_Temple_Constructor_Official_Visiting_Card.jpg';
       link.target = '_blank';
       link.click();
     })
@@ -338,4 +338,71 @@ function downloadVisitingCard(e) {
         if (btn) btn.innerHTML = originalHtml;
       }, 800);
     });
+}
+
+
+// ==========================================
+// Mobile Sidebar Drawer Navigation Controller
+// ==========================================
+function initMobileNavigation() {
+  const toggleBtn = document.querySelector('.mobile-toggle-btn');
+  const drawer = document.querySelector('.mobile-nav-drawer');
+  const backdrop = document.querySelector('.mobile-nav-backdrop');
+  const closeBtn = document.querySelector('.mobile-drawer-close');
+
+  if (!toggleBtn || !drawer) return;
+
+  function openDrawer() {
+    toggleBtn.classList.add('open');
+    drawer.classList.add('open');
+    if (backdrop) backdrop.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    toggleBtn.classList.remove('open');
+    drawer.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (drawer.classList.contains('open')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeDrawer();
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', function() {
+      closeDrawer();
+    });
+  }
+
+  document.querySelectorAll('.mobile-nav-drawer .mobile-nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      closeDrawer();
+    });
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMobileNavigation);
+} else {
+  initMobileNavigation();
 }

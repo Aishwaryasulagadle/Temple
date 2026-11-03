@@ -192,7 +192,7 @@ export default function ProjectsPage() {
 
   const maharashtraTemples = temples.filter(isMaharashtra);
   const karnatakaTemples = temples.filter(isKarnataka);
-  const allStateCount = maharashtraTemples.length + karnatakaTemples.length;
+  const allStateCount = temples.filter((t) => isMaharashtra(t) || isKarnataka(t)).length;
 
   const filteredTemples = temples.filter((t) => {
     let matchesState = true;

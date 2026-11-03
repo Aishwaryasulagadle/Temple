@@ -355,7 +355,7 @@ export default function AdminPage() {
             Temple Architecture Management
           </div>
           <h2 style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '0.5rem' }}>
-            Omkar Admin Portal
+            Pawar Admin Portal
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '2rem', lineHeight: '1.6' }}>
             Sign in to manage temple masterworks, upload site photography, and review consultation enquiries.
@@ -530,9 +530,7 @@ export default function AdminPage() {
                 display: 'block',
                 lineHeight: 1.1
               }}
-            >
-              OMKAR
-            </span>
+            >PAWAR</span>
             <span
               style={{
                 fontFamily: 'var(--font-mono)',

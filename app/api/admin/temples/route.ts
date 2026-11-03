@@ -73,6 +73,7 @@ export async function POST(request: NextRequest) {
       tradition: body.tradition || 'Dravida',
       subType: body.subType || '',
       stoneType: body.stoneType || 'Granite',
+      state: body.state || '',
       location: body.location || 'India',
       country: body.country || 'India',
       status: body.status || 'Completed',

@@ -60,7 +60,7 @@ export function readDb(): DatabaseSchema {
     contractor: {
       name: "Acharya Someshwar Sthapati & Sons",
       title: "Chief Master Temple Contractor & Shilpa Shastra Architect",
-      experience: "35+ Years of Master Turnkey Execution across Pan-India",
+      experience: "20+ Years of Master Turnkey Execution across Pan-India",
       phone: "+91 95353 43935",
       whatsapp: "919535343935",
       email: "omkartemplecontractions@gmail.com",
@@ -70,8 +70,8 @@ export function readDb(): DatabaseSchema {
       bio: "Chief Master Contractor specialized in turnkey structural temple construction across Pan-India.",
       specializations: [],
       stats: {
-        templesCompleted: "1,200+",
-        statesCovered: "22 Indian States",
+        templesCompleted: "500+",
+        statesCovered: "15 Indian States",
         artisansEmployed: "20+ Years Experience",
         heritageYears: "4 Generations"
       }

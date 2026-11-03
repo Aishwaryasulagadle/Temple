@@ -34,7 +34,7 @@ export default function ContractorPage() {
                 {contractor.name || "Acharya Someshwar Sthapati & Sons"}
               </h2>
               <p className="shloka" style={{ marginBottom: '1.5rem', fontSize: '1.05rem' }}>
-                “{contractor.experience || "35+ Years of Dedicated Turnkey Temple Structure Construction Across 22 States of India"}”
+                “{contractor.experience || "20+ Years of Dedicated Turnkey Temple Structure Construction Across 22 States of India"}”
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', marginBottom: '1.25rem' }}>
                 We operate on a <strong>single-point turnkey contract basis</strong>. Whether your project is in Gujarat, Maharashtra, Rajasthan, Tamil Nadu, Karnataka, Uttar Pradesh, or anywhere across India, our specialized civil and traditional stone guilds mobilize directly to your site.

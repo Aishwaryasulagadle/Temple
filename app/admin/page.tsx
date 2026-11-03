@@ -31,6 +31,7 @@ export default function AdminPage() {
     tradition: 'Dravida',
     subType: '',
     stoneType: '',
+    state: 'Maharashtra',
     location: '',
     country: 'India',
     status: 'Completed',
@@ -113,6 +114,7 @@ export default function AdminPage() {
       tradition: temple.tradition || 'Dravida',
       subType: temple.subType || '',
       stoneType: temple.stoneType || '',
+      state: temple.state || 'Maharashtra',
       location: temple.location || '',
       country: temple.country || 'India',
       status: temple.status || 'Completed',
@@ -1587,13 +1589,24 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
                 <div>
-                  <label style={{ display: 'block', color: 'var(--saffron)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.4rem', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Location (City / State)</label>
+                  <label style={{ display: 'block', color: 'var(--saffron)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.4rem', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>State</label>
+                  <select
+                    value={formData.state || 'Maharashtra'}
+                    onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                    style={{ width: '100%', background: 'var(--bg-paper)', border: '1.5px solid var(--border-stone)', padding: '0.8rem', color: 'var(--text-main)', borderRadius: '6px', fontSize: '0.95rem' }}
+                  >
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ display: 'block', color: 'var(--saffron)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.4rem', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Location (City / District)</label>
                   <input
                     type="text"
                     value={formData.location}
-                    placeholder="e.g. Balewadi, Pune / Somnath"
+                    placeholder="e.g. Balewadi, Pune / Ramdurg, Belgaum"
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     style={{ width: '100%', background: 'var(--bg-paper)', border: '1.5px solid var(--border-stone)', padding: '0.8rem', color: 'var(--text-main)', borderRadius: '6px', fontSize: '0.95rem' }}
                   />

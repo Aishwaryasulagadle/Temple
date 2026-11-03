@@ -62,7 +62,7 @@ function renderTempleCard(temple) {
         <p class="temple-snippet">${(temple.description || '').substring(0, 130)}...</p>
         <div class="temple-card-footer">
           <div class="temple-likes-count">
-            <span>✨</span> <span class="likes-num">${temple.likes || 0}</span> Blessings & Likes
+            <span>✨</span> <span class="likes-num">${temple.likes || 0}</span> Likes
           </div>
           <a href="/temple/${temple.id}" class="btn btn-outline-gold" style="padding: 0.45rem 0.95rem; font-size: 0.78rem;">Explore Work →</a>
         </div>

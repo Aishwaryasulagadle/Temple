@@ -14,7 +14,7 @@ const initialData = {
   contractor: {
     name: "Acharya Someshwar Sthapati & Sons",
     title: "Chief Master Temple Contractor & Shilpa Shastra Architect",
-    experience: "35+ Years of Master Turnkey Execution across Pan-India",
+    experience: "20+ Years of Master Turnkey Execution across Pan-India",
     phone: "+91 95353 43935",
     whatsapp: "919535343935",
     email: "contact@thetempleconstruction.com",
@@ -32,7 +32,7 @@ const initialData = {
       "Zero Iron Bar Sanctum Masonry (Engineered for 1,000+ Years Longevity)"
     ],
     stats: {
-      templesCompleted: "1,200+",
+      templesCompleted: "500+",
       statesCovered: "22 Indian States",
       artisansEmployed: "20+ Years Experience",
       heritageYears: "75+ Years & 4 Generations"
@@ -41,6 +41,7 @@ const initialData = {
   temples: [
     {
       id: "temple-1",
+      state: "Maharashtra",
       name: "Mahadev Temple, Arni",
       deity: "Lord Shiva (Mahadev)",
       tradition: "Nagara",
@@ -227,6 +228,7 @@ const initialData = {
     },
     {
       id: "temple-7",
+      state: "Maharashtra & Karnataka",
       name: "Sri Maha Sabha Mandapa & Monolithic Pillared Hall",
       deity: "Sri Rama & Hanuman Mandir",
       tradition: "Dravida",

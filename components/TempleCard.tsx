@@ -54,7 +54,7 @@ export default function TempleCard({ temple, onLike }: TempleCardProps) {
         <p className="temple-snippet">{(temple.description || '').substring(0, 130)}...</p>
         <div className="temple-card-footer">
           <div className="temple-likes-count">
-            <span>{likes}</span> Blessings & Likes
+            <span>{likes}</span> Likes
           </div>
           <Link
             href={`/temple/${temple.id}`}

@@ -120,6 +120,7 @@ export default function ProjectsPage() {
   }, []);
 
   const isMaharashtra = (t: Temple) => {
+    if (t.state && t.state.toLowerCase().includes('maharashtra')) return true;
     const text = `${t.location || ''} ${t.state || ''} ${t.description || ''} ${t.name || ''}`.toLowerCase();
     return (
       text.includes('maharashtra') ||
@@ -156,6 +157,7 @@ export default function ProjectsPage() {
   };
 
   const isKarnataka = (t: Temple) => {
+    if (t.state && t.state.toLowerCase().includes('karnatak')) return true;
     const text = `${t.location || ''} ${t.state || ''} ${t.description || ''} ${t.name || ''}`.toLowerCase();
     return (
       text.includes('karnatak') ||
@@ -188,12 +190,18 @@ export default function ProjectsPage() {
     );
   };
 
+  const maharashtraTemples = temples.filter(isMaharashtra);
+  const karnatakaTemples = temples.filter(isKarnataka);
+  const allStateCount = maharashtraTemples.length + karnatakaTemples.length;
+
   const filteredTemples = temples.filter((t) => {
     let matchesState = true;
     if (filter === 'Maharashtra') {
       matchesState = isMaharashtra(t);
     } else if (filter === 'Karnataka' || filter === 'Karnatak') {
       matchesState = isKarnataka(t);
+    } else if (filter === 'All') {
+      matchesState = isMaharashtra(t) || isKarnataka(t);
     }
 
     const matchesSearch =
@@ -275,17 +283,14 @@ export default function ProjectsPage() {
           <div className="section-header">
             <div className="eyebrow">Comprehensive Portfolio</div>
             <h2 className="section-title">Catalog of Consecrated & Active Mandir Works</h2>
-            <p className="section-desc">
-              Filter by state (Maharashtra, Karnataka) or search by deity, location, or stone type.
-            </p>
           </div>
 
           {/* State Filter Bar */}
           <div className="filter-bar">
             {[
-              { id: 'All', label: 'All State', count: temples.length },
-              { id: 'Maharashtra', label: 'Maharashtra', count: temples.filter(isMaharashtra).length },
-              { id: 'Karnataka', label: 'Karnataka', count: temples.filter(isKarnataka).length }
+              { id: 'All', label: 'All State', count: allStateCount },
+              { id: 'Maharashtra', label: 'Maharashtra', count: maharashtraTemples.length },
+              { id: 'Karnataka', label: 'Karnataka', count: karnatakaTemples.length }
             ].map((stateItem) => (
               <button
                 key={stateItem.id}

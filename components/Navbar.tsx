@@ -42,9 +42,9 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Projects' },
+    { href: '/about', label: 'About Us' },
     { href: '/contractor', label: 'Master Contractor' },
-    { href: '/about', label: 'Craft' },
+    { href: '/projects', label: 'Projects' },
     { href: '/contact', label: 'Book Temple Construction' },
   ];
 
@@ -77,11 +77,12 @@ export default function Navbar() {
             <ul className="nav-links">
               {navLinks.map((item) => {
                 const isActive = pathname === item.href;
+                const isCta = item.href === '/contact';
                 return (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={isActive ? 'active' : ''}
+                      className={`${isActive ? 'active' : ''} ${isCta ? 'nav-cta-link' : ''}`.trim()}
                     >
                       {item.label}
                     </Link>

@@ -256,6 +256,12 @@ p, li, span, blockquote, label, input, textarea, select, button {
   color: var(--text-light-muted);
 }
 
+.site-header .container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .site-header {
   position: fixed;
   top: 0;
@@ -281,7 +287,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   width: 100%;
 }
 
@@ -295,8 +302,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .brand-logo-img {
-  width: 62px;
-  height: 62px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   border: 2.5px solid var(--gold-primary);
   object-fit: cover;
@@ -320,7 +327,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .brand-text h2 {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   letter-spacing: 0.08em;
   margin: 0;
   color: var(--text-main);
@@ -331,7 +338,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .brand-text span {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--gold-primary);
@@ -340,35 +347,51 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .desktop-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: center;
   list-style: none;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
-  font-size: 1.08rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--text-main);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.35rem 0.15rem;
   white-space: nowrap;
   text-decoration: none;
   transition: color 0.25s ease;
   font-family: var(--font-body);
+}
+
+.nav-links a.nav-cta-link {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--saffron) 100%);
+  color: #FFFFFF !important;
+  padding: 0.45rem 1.15rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(184, 92, 36, 0.25);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-links a.nav-cta-link::after {
+  display: none !important;
+}
+
+.nav-links a.nav-cta-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 92, 36, 0.4);
+  color: #FFFFFF !important;
 }
 
 .nav-links a::after {
@@ -482,6 +505,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 
 /* Mobile Hamburger Toggle */
 .mobile-toggle-btn {
+  margin-left: auto;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -564,7 +588,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .mobile-drawer-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--border-stone);
 }
@@ -577,7 +602,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .mobile-brand-title span {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   color: var(--saffron);
   font-family: var(--font-mono);
   letter-spacing: 0.15em;
@@ -623,7 +648,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .mobile-nav-link {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
   color: var(--text-main);
@@ -921,7 +947,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .tradition-name-row {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   margin-bottom: 0.35rem;
 }
 
@@ -959,7 +986,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 
 .tradition-specs li {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   font-size: 0.88rem;
   margin-bottom: 0.5rem;
 }
@@ -1125,7 +1153,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .mandala-timeline-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   gap: 0.75rem;
   font-size: 0.82rem;
   color: var(--gold-light, #dfd2b8);
@@ -1282,12 +1311,13 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .stage-name-row {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   margin-bottom: 0.75rem;
 }
 
 .stage-title {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   color: var(--maroon);
 }
 
@@ -1471,7 +1501,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
   margin-top: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   border-top: 1px solid var(--border-stone);
   padding-top: 1.25rem;
 }
@@ -1557,7 +1588,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
 }
 
 .site-photo-details h4 {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   color: var(--maroon);
   margin-bottom: 0.45rem;
 }
@@ -1696,7 +1727,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
   border-top: 1px solid rgba(245, 239, 227, 0.1);
   padding-top: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
@@ -1770,7 +1802,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
   border-top: 1px solid var(--border-gold);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
 }
 
 .lightbox-close-btn {
@@ -1827,7 +1860,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
    (Preserves 100% of desktop layout intact)
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1040px) {
   .mandala-split, .contact-container {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -2327,7 +2360,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .vc-left-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
 }
 
 .vc-temple-wrap {
@@ -2361,7 +2395,7 @@ p, li, span, blockquote, label, input, textarea, select, button {
   border: 1px solid var(--gold-primary);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-family: var(--font-mono);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -2380,7 +2414,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
 .vc-center-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   min-width: 0;
 }
 
@@ -2540,7 +2575,8 @@ p, li, span, blockquote, label, input, textarea, select, button {
   padding: 0.65rem 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2.5rem;
   flex-wrap: wrap;
   gap: 0.75rem;
   color: #FFF8EA;

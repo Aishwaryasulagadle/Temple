@@ -48,7 +48,7 @@ export default function HomePage() {
         <div className="stats-ribbon">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-num">1,200+</div>
+              <div className="stat-num">500+</div>
               <div className="stat-label">Temples Consecrated</div>
             </div>
             <div className="stat-item">

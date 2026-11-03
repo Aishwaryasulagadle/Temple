@@ -28,13 +28,13 @@ export default function Footer() {
                 <Link href="/">Home</Link>
               </li>
               <li>
+                <Link href="/about">About Us & Lineage</Link>
+              </li>
+              <li>
                 <Link href="/contractor">Master Contractor Details</Link>
               </li>
               <li>
                 <Link href="/projects">Projects & Gallery</Link>
-              </li>
-              <li>
-                <Link href="/about">Lineage & History</Link>
               </li>
               <li>
                 <Link href="/contact">Book Temple Construction</Link>

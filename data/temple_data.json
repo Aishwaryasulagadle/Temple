@@ -2,7 +2,7 @@
   "contractor": {
     "name": "Acharya Someshwar Sthapati & Sons",
     "title": "Chief Master Temple Contractor & Shilpa Shastra Architect",
-    "experience": "35+ Years of Master Turnkey Execution across Pan-India",
+    "experience": "20+ Years of Master Turnkey Execution across Pan-India",
     "phone": "+91 95353 43935",
     "whatsapp": "919535343935",
     "email": "omkartemplecontractions@gmail.com",
@@ -20,7 +20,7 @@
       "Zero Iron Bar Sanctum Masonry (Engineered for 1,000+ Years Longevity)"
     ],
     "stats": {
-      "templesCompleted": "1,200+",
+      "templesCompleted": "500+",
       "statesCovered": "22 Indian States",
       "artisansEmployed": "20+ Years Expereince",
       "heritageYears": "75+ Years & 4 Generations"
@@ -56,7 +56,8 @@
       ],
       "likes": 345,
       "featured": true,
-      "createdAt": "2026-09-22T11:53:19.371Z"
+      "createdAt": "2026-09-22T11:53:19.371Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-2",
@@ -87,7 +88,8 @@
       ],
       "likes": 280,
       "featured": true,
-      "createdAt": "2026-09-22T11:53:19.373Z"
+      "createdAt": "2026-09-22T11:53:19.373Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-3",
@@ -149,7 +151,8 @@
       ],
       "likes": 310,
       "featured": true,
-      "createdAt": "2026-09-22T11:53:19.373Z"
+      "createdAt": "2026-09-22T11:53:19.373Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-5",
@@ -180,7 +183,8 @@
       ],
       "likes": 145,
       "featured": true,
-      "createdAt": "2026-09-22T11:53:19.373Z"
+      "createdAt": "2026-09-22T11:53:19.373Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-6",
@@ -243,7 +247,8 @@
       "likes": 388,
       "featured": true,
       "createdAt": "2026-09-22T12:12:19.041Z",
-      "updatedAt": "2026-09-24T05:59:33.247Z"
+      "updatedAt": "2026-09-24T05:59:33.247Z",
+      "state": "Maharashtra & Karnataka"
     },
     {
       "id": "temple-8",
@@ -272,7 +277,8 @@
       ],
       "likes": 295,
       "featured": true,
-      "createdAt": "2026-09-22T12:12:19.041Z"
+      "createdAt": "2026-09-22T12:12:19.041Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-9",
@@ -331,7 +337,8 @@
       ],
       "likes": 491,
       "featured": true,
-      "createdAt": "2026-09-22T12:25:54.392Z"
+      "createdAt": "2026-09-22T12:25:54.392Z",
+      "state": "Karnataka"
     },
     {
       "id": "temple-11",
@@ -359,7 +366,8 @@
       ],
       "likes": 532,
       "featured": true,
-      "createdAt": "2026-09-22T12:25:54.394Z"
+      "createdAt": "2026-09-22T12:25:54.394Z",
+      "state": "Karnataka"
     },
     {
       "id": "temple-12",
@@ -387,7 +395,8 @@
       ],
       "likes": 476,
       "featured": true,
-      "createdAt": "2026-09-22T12:25:54.394Z"
+      "createdAt": "2026-09-22T12:25:54.394Z",
+      "state": "Karnataka"
     },
     {
       "id": "temple-13",
@@ -415,7 +424,8 @@
       ],
       "likes": 520,
       "featured": true,
-      "createdAt": "2026-09-22T12:25:54.394Z"
+      "createdAt": "2026-09-22T12:25:54.394Z",
+      "state": "Karnataka"
     },
     {
       "id": "temple-14",
@@ -443,7 +453,8 @@
       ],
       "likes": 612,
       "featured": true,
-      "createdAt": "2026-09-23T10:00:00.000Z"
+      "createdAt": "2026-09-23T10:00:00.000Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-15",
@@ -471,7 +482,8 @@
       ],
       "likes": 588,
       "featured": true,
-      "createdAt": "2026-09-23T10:00:00.000Z"
+      "createdAt": "2026-09-23T10:00:00.000Z",
+      "state": "Karnataka"
     },
     {
       "id": "temple-16",
@@ -499,7 +511,8 @@
       ],
       "likes": 495,
       "featured": true,
-      "createdAt": "2026-09-23T10:00:00.000Z"
+      "createdAt": "2026-09-23T10:00:00.000Z",
+      "state": "Karnataka"
     },
     {
       "id": "temple-17",
@@ -527,7 +540,8 @@
       ],
       "likes": 568,
       "featured": true,
-      "createdAt": "2026-09-23T10:20:00.000Z"
+      "createdAt": "2026-09-23T10:20:00.000Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-18",
@@ -555,7 +569,8 @@
       ],
       "likes": 641,
       "featured": true,
-      "createdAt": "2026-09-23T10:20:00.000Z"
+      "createdAt": "2026-09-23T10:20:00.000Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-19",
@@ -586,7 +601,8 @@
       ],
       "likes": 513,
       "featured": true,
-      "createdAt": "2026-09-24T10:00:00.000Z"
+      "createdAt": "2026-09-24T10:00:00.000Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-20",
@@ -615,7 +631,8 @@
       ],
       "likes": 629,
       "featured": true,
-      "createdAt": "2026-09-24T10:10:00.000Z"
+      "createdAt": "2026-09-24T10:10:00.000Z",
+      "state": "Maharashtra"
     },
     {
       "id": "temple-21",
@@ -644,7 +661,8 @@
       ],
       "likes": 736,
       "featured": true,
-      "createdAt": "2026-09-24T10:20:00.000Z"
+      "createdAt": "2026-09-24T10:20:00.000Z",
+      "state": "Maharashtra"
     }
   ],
   "enquiries": [

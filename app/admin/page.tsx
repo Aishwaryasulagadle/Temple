@@ -498,10 +498,10 @@ export default function AdminPage() {
       {/* Sidebar Navigation */}
       <aside
         style={{
-          width: '290px',
+          width: '310px',
           background: 'var(--bg-paper)',
           borderRight: '1.5px solid var(--border-gold)',
-          padding: '2.25rem 1.5rem',
+          padding: '2rem 1.25rem',
           display: 'flex',
           flexDirection: 'column',
           flexShrink: 0,
@@ -621,8 +621,45 @@ export default function AdminPage() {
         </ul>
 
         <div style={{ marginTop: 'auto', paddingTop: '1.75rem', borderTop: '1px solid var(--border-stone)' }}>
-          <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem', paddingLeft: '0.5rem', fontFamily: 'var(--font-mono)' }}>
-            Logged in: <strong style={{ color: 'var(--saffron)' }}>{loginEmail || 'omkartemplecontractions@gmail.com'}</strong>
+          <div
+            style={{
+              background: 'rgba(41, 28, 20, 0.03)',
+              border: '1px solid var(--border-stone)',
+              borderRadius: '8px',
+              padding: '0.65rem 0.75rem',
+              marginBottom: '0.85rem'
+            }}
+          >
+            <div
+              style={{
+                fontSize: '0.7rem',
+                color: 'var(--text-muted)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                fontWeight: 600,
+                marginBottom: '0.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem'
+              }}
+            >
+              <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: '#16a34a' }}></span>
+              Logged In
+            </div>
+            <div
+              style={{
+                fontSize: '0.76rem',
+                color: 'var(--saffron)',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 600,
+                lineHeight: 1.35,
+                wordBreak: 'break-all',
+                overflowWrap: 'anywhere'
+              }}
+              title={loginEmail || 'omkartemplecontractions@gmail.com'}
+            >
+              {loginEmail || 'omkartemplecontractions@gmail.com'}
+            </div>
           </div>
           <Link
             href="/"
